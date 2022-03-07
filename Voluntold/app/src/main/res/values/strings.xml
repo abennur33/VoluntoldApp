@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Voluntold</string>
+    <string name="information_volunteer">Voluntold is an app that can help you find local organizations looking for volunteers!
+    \n\n In our app you can: \n - Express interest in various opportunities posted to our app</string>
 </resources>
