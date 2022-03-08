@@ -25,51 +25,50 @@ public class FirebaseHelper {
     {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-
-        // attachReadDataToUser();
     }
 
-    /*
-    public void attachReadDataToUser() {
-        if (mAuth.getCurrentUser() != null)
-        {
-            uid = mAuth.getUid();
-            readData(new FirestoreCallback() {
-                @Override
-                public void onCallback(ArrayList<WishListItem> myList) {
-                    Log.i(TAG, "Inside attatchReadDataToUser, onCallback");
-                }
-            });
-        }
-        else
-        {
-            Log.i(TAG, "No one is logged in");
-        }
+    public FirebaseAuth getmAuth()
+    {
+        return mAuth;
     }
-    */
-
-    public void addUserToFirestore(String name, String newUID) {
-        // Create a new user with their name
-        // Use a simple HashMap
-
-        // how to add parameters instead?
-        Map<String, Object> user = new HashMap<>();
-        user.put("name", name);
-        user.put("uid", uid);
 
 
-        db.collection(newUID).document(newUID)
-                .set(user)
+    public void addVolunteerToFirestore(String name, String email, String password, String uid, int age)
+    {
+        UserInfo userInfoVol = new UserInfo(name, email, password, uid, age);
+
+        db.collection(uid).document("UserInfo")
+                .set(userInfoVol)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Log.i(TAG, name + " 's user account added");
+                        Log.i(TAG, "Volunteer account added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "Error adding user", e);
+                        Log.d(TAG, "Error adding volunteer", e);
+                    }
+                });
+    }
+
+    public void addOrganizationToFirestore(String name, String email, String password, String uid)
+    {
+        UserInfo userInfoOrg = new UserInfo(name, email, password, uid);
+
+        db.collection(uid).document("UserInfo")
+                .set(userInfoOrg)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Organization account added");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG, "Error adding organization", e);
                     }
                 });
     }

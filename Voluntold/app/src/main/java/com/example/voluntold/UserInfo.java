@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class UserInfo implements Parcelable {
-    private String name, email, password, uid;
+    private String name, email, password, uid, accountType;
     private int age;
 
     // may be implemented later so we can sort by order of importance on list
@@ -29,6 +29,7 @@ public class UserInfo implements Parcelable {
         email = parcel.readString();
         password = parcel.readString();
         uid = parcel.readString();
+        accountType = parcel.readString();
         age = parcel.readInt();
     }
 
@@ -52,6 +53,7 @@ public class UserInfo implements Parcelable {
         dest.writeString(email);
         dest.writeString(password);
         dest.writeString(uid);
+        dest.writeString(accountType);
         dest.writeInt(age);
     }
 
@@ -60,19 +62,32 @@ public class UserInfo implements Parcelable {
         this.email = email;
         this.password = password;
         this.uid = uid;
+        this.accountType = "Volunteer";
         this.age = age;
     }
+
+    public UserInfo(String name, String email, String password, String uid)
+    {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.uid = uid;
+        this.accountType = "Organization";
+        this.age = 0;
+    }
+
 
     public UserInfo() {
         this.name = "";
         this.email = "";
         this.password = "";
         this.uid = "";
+        this.accountType = "";
         this.age = 0;
     }
 
     public String toString() {
-        return name + ", " + email + ", " + password + ", " + uid + ", " + age;
+        return name + ", " + email + ", " + password + ", " + uid + ", " + accountType + ", " + age;
     }
 
     public String getName() {
@@ -102,12 +117,25 @@ public class UserInfo implements Parcelable {
     public String getUserUID() {
         return uid;
     }
+
     public void setUserUID(String uid) {
         this.uid = uid;
     }
+
+    public String getAccountType()
+    {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType)
+    {
+        this.accountType = accountType;
+    }
+
     public int getUserAge() {
         return age;
     }
+
     public void setUserAge(int age) {
         this.age = age;
     }

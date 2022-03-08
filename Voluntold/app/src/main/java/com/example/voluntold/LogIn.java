@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogIn extends AppCompatActivity {
 
@@ -30,6 +31,22 @@ public class LogIn extends AppCompatActivity {
         ageET = findViewById(R.id.ageTV);
 
         signInButton = findViewById(R.id.signInButton);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        updateIfLoggedIn();
+    }
+
+    public void updateIfLoggedIn() {
+        // Create reference to current user using firebaseHelper variable
+        FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
+
+        Intent intent = new Intent(LogIn.this, Dashboard.class);
+        startActivity(intent);
+
     }
 
     public void signIn(View v) {
@@ -71,7 +88,7 @@ public class LogIn extends AppCompatActivity {
                                 // should respond
                                 updateIfLoggedIn();
                                 // this is another way to create the intent from inside the OnCompleteListener
-                                Intent intent = new Intent(MainActivity.this, Dashboard.class);
+                                Intent intent = new Intent(LogIn.this, Dashboard.class);
                                 startActivity(intent);
                             }
                             else {
@@ -86,5 +103,9 @@ public class LogIn extends AppCompatActivity {
          * Enter Firebase Code here CODE here
          */
 
+    }
+    public void goHome(View v) {
+        Intent intent = new Intent(LogIn.this, MainActivity.class);
+        startActivity(intent);
     }
 }
