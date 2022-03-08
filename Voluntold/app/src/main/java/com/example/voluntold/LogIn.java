@@ -87,4 +87,8 @@ public class LogIn extends AppCompatActivity {
          */
 
     }
+    public void goHome(View v) {
+        Intent intent = new Intent(LogIn.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
