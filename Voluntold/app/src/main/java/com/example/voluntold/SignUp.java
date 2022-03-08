@@ -66,7 +66,7 @@ public class SignUp extends AppCompatActivity {
                                 // take the user to the screen where they can enter wish list items
                                 // getApplicationContext() will get the Activity we are currently in, that is sending
                                 // the intent. Similar to how we have said "this" in the past
-                                Intent intent = new Intent(getApplicationContext(), AddItemActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
                                 startActivity(intent);
                             }
                             else {
@@ -76,7 +76,6 @@ public class SignUp extends AppCompatActivity {
                         }
                     });
         }
-        updateIfLoggedIn();
     }
 
     public void goHome(View v) {
