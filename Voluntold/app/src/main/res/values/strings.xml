@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Voluntold</string>
-    <string name="information_volunteer">Voluntold is an app that can help you find local organizations looking for volunteers!
-    \n\n In our app you can: \n - Express interest in various opportunities posted to our app</string>
+    <string name="information_volunteer">Voluntold is an app that can help you find local organizations looking for volunteers! \n\nIn our app you can: \n- Express interest in various opportunities posted to our app \n\n- Request evaluations from organizations you volunteered for \n\n- Create a custom volunteer resume to send to organizations you're interested in volunteering for</string>
+    <string name="information_organization">Voluntold is an app that can help your local organization find volunteers to help you in your cause! \n\nIn our app you can: \n- Post various volunteer opportunities sponsored by your organization \n\n- Find students interested in volunteering with your organization and contact them \n\n- Submit evaluations for students that volunteered for you upon their request</string>
 </resources>
