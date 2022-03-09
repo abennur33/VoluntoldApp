@@ -71,7 +71,7 @@
         android:layout_marginEnd="82dp"
         android:fontFamily="@font/advent_pro_light_2"
         android:gravity="center"
-        android:text="Please confirm your email and password"
+        android:text="Please confirm your email and password:"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
