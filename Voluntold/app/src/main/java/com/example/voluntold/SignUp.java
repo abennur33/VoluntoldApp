@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignUp extends AppCompatActivity {
 
     private static final String TAG = "Denna";
-    private EditText nameET, emailET, passwordET, ageET;
+    private EditText emailET, passwordET;
 
     public static FirebaseHelper firebaseHelper;
 
@@ -30,17 +30,13 @@ public class SignUp extends AppCompatActivity {
     }
     public void signUp(View v) {
         // Make references to EditText in xml
-        nameET = findViewById(R.id.nameET);
-        emailET = findViewById(R.id.emailET);
-        passwordET = findViewById(R.id.passwordET);
-        ageET = findViewById(R.id.ageET);
-
+        emailET = findViewById(R.id.volEmailTV);
+        passwordET = findViewById(R.id.volPassTV);
         // Get user data
-        String name = nameET.getText().toString();
+
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
-        String value = ageET.getText().toString();
-        int age = Integer.parseInt(value);
+
 
         firebaseHelper = new FirebaseHelper();
 
