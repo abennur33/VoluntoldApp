@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogIn extends AppCompatActivity {
 
+    public static FirebaseHelper firebaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
