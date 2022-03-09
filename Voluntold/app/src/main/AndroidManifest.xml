@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Voluntold">
         <activity
+            android:name=".VolunteerSide.VolDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".OrgSide.OrgDashboard"
+            android:exported="false" />
+        <activity
             android:name=".OrganizationSignUp1"
             android:exported="false" />
         <activity
