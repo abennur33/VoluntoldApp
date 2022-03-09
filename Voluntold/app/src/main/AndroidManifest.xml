@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Voluntold">
         <activity
+            android:name=".OrganizationSignUp2"
+            android:exported="false" />
+        <activity
             android:name=".OrganizationSignUp1"
             android:exported="false" />
         <activity
