@@ -3,14 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/bennur1539/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/bennur1539/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/organization_signup_1.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/bennur1539/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/signup_screen.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_main.xml" value="0.1661600810536981" />
+        <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/signup_screen.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/hsu9180/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/xu9360/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_main.xml" value="0.23052536231884058" />
-        <entry key="..\:/Users/xu9360/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/login_screen.xml" value="0.23052536231884058" />
-        <entry key="..\:/Users/xu9360/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/signup_screen.xml" value="0.22010869565217392" />
+        <entry key="..\:/Users/hsu9180/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/organization_info_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/hsu9180/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/organization_signup.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/hsu9180/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/signup_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/hsu9180/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/volunteer_info_screen.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
