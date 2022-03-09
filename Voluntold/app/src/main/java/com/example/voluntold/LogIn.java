@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,21 +19,24 @@ import com.google.firebase.auth.FirebaseUser;
 public class LogIn extends AppCompatActivity {
 
     public static FirebaseHelper firebaseHelper;
+    private static final String TAG = "Luis";
+    private EditText nameET, emailET, passwordET, ageET;
+    private Button volunteerSignInButton, organizationSignInButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_screen);
 
         // instantiate FirebaseHelper var
         firebaseHelper = new FirebaseHelper();
 
         // Make references to xml elements
-        nameET = findViewById(R.id.nameTV);
         emailET = findViewById(R.id.emailTV);
         passwordET = findViewById(R.id.passwordTV);
-        ageET = findViewById(R.id.ageTV);
 
-        signInButton = findViewById(R.id.signInButton);
+        volunteerSignInButton = findViewById(R.id.volunteerSignInButton);
+        organizationSignInButton = findViewById(R.id.organizationSignInButton);
     }
 
     @Override

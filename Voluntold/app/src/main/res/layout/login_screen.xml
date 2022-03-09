@@ -7,7 +7,7 @@
     tools:context=".LogIn">
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/passwordTV"
         android:layout_width="232dp"
         android:layout_height="43dp"
         android:layout_marginEnd="40dp"
@@ -16,7 +16,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTV" />
 
     <TextView
         android:id="@+id/textView5"
@@ -29,7 +29,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTV" />
 
     <TextView
         android:id="@+id/textView6"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress4"
+        android:id="@+id/emailTV"
         android:layout_width="276dp"
         android:layout_height="39dp"
         android:layout_marginTop="63dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/organizationSignInButton"
         android:layout_width="139dp"
         android:layout_height="61dp"
         android:layout_marginTop="62dp"
@@ -69,10 +69,10 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/volunteerSignInButton"
         android:layout_width="139dp"
         android:layout_height="61dp"
         android:layout_marginStart="40dp"
@@ -83,7 +83,7 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
 
     <TextView
         android:id="@+id/textView7"
