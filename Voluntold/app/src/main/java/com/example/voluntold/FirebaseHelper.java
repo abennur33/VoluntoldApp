@@ -73,4 +73,9 @@ public class FirebaseHelper {
                 });
     }
 
+    public void updateUid(String uid) {
+        this.uid = uid;
+    }
+
+
 }
