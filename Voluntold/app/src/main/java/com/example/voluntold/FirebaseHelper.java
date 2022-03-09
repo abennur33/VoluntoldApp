@@ -33,7 +33,7 @@ public class FirebaseHelper {
     }
 
 
-    public void addVolunteerToFirestore(String name, String email, String password, String uid, int age)
+    public void addUserToFirestore(String name, String email, String password, String uid, int age)
     {
         UserInfo userInfoVol = new UserInfo(name, email, password, uid, age);
 
@@ -53,7 +53,7 @@ public class FirebaseHelper {
                 });
     }
 
-    public void addOrganizationToFirestore(String name, String email, String password, String uid)
+    public void addUserToFirestore(String name, String email, String password, String uid)
     {
         UserInfo userInfoOrg = new UserInfo(name, email, password, uid);
 

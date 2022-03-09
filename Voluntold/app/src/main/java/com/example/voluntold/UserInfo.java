@@ -87,7 +87,7 @@ public class UserInfo implements Parcelable {
     }
 
     public String toString() {
-        return name + ", " + email + ", " + password + ", " + uid + ", " + accountType + ", " + age;
+        return name + ", " + email + ", " + password + ", " + uid + ", " + accountType;
     }
 
     public String getName() {
