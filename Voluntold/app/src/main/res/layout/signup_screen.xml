@@ -30,7 +30,7 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress8" />
+        app:layout_constraintTop_toBottomOf="@+id/volPassTV" />
 
     <Button
         android:id="@+id/button9"
@@ -44,7 +44,7 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress8" />
+        app:layout_constraintTop_toBottomOf="@+id/volPassTV" />
 
     <TextView
         android:id="@+id/textView14"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress8"
+        android:id="@+id/volPassTV"
         android:layout_width="232dp"
         android:layout_height="43dp"
         android:layout_marginEnd="40dp"
@@ -71,10 +71,10 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+        app:layout_constraintTop_toBottomOf="@+id/volEmailTV" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress7"
+        android:id="@+id/volEmailTV"
         android:layout_width="276dp"
         android:layout_height="39dp"
         android:layout_marginTop="63dp"
@@ -110,7 +110,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+        app:layout_constraintTop_toBottomOf="@+id/volEmailTV" />
 
     <ImageView
         android:id="@+id/imageView8"
