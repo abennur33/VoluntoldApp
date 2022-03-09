@@ -19,6 +19,9 @@
             android:name=".OrganizationSignUp1"
             android:exported="false" />
         <activity
+            android:name=".OrganizationSignUp2"
+            android:exported="false" />
+        <activity
             android:name=".OrganizationInformation"
             android:exported="false" />
         <activity
