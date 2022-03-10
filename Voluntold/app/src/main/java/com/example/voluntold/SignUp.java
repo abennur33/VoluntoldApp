@@ -21,71 +21,47 @@ public class SignUp extends AppCompatActivity {
     private static final String TAG = "Denna";
     private EditText emailET, passwordET;
 
+
+    public static final String EXTRA_EMAIL = "com.example.SignUpActivity.EMAIL";
+    public static final String EXTRA_PASSWORD = "com.example.SignUpActivity.PASSWORD";
+
     public static FirebaseHelper firebaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_screen);
-    }
-    public void signUp(View v) {
-        // Make references to EditText in xml
-        emailET = findViewById(R.id.volEmailTV);
-        passwordET = findViewById(R.id.volPassTV);
-        // Get user data
 
+        emailET = findViewById(R.id.inputEmailTV);
+        passwordET = findViewById(R.id.inputPassTV);
+
+    }
+
+    public void goToVolSignUp(View v)
+    {
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
 
+        Intent intent = new Intent (SignUp.this, VolunteerSignUp1.class);
 
-        firebaseHelper = new FirebaseHelper();
+        intent.putExtra(EXTRA_EMAIL, email);
+        intent.putExtra(EXTRA_PASSWORD, password);
 
-        Log.i(TAG, name + " " + email + " " + password);
-
-        // verify all user data is entered
-        if (name.length() == 0 || email.length() == 0 || password.length() == 0) {
-            Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
-        }
-
-        // verify password is at least 6 char long (otherwise firebase will deny)
-        else if (password.length() < 6) {
-            Toast.makeText(getApplicationContext(), "Password must be at least 6 char long", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            // code to sign up user
-            firebaseHelper.getmAuth().createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // user account was created in firebase auth
-                                Log.i(TAG, email + " account created");
-
-                                FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
-
-                                // update the FirebaseHelper var uid to equal to uid of currently signed in user
-                                firebaseHelper.updateUid(user.getUid());
-
-                                // add a document to our database to represent this user
-                                firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), age);
-
-                                // lets further investigate why this method call is needed
-                                // firebaseHelper.attachReadDataToUser();
-                                // choose whatever actions you want - update UI, switch to a new screen, etc.
-                                // take the user to the screen where they can enter wish list items
-                                // getApplicationContext() will get the Activity we are currently in, that is sending
-                                // the intent. Similar to how we have said "this" in the past
-                                Intent intent = new Intent(getApplicationContext(), VolDashboard.class);
-                                startActivity(intent);
-                            }
-                            else {
-                                // user WASN'T created
-                                Log.d(TAG, email + "sign up failed");
-                            }
-                        }
-                    });
-        }
+        startActivity(intent);
     }
+    public void goToOrgSignUp()
+    {
+        String email = emailET.getText().toString();
+        String password = passwordET.getText().toString();
+
+        Intent intent = new Intent (SignUp.this, OrganizationSignUp1.class);
+
+        intent.putExtra(EXTRA_EMAIL, email);
+        intent.putExtra(EXTRA_PASSWORD, password);
+
+        startActivity(intent);
+    }
+
 
     public void goHome(View v) {
         Intent intent = new Intent(SignUp.this, MainActivity.class);
