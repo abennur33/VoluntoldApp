@@ -42,7 +42,7 @@ public class SignUp extends AppCompatActivity {
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
 
-        Intent intent = new Intent (SignUp.this, VolunteerSignUp1.class);
+        Intent intent = new Intent (SignUp.this, VolunteerSignUp.class);
 
         intent.putExtra(EXTRA_EMAIL, email);
         intent.putExtra(EXTRA_PASSWORD, password);
@@ -54,7 +54,7 @@ public class SignUp extends AppCompatActivity {
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
 
-        Intent intent = new Intent (SignUp.this, OrganizationSignUp1.class);
+        Intent intent = new Intent (SignUp.this, OrganizationSignUp.class);
 
         intent.putExtra(EXTRA_EMAIL, email);
         intent.putExtra(EXTRA_PASSWORD, password);

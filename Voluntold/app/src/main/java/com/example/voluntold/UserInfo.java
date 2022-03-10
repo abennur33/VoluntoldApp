@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class UserInfo implements Parcelable {
-    private String name, email, password, uid, accountType;
+    private String name, email, password, uid, accountType, school, organizationName;
     private int age;
 
     // may be implemented later so we can sort by order of importance on list
@@ -30,6 +30,8 @@ public class UserInfo implements Parcelable {
         password = parcel.readString();
         uid = parcel.readString();
         accountType = parcel.readString();
+        school = parcel.readString();
+        organizationName = parcel.readString();
         age = parcel.readInt();
     }
 
@@ -54,25 +56,31 @@ public class UserInfo implements Parcelable {
         dest.writeString(password);
         dest.writeString(uid);
         dest.writeString(accountType);
+        dest.writeString(school);
+        dest.writeString(organizationName);
         dest.writeInt(age);
     }
 
-    public UserInfo(String name, String email, String password, String uid, int age) {
+    public UserInfo(String name, String email, String password, String uid, String school, int age) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.uid = uid;
         this.accountType = "Volunteer";
+        this.school = school;
+        this.organizationName = null;
         this.age = age;
     }
 
-    public UserInfo(String name, String email, String password, String uid)
+    public UserInfo(String name, String email, String password, String uid, String organizationName)
     {
         this.name = name;
         this.email = email;
         this.password = password;
         this.uid = uid;
         this.accountType = "Organization";
+        this.school = null;
+        this.organizationName = organizationName;
         this.age = 0;
     }
 
