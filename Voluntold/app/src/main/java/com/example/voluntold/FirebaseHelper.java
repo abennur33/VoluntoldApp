@@ -4,10 +4,15 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +26,8 @@ public class FirebaseHelper {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
+    private UserInfo myInfo;
+
     public FirebaseHelper()
     {
         mAuth = FirebaseAuth.getInstance();
@@ -32,6 +39,21 @@ public class FirebaseHelper {
         return mAuth;
     }
 
+
+    public void attachReadDataToUser() {
+        if (mAuth.getCurrentUser() != null) {
+            uid = mAuth.getUid();
+            readData(new FirestoreCallback() {
+                @Override
+                public void onCallBack(UserInfo userInfo) {
+                    Log.i(TAG, "Inside attachReadDataToUser, onCallBack");
+                }
+            });
+        }
+        else {
+            Log.i(TAG, "No one is logged in");
+        }
+    }
 
     public void addUserToFirestore(String name, String email, String password, String uid, int age)
     {
@@ -77,5 +99,28 @@ public class FirebaseHelper {
         this.uid = uid;
     }
 
+    private void readData(FirestoreCallback firestoreCallback) {
+        myInfo = null;
+
+        db.collection(uid)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for(DocumentSnapshot doc: task.getResult()) {
+                                UserInfo u = doc.toObject(UserInfo.class);
+                                myInfo = u;
+                            }
+                            Log.i(TAG, "success reading all data");
+                            firestoreCallback.onCallBack(myInfo);
+                        }
+                    }
+                });
+    }
+
+    public interface FirestoreCallback {
+        void onCallBack(UserInfo userInfo);
+    }
 
 }
