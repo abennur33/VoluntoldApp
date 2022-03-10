@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VolunteerSignUp2">
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="41dp"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="CONFIRM"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress13" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress9"
+        android:layout_width="286dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView44"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress8"
+        android:layout_width="242dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="PASSWORD:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="247dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="82dp"
+        android:fontFamily="@font/advent_pro_light_2"
+        android:gravity="center"
+        android:text="Please re-enter your email and password:"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress8" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="EMAIL:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="ORG. NAME:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="AGE:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress7"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView41"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress6" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="NAME:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress6"
+        android:layout_width="279dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="116dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="VOLUNTEER SIGN UP"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="247dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="82dp"
+        android:fontFamily="@font/advent_pro_light_2"
+        android:gravity="center"
+        android:text=" Give us more information about yourself:"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress13"
+        android:layout_width="242dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView45"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+</androidx.constraintlayout.widget.ConstraintLayout>
