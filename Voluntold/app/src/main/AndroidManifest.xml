@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Voluntold">
         <activity
-            android:name=".VolunteerSignUp1"
+            android:name=".VolunteerSignUp"
             android:exported="false" />
         <activity
             android:name=".VolunteerSide.VolDashboard"
@@ -19,10 +19,7 @@
             android:name=".OrgSide.OrgDashboard"
             android:exported="false" />
         <activity
-            android:name=".OrganizationSignUp1"
-            android:exported="false" />
-        <activity
-            android:name=".OrganizationSignUp2"
+            android:name=".OrganizationSignUp"
             android:exported="false" />
         <activity
             android:name=".OrganizationInformation"

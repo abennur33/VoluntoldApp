@@ -22,6 +22,7 @@ public class LogIn extends AppCompatActivity {
     private static final String TAG = "Luis";
     private EditText nameET, emailET, passwordET, ageET;
     private Button volunteerSignInButton, organizationSignInButton;
+    private int buttonClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +36,7 @@ public class LogIn extends AppCompatActivity {
         emailET = findViewById(R.id.emailTV);
         passwordET = findViewById(R.id.passwordTV);
 
-        volunteerSignInButton = findViewById(R.id.volunteerSignInButton);
-        organizationSignInButton = findViewById(R.id.organizationSignInButton);
+        signInButton = findViewById(R.id.signInButton);
     }
 
     @Override
@@ -55,25 +55,19 @@ public class LogIn extends AppCompatActivity {
 
     }
 
-    public void signIn(View v) {
+    public void signIn() {
         // Note we don't care what they entered for name here
         // it could be blank
 
         // Get user data
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
-        String value = ageET.getText().toString();
-        int age = Integer.parseInt(value);
+
 
 
         // verify all user data is entered
-        if (email.length() == 0 || password.length() == 0 || value.length() == 0) {
+        if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
-        }
-
-        // verify password is at least 6 char long (otherwise firebase will deny)
-        else if (password.length() < 6) {
-            Toast.makeText(getApplicationContext(), "Password must be at least 6 char long", Toast.LENGTH_SHORT).show();
         }
         else {
             // code to sign in user

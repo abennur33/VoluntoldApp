@@ -58,30 +58,18 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
-        android:id="@+id/organizationSignInButton"
+        android:id="@+id/signInButton"
         android:layout_width="139dp"
         android:layout_height="61dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="64dp"
         android:fontFamily="@font/advent_pro_bold"
-        android:text="Log In as Organization"
-        android:textSize="15sp"
+        android:text="Log In"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
-
-    <Button
-        android:id="@+id/volunteerSignInButton"
-        android:layout_width="139dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginBottom="68dp"
-        android:fontFamily="@font/advent_pro_bold"
-        android:text="Log In as Volunteer"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
 
