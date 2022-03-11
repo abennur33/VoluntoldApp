@@ -59,7 +59,7 @@ public class FirebaseHelper {
     {
         UserInfo userInfoVol = new UserInfo(name, email, password, uid, age);
 
-        db.collection(uid).document("UserInfo")
+        db.collection(uid).document("UserInfo/" + uid)
                 .set(userInfoVol)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
