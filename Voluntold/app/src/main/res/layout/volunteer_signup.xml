@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress8"
+        android:id="@+id/volSchoolET"
         android:layout_width="265dp"
         android:layout_height="39dp"
         android:layout_marginTop="21dp"
@@ -46,7 +46,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView42"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+        app:layout_constraintTop_toBottomOf="@+id/volAgeET" />
 
     <TextView
         android:id="@+id/textView45"
@@ -75,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress8" />
+        app:layout_constraintTop_toBottomOf="@+id/volSchoolET" />
 
     <TextView
         android:id="@+id/textView44"
@@ -101,7 +101,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress7" />
+        app:layout_constraintTop_toBottomOf="@+id/volAgeET" />
 
     <TextView
         android:id="@+id/textView41"
@@ -117,7 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress7"
+        android:id="@+id/volAgeET"
         android:layout_width="300dp"
         android:layout_height="38dp"
         android:layout_marginTop="20dp"
@@ -127,7 +127,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView41"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress6" />
+        app:layout_constraintTop_toBottomOf="@+id/volNameET" />
 
     <TextView
         android:id="@+id/textView40"
@@ -143,7 +143,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress6"
+        android:id="@+id/volNameET"
         android:layout_width="279dp"
         android:layout_height="39dp"
         android:layout_marginTop="14dp"

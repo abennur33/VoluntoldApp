@@ -55,9 +55,9 @@ public class FirebaseHelper {
         }
     }
 
-    public void addUserToFirestore(String name, String email, String password, String uid, int age)
+    public void addUserToFirestore(String name, String email, String password, String uid, String school, int age)
     {
-        UserInfo userInfoVol = new UserInfo(name, email, password, uid, age);
+        UserInfo userInfoVol = new UserInfo(name, email, password, uid, school, age);
 
         db.collection(uid).document("UserInfo/" + uid)
                 .set(userInfoVol)
@@ -75,9 +75,9 @@ public class FirebaseHelper {
                 });
     }
 
-    public void addUserToFirestore(String name, String email, String password, String uid)
+    public void addUserToFirestore(String name, String email, String password, String uid, String organizationName)
     {
-        UserInfo userInfoOrg = new UserInfo(name, email, password, uid);
+        UserInfo userInfoOrg = new UserInfo(name, email, password, uid, organizationName);
 
         db.collection(uid).document("UserInfo")
                 .set(userInfoOrg)
