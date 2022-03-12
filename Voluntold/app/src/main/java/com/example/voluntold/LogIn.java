@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.voluntold.VolunteerSide.VolDashboard;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -36,33 +37,44 @@ public class LogIn extends AppCompatActivity {
         emailET = findViewById(R.id.emailTV);
         passwordET = findViewById(R.id.passwordTV);
 
-        signInButton = findViewById(R.id.signInButton);
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        updateIfLoggedIn();
+        // doesn't work with this for some reason: updateIfLoggedIn();
+
     }
 
     public void updateIfLoggedIn() {
         // Create reference to current user using firebaseHelper variable
         FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
 
-        Intent intent = new Intent(LogIn.this, Dashboard.class);
-        startActivity(intent);
+        if (user != null)
+        {
+            if (firebaseHelper.getAccountType().equals("Organization"))
+            {
+                Intent intent = new Intent(LogIn.this, OrgDashboard.class);
+                startActivity(intent);
+            }
+
+            else if (firebaseHelper.getAccountType().equals("Volunteer"))
+            {
+                Intent intent = new Intent(LogIn.this, VolDashboard.class);
+                startActivity(intent);
+            }
+
+        }
 
     }
 
-    public void signIn() {
+    public void signIn(View v) {
         // Note we don't care what they entered for name here
         // it could be blank
 
         // Get user data
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
-
 
 
         // verify all user data is entered
@@ -88,8 +100,6 @@ public class LogIn extends AppCompatActivity {
                                 // should respond
                                 updateIfLoggedIn();
                                 // this is another way to create the intent from inside the OnCompleteListener
-                                Intent intent = new Intent(LogIn.this, Dashboard.class);
-                                startActivity(intent);
                             }
                             else {
                                 //sign in failed

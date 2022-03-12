@@ -1,4 +1,4 @@
-package com.example.voluntold.OrgSide;
+package com.example.voluntold;
 
 import androidx.appcompat.app.AppCompatActivity;
 

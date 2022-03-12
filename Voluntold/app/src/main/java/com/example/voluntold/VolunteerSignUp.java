@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.voluntold.VolunteerSide.VolDashboard;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class VolunteerSignUp extends AppCompatActivity {
 
-    private EditText nameET, ageET, schoolET;
+    private EditText nameET, ageET, schoolET, newEmailET, newPasswordET;
     String email, password;
 
     private static final String TAG = "Abhi";
@@ -41,13 +42,19 @@ public class VolunteerSignUp extends AppCompatActivity {
         nameET = findViewById(R.id.volNameET);
         ageET = findViewById(R.id.volAgeET);
         schoolET = findViewById(R.id.volSchoolET);
+        newEmailET = findViewById(R.id.newInputEmailET);
+        newPasswordET = findViewById(R.id.newInputPassET);
     }
+
 
     public void signUp(View v) {
         // Make references to EditText in xml
         String name = nameET.getText().toString();
-        String age = ageET.getText().toString();
+        String ageString = ageET.getText().toString();
+        int age = Integer.parseInt(ageString);
+
         String school = schoolET.getText().toString();
+
 
         firebaseHelper.getmAuth().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -63,8 +70,8 @@ public class VolunteerSignUp extends AppCompatActivity {
                             // update the FirebaseHelper var uid to equal the uid of the currently signed in user
                             firebaseHelper.updateUid(user.getUid());
 
-                            // add a document to our database to represent this user
-                            firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), school, age;
+                            // add a collection to our database to represent this user
+                            firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), school, age);
 
                             // lets further investigate why this method call is needed
                             firebaseHelper.attachReadDataToUser();
@@ -74,9 +81,30 @@ public class VolunteerSignUp extends AppCompatActivity {
                             // get application context will get the activity we are currently in that
                             // is sending the intent. Similar to how we have said "this" in the past
 
-                            Intent intent = new Intent(getApplicationContext(), VolDashboard.class);
-                            startActivity(intent);
+                            // Confirm email and password values
+                            String newEmail = newEmailET.getText().toString();
+                            String newPassword = newPasswordET.getText().toString();
 
+                            if (!email.equals(newEmail))
+                            {
+                                Toast.makeText(getApplicationContext(), "Email does not match", Toast.LENGTH_SHORT).show();
+                            }
+
+                            if (!password.equals(newPassword))
+                            {
+                                Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_SHORT).show();
+                            }
+
+                            if (!email.equals(newEmail) && !password.equals(newPassword))
+                            {
+                                Toast.makeText(getApplicationContext(), "Email and password does not match", Toast.LENGTH_SHORT).show();
+                            }
+
+                            if (email.equals(newEmail) && password.equals(newPassword))
+                            {
+                                Intent intent = new Intent(getApplicationContext(), VolDashboard.class);
+                                startActivity(intent);
+                            }
 
                         }
                         else

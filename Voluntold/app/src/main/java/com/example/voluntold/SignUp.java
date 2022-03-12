@@ -54,10 +54,10 @@ public class SignUp extends AppCompatActivity {
 
 
     }
-    public void goToOrgSignUp()
+    public void goToOrgSignUp(View v)
     {
         String email = emailET.getText().toString();
-        String password = passwordET.getText().toString()
+        String password = passwordET.getText().toString();
 
         if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();

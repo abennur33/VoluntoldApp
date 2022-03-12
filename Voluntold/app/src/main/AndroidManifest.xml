@@ -8,7 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Voluntold">
+        android:theme="@style/Theme.Voluntold"
+        android:usesCleartextTraffic="true"
+        >
         <activity
             android:name=".VolunteerSignUp"
             android:exported="false" />
@@ -16,7 +18,7 @@
             android:name=".VolunteerSide.VolDashboard"
             android:exported="false" />
         <activity
-            android:name=".OrgSide.OrgDashboard"
+            android:name=".OrgDashboard"
             android:exported="false" />
         <activity
             android:name=".OrganizationSignUp"

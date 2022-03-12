@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.firebase.ui.auth.data.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,11 +28,14 @@ public class FirebaseHelper {
     private FirebaseFirestore db;
 
     private UserInfo myInfo;
+    private String accountType;
 
     public FirebaseHelper()
     {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        attachReadDataToUser();
     }
 
     public FirebaseAuth getmAuth()
@@ -59,7 +63,7 @@ public class FirebaseHelper {
     {
         UserInfo userInfoVol = new UserInfo(name, email, password, uid, school, age);
 
-        db.collection(uid).document("UserInfo/" + uid)
+        db.collection(uid).document("UserInfo")
                 .set(userInfoVol)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -109,8 +113,9 @@ public class FirebaseHelper {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
-                                UserInfo u = doc.toObject(UserInfo.class);
-                                myInfo = u;
+                                myInfo = doc.toObject(UserInfo.class);
+                                accountType = myInfo.getAccountType();
+                                Log.i(TAG, myInfo.toString());
                             }
                             Log.i(TAG, "success reading all data");
                             firestoreCallback.onCallBack(myInfo);
@@ -119,8 +124,22 @@ public class FirebaseHelper {
                 });
     }
 
+    public String getAccountType()
+    {
+        return accountType;
+    }
+
+    public UserInfo getUserInfo()
+    {
+        return myInfo;
+    }
+
+
     public interface FirestoreCallback {
         void onCallBack(UserInfo userInfo);
     }
+
+
+
 
 }
