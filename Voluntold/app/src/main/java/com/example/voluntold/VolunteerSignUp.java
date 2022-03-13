@@ -71,7 +71,7 @@ public class VolunteerSignUp extends AppCompatActivity {
                             firebaseHelper.updateUid(user.getUid());
 
                             // add a collection to our database to represent this user
-                            firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), school, age);
+                            firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Volunteer", school, null, age);
 
                             // lets further investigate why this method call is needed
                             firebaseHelper.attachReadDataToUser();
@@ -85,27 +85,16 @@ public class VolunteerSignUp extends AppCompatActivity {
                             String newEmail = newEmailET.getText().toString();
                             String newPassword = newPasswordET.getText().toString();
 
-                            if (!email.equals(newEmail))
-                            {
-                                Toast.makeText(getApplicationContext(), "Email does not match", Toast.LENGTH_SHORT).show();
-                            }
 
-                            if (!password.equals(newPassword))
+                            if (!email.equals(newEmail) || !password.equals(newPassword))
                             {
-                                Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Email or password does not match", Toast.LENGTH_SHORT).show();
                             }
-
-                            if (!email.equals(newEmail) && !password.equals(newPassword))
-                            {
-                                Toast.makeText(getApplicationContext(), "Email and password does not match", Toast.LENGTH_SHORT).show();
-                            }
-
-                            if (email.equals(newEmail) && password.equals(newPassword))
+                            else
                             {
                                 Intent intent = new Intent(getApplicationContext(), VolDashboard.class);
                                 startActivity(intent);
                             }
-
                         }
                         else
                         {

@@ -19,11 +19,15 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogIn extends AppCompatActivity {
 
-    public static FirebaseHelper firebaseHelper;
+
     private static final String TAG = "Luis";
     private EditText nameET, emailET, passwordET, ageET;
     private Button volunteerSignInButton, organizationSignInButton;
     private int buttonClicked;
+    private UserInfo currUserInfo;
+
+    public static FirebaseHelper firebaseHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,40 +41,36 @@ public class LogIn extends AppCompatActivity {
         emailET = findViewById(R.id.emailTV);
         passwordET = findViewById(R.id.passwordTV);
 
+        currUserInfo = firebaseHelper.getUserInfo();
+
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // doesn't work with this for some reason: updateIfLoggedIn();
 
     }
 
-    public void updateIfLoggedIn() {
-        // Create reference to current user using firebaseHelper variable
-        FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
+    public void takeToScreenUponLogIn() {
 
-        if (user != null)
+        if (currUserInfo.getAccountType().equals("Organization"))
         {
-            if (firebaseHelper.getAccountType().equals("Organization"))
-            {
-                Intent intent = new Intent(LogIn.this, OrgDashboard.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(LogIn.this, OrgDashboard.class);
+            startActivity(intent);
+        }
 
-            else if (firebaseHelper.getAccountType().equals("Volunteer"))
-            {
-                Intent intent = new Intent(LogIn.this, VolDashboard.class);
-                startActivity(intent);
-            }
-
+        else if (currUserInfo.getAccountType().equals("Volunteer"))
+        {
+            Intent intent = new Intent(LogIn.this, VolDashboard.class);
+            startActivity(intent);
         }
 
     }
 
+
+
     public void signIn(View v) {
-        // Note we don't care what they entered for name here
-        // it could be blank
 
         // Get user data
         String email = emailET.getText().toString();
@@ -98,7 +98,7 @@ public class LogIn extends AppCompatActivity {
                                 firebaseHelper.attachReadDataToUser();
                                 // we can do any other UI updating or change screens based on how our app
                                 // should respond
-                                updateIfLoggedIn();
+                                takeToScreenUponLogIn();
                                 // this is another way to create the intent from inside the OnCompleteListener
                             }
                             else {
@@ -108,10 +108,6 @@ public class LogIn extends AppCompatActivity {
                         }
                     });
         }
-
-        /*
-         * Enter Firebase Code here CODE here
-         */
 
     }
     public void goHome(View v) {

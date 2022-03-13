@@ -28,7 +28,6 @@ public class FirebaseHelper {
     private FirebaseFirestore db;
 
     private UserInfo myInfo;
-    private String accountType;
 
     public FirebaseHelper()
     {
@@ -59,45 +58,28 @@ public class FirebaseHelper {
         }
     }
 
-    public void addUserToFirestore(String name, String email, String password, String uid, String school, int age)
+    public void addUserToFirestore(String name, String email, String password, String uid, String accountType,
+                                   String school, String organizationName, int age)
     {
-        UserInfo userInfoVol = new UserInfo(name, email, password, uid, school, age);
+        UserInfo userInfo = new UserInfo(name, email, password, uid, accountType, school, organizationName, age);
 
-        db.collection(uid).document("UserInfo")
-                .set(userInfoVol)
+        db.collection(uid).document("UserInfo: " + uid)
+                .set(userInfo)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Log.i(TAG, "Volunteer account added");
+                        Log.i(TAG, "account added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "Error adding volunteer", e);
+                        Log.d(TAG, "Error adding account", e);
                     }
                 });
+
     }
 
-    public void addUserToFirestore(String name, String email, String password, String uid, String organizationName)
-    {
-        UserInfo userInfoOrg = new UserInfo(name, email, password, uid, organizationName);
-
-        db.collection(uid).document("UserInfo")
-                .set(userInfoOrg)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.i(TAG, "Organization account added");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "Error adding organization", e);
-                    }
-                });
-    }
 
     public void updateUid(String uid) {
         this.uid = uid;
@@ -114,20 +96,14 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 myInfo = doc.toObject(UserInfo.class);
-                                accountType = myInfo.getAccountType();
-                                Log.i(TAG, myInfo.toString());
                             }
-                            Log.i(TAG, "success reading all data");
+                            Log.i(TAG, "success reading all data " + myInfo.toString());
                             firestoreCallback.onCallBack(myInfo);
                         }
                     }
                 });
     }
 
-    public String getAccountType()
-    {
-        return accountType;
-    }
 
     public UserInfo getUserInfo()
     {

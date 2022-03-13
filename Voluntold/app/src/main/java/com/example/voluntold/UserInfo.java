@@ -61,28 +61,18 @@ public class UserInfo implements Parcelable {
         dest.writeInt(age);
     }
 
-    public UserInfo(String name, String email, String password, String uid, String school, int age) {
+    public UserInfo(String name, String email, String password, String uid,
+                    String accountType, String school, String organizationName, int age) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.uid = uid;
-        this.accountType = "Volunteer";
+        this.accountType = accountType;
         this.school = school;
-        this.organizationName = null;
+        this.organizationName = organizationName;
         this.age = age;
     }
 
-    public UserInfo(String name, String email, String password, String uid, String organizationName)
-    {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.uid = uid;
-        this.accountType = "Organization";
-        this.school = null;
-        this.organizationName = organizationName;
-        this.age = 0;
-    }
 
 
     public UserInfo() {
@@ -91,6 +81,8 @@ public class UserInfo implements Parcelable {
         this.password = "";
         this.uid = "";
         this.accountType = "";
+        this.school = "";
+        this.organizationName = "";
         this.age = 0;
     }
 
@@ -138,6 +130,26 @@ public class UserInfo implements Parcelable {
     public void setAccountType(String accountType)
     {
         this.accountType = accountType;
+    }
+
+    public String getSchool()
+    {
+        return school;
+    }
+
+    public void setSchool(String accountType)
+    {
+        this.school = school;
+    }
+
+    public String getOrganizationName()
+    {
+        return organizationName;
+    }
+
+    public void setOrganizationName(String organizationName)
+    {
+        this.organizationName = organizationName;
     }
 
     public int getUserAge() {

@@ -64,7 +64,8 @@ public class OrganizationSignUp extends AppCompatActivity {
                             firebaseHelper.updateUid(user.getUid());
 
                             // add a collection to our database to represent this user
-                            firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), orgName);
+                            firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Organization", null, orgName, 0);
+
 
                             // lets further investigate why this method call is needed
                             firebaseHelper.attachReadDataToUser();
@@ -78,23 +79,11 @@ public class OrganizationSignUp extends AppCompatActivity {
                             String newEmail = newEmailET.getText().toString();
                             String newPassword = newPasswordET.getText().toString();
 
-                            if (!email.equals(newEmail))
+                            if (!email.equals(newEmail) || !password.equals(newPassword))
                             {
-                                Toast.makeText(getApplicationContext(), "Email does not match", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Email or password does not match", Toast.LENGTH_SHORT).show();
                             }
-
-                            if(!password.equals(newPassword))
-                            {
-                                Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_SHORT).show();
-                            }
-
-
-                            if(!email.equals(newEmail) && !password.equals(newPassword))
-                            {
-                                Toast.makeText(getApplicationContext(), "Email and password does not match", Toast.LENGTH_SHORT).show();
-                            }
-
-                            if (email.equals(newEmail) && password.equals(newPassword))
+                            else
                             {
                                 Intent intent = new Intent(getApplicationContext(), OrgDashboard.class);
                                 startActivity(intent);
