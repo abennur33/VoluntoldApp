@@ -81,6 +81,10 @@ public class OrganizationSignUp extends AppCompatActivity {
                             if (!email.equals(newEmail) || !password.equals(newPassword))
                             {
                                 Toast.makeText(getApplicationContext(), "Email or password does not match", Toast.LENGTH_SHORT).show();
+                                newEmail = "";
+                                newPassword = "";
+                                newEmailET.setText("");
+                                newPasswordET.setText("");
                             }
                             else
                             {

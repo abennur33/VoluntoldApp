@@ -10,6 +10,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -61,6 +62,11 @@ public class FirebaseHelper {
                 public void onCallBack(UserInfo userInfo) {
                     Log.i(TAG, "Inside attachReadDataToUser, onCallBack");
                 }
+
+                @Override
+                public void onCallBack(Organization organization) {
+
+                }
             });
         }
         else {
@@ -88,8 +94,73 @@ public class FirebaseHelper {
                     }
                 });
 
+        if (accountType.equals("Organization")) {
+            Organization org = new Organization(organizationName, uid);
+
+            addOrg(org);
+        }
+
+    }
+    public void addOrg(Organization o) {
+
+        // add WishListItem w to the database
+
+        // this method is overloaded and incorporates the interface to handle the asynch calls
+
+        addOrg(o, new FirestoreCallback() {
+
+            @Override
+            public void onCallBack(UserInfo userInfo) {
+
+            }
+
+            @Override
+            public void onCallBack(Organization organization) {
+
+            }
+
+        });
+
     }
 
+    private void addOrg(Organization o, FirestoreCallback firestoreCallback) {
+
+        db.collection("Organizations")
+
+                .add(o)
+
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+
+                    @Override
+
+                    public void onSuccess(DocumentReference documentReference) {
+
+                        // This will set the docID key for the WishListItem that was just added.
+
+                        db.collection(uid)
+
+                                .document(documentReference.getId()).update("docID", documentReference.getId());
+
+                        Log.i(TAG, "just added " + o.getName());
+
+                        readData(firestoreCallback);
+
+                    }
+
+                })
+
+                .addOnFailureListener(new OnFailureListener() {
+
+                    @Override
+
+                    public void onFailure(@NonNull Exception e) {
+
+                        Log.i(TAG, "Error adding document", e);
+
+                    }
+
+                });
+    }
 
     public void updateUid(String uid) {
         this.uid = uid;
@@ -129,6 +200,7 @@ public class FirebaseHelper {
 
     public interface FirestoreCallback {
         void onCallBack(UserInfo userInfo);
+        void onCallBack(Organization organization);
     }
 
 
