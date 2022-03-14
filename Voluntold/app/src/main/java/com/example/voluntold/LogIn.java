@@ -54,13 +54,13 @@ public class LogIn extends AppCompatActivity {
 
     public void takeToScreenUponLogIn() {
 
-        if (currUserInfo.getAccountType().equals("Organization"))
+        if (firebaseHelper.getAccountType().equals("Organization"))
         {
             Intent intent = new Intent(LogIn.this, OrgDashboard.class);
             startActivity(intent);
         }
 
-        else if (currUserInfo.getAccountType().equals("Volunteer"))
+        else if (firebaseHelper.getAccountType().equals("Volunteer"))
         {
             Intent intent = new Intent(LogIn.this, VolDashboard.class);
             startActivity(intent);

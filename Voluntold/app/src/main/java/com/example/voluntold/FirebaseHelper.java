@@ -29,12 +29,22 @@ public class FirebaseHelper {
 
     private UserInfo myInfo;
 
+    private String accountType;
+
     public FirebaseHelper()
     {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+//        uid = mAuth.getUid();
+
         attachReadDataToUser();
+//        readData(new FirestoreCallback() {
+//            @Override
+//            public void onCallBack(UserInfo userInfo) {
+//
+//            }
+//        });
     }
 
     public FirebaseAuth getmAuth()
@@ -96,6 +106,7 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 myInfo = doc.toObject(UserInfo.class);
+                                accountType = myInfo.getAccountType();
                             }
                             Log.i(TAG, "success reading all data " + myInfo.toString());
                             firestoreCallback.onCallBack(myInfo);
@@ -108,6 +119,11 @@ public class FirebaseHelper {
     public UserInfo getUserInfo()
     {
         return myInfo;
+    }
+
+    public String getAccountType()
+    {
+        return accountType;
     }
 
 
