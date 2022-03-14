@@ -3,9 +3,14 @@ package com.example.voluntold;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 public class UserInfo implements Parcelable {
     private String name, email, password, uid, accountType, school, organizationName;
     private int age;
+
+    private ArrayList<OrgPost> allPosts= new ArrayList<>();
+    private ArrayList<VolOpportunity> allOpportunities = new ArrayList<>();
 
     // may be implemented later so we can sort by order of importance on list
     // value of 1-3 with 1 being most desired items
