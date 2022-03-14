@@ -15,7 +15,7 @@
             android:name=".VolunteerSignUp"
             android:exported="false" />
         <activity
-            android:name=".VolunteerSide.VolDashboard"
+            android:name=".VolDashboard"
             android:exported="false" />
         <activity
             android:name=".OrgDashboard"
