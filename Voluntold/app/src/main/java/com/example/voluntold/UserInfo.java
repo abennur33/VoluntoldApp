@@ -9,7 +9,7 @@ public class UserInfo implements Parcelable {
     private String name, email, password, uid, accountType, school, organizationName;
     private int age;
 
-    private ArrayList<OrgPost> allPosts= new ArrayList<>();
+    private ArrayList<OrgPost> allPosts = new ArrayList<>();
     private ArrayList<VolOpportunity> allOpportunities = new ArrayList<>();
 
     // may be implemented later so we can sort by order of importance on list
@@ -38,6 +38,7 @@ public class UserInfo implements Parcelable {
         school = parcel.readString();
         organizationName = parcel.readString();
         age = parcel.readInt();
+
     }
 
 
@@ -76,6 +77,8 @@ public class UserInfo implements Parcelable {
         this.school = school;
         this.organizationName = organizationName;
         this.age = age;
+        this.allPosts = null;
+        this.allOpportunities = null;
     }
 
 
@@ -89,6 +92,8 @@ public class UserInfo implements Parcelable {
         this.school = "";
         this.organizationName = "";
         this.age = 0;
+        this.allPosts = null;
+        this.allOpportunities = null;
     }
 
     public String toString() {
@@ -163,6 +168,24 @@ public class UserInfo implements Parcelable {
 
     public void setUserAge(int age) {
         this.age = age;
+    }
+
+    public ArrayList getAllOrgPosts()
+    {
+        return allPosts;
+    }
+
+    public void setOrgPostArray(ArrayList newOrgPostList){
+        this.allPosts = newOrgPostList;
+    }
+
+    public ArrayList getVolOpportunities()
+    {
+        return allOpportunities;
+    }
+
+    public void setVolOppurtunityList(ArrayList newVolOppList){
+        this.allOpportunities = newVolOppList;
     }
 
 }
