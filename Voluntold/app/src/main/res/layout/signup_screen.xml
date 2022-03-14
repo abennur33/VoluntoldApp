@@ -7,17 +7,17 @@
     android:onClick="goToOrgSignUp"
     tools:context=".SignUp">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="44dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="39dp"
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="34dp"
         app:layout_constraintEnd_toStartOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <Button
         android:id="@+id/button8"

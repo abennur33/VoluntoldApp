@@ -48,6 +48,7 @@
         android:id="@+id/emailTV"
         android:layout_width="276dp"
         android:layout_height="39dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="63dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
@@ -101,15 +102,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="44dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="39dp"
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="34dp"
         app:layout_constraintEnd_toStartOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
