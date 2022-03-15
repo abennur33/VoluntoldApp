@@ -51,66 +51,52 @@ public class VolunteerSignUp extends AppCompatActivity {
         String name = nameET.getText().toString();
         String ageString = ageET.getText().toString();
         int age = Integer.parseInt(ageString);
-
         String school = schoolET.getText().toString();
 
+        String newEmail = newEmailET.getText().toString();
+        String newPassword = newPasswordET.getText().toString();
 
-        firebaseHelper.getmAuth().createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful())
-                        {
-                            // user account was created in firebase auth
-                            Log.i(TAG, email +  " account created");
+        if (!email.equals(newEmail) || !password.equals(newPassword)) {
+            Toast.makeText(getApplicationContext(), "Email or password does not match", Toast.LENGTH_SHORT).show();
+            newEmail = "";
+            newPassword = "";
+            newEmailET.setText("");
+            newPasswordET.setText("");
+        } else {
+            firebaseHelper.getmAuth().createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // user account was created in firebase auth
+                                Log.i(TAG, email + " account created");
 
-                            FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
+                                FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
 
-                            // update the FirebaseHelper var uid to equal the uid of the currently signed in user
-                            firebaseHelper.updateUid(user.getUid());
+                                // update the FirebaseHelper var uid to equal the uid of the currently signed in user
+                                firebaseHelper.updateUid(user.getUid());
 
-                            // add a collection to our database to represent this user
-                            firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Volunteer", school, null, age);
-
-                            // lets further investigate why this method call is needed
-                            firebaseHelper.attachReadDataToUser();
-
-                            // choose whatever actions you want - update UI, switch to a new screen, etc.
-                            // take the user to the screen where they can enter their wishlist items
-                            // get application context will get the activity we are currently in that
-                            // is sending the intent. Similar to how we have said "this" in the past
-
-                            // Confirm email and password values
-                            String newEmail = newEmailET.getText().toString();
-                            String newPassword = newPasswordET.getText().toString();
+                                // add a collection to our database to represent this user
+                                firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Volunteer", school, null, age);
 
 
-                            if (!email.equals(newEmail) || !password.equals(newPassword))
-                            {
-                                Toast.makeText(getApplicationContext(), "Email or password does not match", Toast.LENGTH_SHORT).show();
-                                newEmail = "";
-                                newPassword = "";
-                                newEmailET.setText("");
-                                newPasswordET.setText("");
-                            }
-                            else
-                            {
-                                Intent intent = new Intent(getApplicationContext(), VolDashboard.class);
+                                // lets further investigate why this method call is needed
+                                firebaseHelper.attachReadDataToUser();
+
+                                // choose whatever actions you want - update UI, switch to a new screen, etc.
+                                // take the user to the screen where they can enter their wishlist items
+                                // get application context will get the activity we are currently in that
+                                // is sending the intent. Similar to how we have said "this" in the past
+
+                                Intent intent = new Intent(getApplicationContext(), OrgDashboard.class);
                                 startActivity(intent);
-
+                            } else {
+                                // user WASN'T created
+                                Log.d(TAG, email + " sign up failed");
                             }
                         }
-                        else
-                        {
-                            // user WASN'T created
-                            Log.d(TAG, email + " sign up failed");
-                        }
-                    }
-
-
-                });
-
-
+                    });
+        }
     }
 
 

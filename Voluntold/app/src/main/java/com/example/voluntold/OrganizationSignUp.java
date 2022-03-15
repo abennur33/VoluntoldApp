@@ -46,63 +46,51 @@ public class OrganizationSignUp extends AppCompatActivity {
         // Make references to EditText in xml
         String name = nameET.getText().toString();
         String orgName = orgNameET.getText().toString();
+        String newEmail = newEmailET.getText().toString();
+        String newPassword = newPasswordET.getText().toString();
+
+        if (!email.equals(newEmail) || !password.equals(newPassword)) {
+            Toast.makeText(getApplicationContext(), "Email or password does not match", Toast.LENGTH_SHORT).show();
+            newEmail = "";
+            newPassword = "";
+            newEmailET.setText("");
+            newPasswordET.setText("");
+        }
+        else {
+            firebaseHelper.getmAuth().createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // user account was created in firebase auth
+                                Log.i(TAG, email + " account created");
+
+                                FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
+
+                                // update the FirebaseHelper var uid to equal the uid of the currently signed in user
+                                firebaseHelper.updateUid(user.getUid());
+
+                                // add a collection to our database to represent this user
+                                firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Organization", null, orgName, 0);
 
 
-        firebaseHelper.getmAuth().createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful())
-                        {
-                            // user account was created in firebase auth
-                            Log.i(TAG, email +  " account created");
+                                // lets further investigate why this method call is needed
+                                firebaseHelper.attachReadDataToUser();
 
-                            FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
+                                // choose whatever actions you want - update UI, switch to a new screen, etc.
+                                // take the user to the screen where they can enter their wishlist items
+                                // get application context will get the activity we are currently in that
+                                // is sending the intent. Similar to how we have said "this" in the past
 
-                            // update the FirebaseHelper var uid to equal the uid of the currently signed in user
-                            firebaseHelper.updateUid(user.getUid());
-
-                            // add a collection to our database to represent this user
-                            firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Organization", null, orgName, 0);
-
-
-                            // lets further investigate why this method call is needed
-                            firebaseHelper.attachReadDataToUser();
-
-                            // choose whatever actions you want - update UI, switch to a new screen, etc.
-                            // take the user to the screen where they can enter their wishlist items
-                            // get application context will get the activity we are currently in that
-                            // is sending the intent. Similar to how we have said "this" in the past
-
-                            // Confirm email and password values
-                            String newEmail = newEmailET.getText().toString();
-                            String newPassword = newPasswordET.getText().toString();
-
-                            if (!email.equals(newEmail) || !password.equals(newPassword))
-                            {
-                                Toast.makeText(getApplicationContext(), "Email or password does not match", Toast.LENGTH_SHORT).show();
-                                newEmail = "";
-                                newPassword = "";
-                                newEmailET.setText("");
-                                newPasswordET.setText("");
-                            }
-                            else
-                            {
                                 Intent intent = new Intent(getApplicationContext(), OrgDashboard.class);
                                 startActivity(intent);
                             }
-
+                            else {
+                                // user WASN'T created
+                                Log.d(TAG, email + " sign up failed");
+                            }
                         }
-                        else
-                        {
-                            // user WASN'T created
-                            Log.d(TAG, email + " sign up failed");
-                        }
-                    }
-
-
-                });
-
-
+                    });
+        }
     }
 }
