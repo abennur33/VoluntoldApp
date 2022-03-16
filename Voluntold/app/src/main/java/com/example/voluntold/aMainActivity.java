@@ -18,11 +18,11 @@ public class aMainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void toLogIn(View v) {
-        Intent intent = new Intent(aMainActivity.this, LogIn.class);
+        Intent intent = new Intent(aMainActivity.this, aLogIn.class);
         startActivity(intent);
     }
     public void toVolunteerInfo(View v) {
-        Intent intent = new Intent(aMainActivity.this, VolunteerInformation.class);
+        Intent intent = new Intent(aMainActivity.this, aVolunteerInformation.class);
         startActivity(intent);
     }
 }
