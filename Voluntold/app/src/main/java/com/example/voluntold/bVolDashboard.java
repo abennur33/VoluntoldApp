@@ -6,10 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.voluntold.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class VolDashboard extends AppCompatActivity {
+public class bVolDashboard extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
@@ -23,7 +22,7 @@ public class VolDashboard extends AppCompatActivity {
 
     public void signOut(View v) {
         mAuth.signOut();
-        Intent p = new Intent(this, MainActivity.class);
+        Intent p = new Intent(this, aMainActivity.class);
         startActivity(p);
     }
 

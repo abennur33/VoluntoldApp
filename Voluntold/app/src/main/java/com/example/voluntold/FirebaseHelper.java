@@ -67,6 +67,11 @@ public class FirebaseHelper {
                 public void onCallBack(Organization organization) {
 
                 }
+
+                @Override
+                public void onCallBack(OrgPost orgPost) {
+
+                }
             });
         }
         else {
@@ -99,8 +104,49 @@ public class FirebaseHelper {
 
             addOrg(org);
         }
-
     }
+
+    public void addPost(OrgPost o) {
+        addPost(o, new FirestoreCallback() {
+
+            @Override
+            public void onCallBack(UserInfo userInfo) {
+
+            }
+
+            @Override
+            public void onCallBack(Organization organization) {
+
+            }
+
+            @Override
+            public void onCallBack(OrgPost orgPost) {
+
+            }
+        });
+    }
+
+    private void addPost(OrgPost o, FirestoreCallback firestoreCallback) {
+        db.collection("users").document(uid).collection("myWishList")
+                .add(o)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        db.collection("users").document(uid).collection("myWishList")
+                                .document(documentReference.getId())
+                                .update("docID", documentReference.getId());
+                        Log.i(TAG, "just added " + o.getTitle());
+                        readData(firestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error adding document", e);
+                    }
+                });
+    }
+
     public void addOrg(Organization o) {
 
         // add WishListItem w to the database
@@ -116,6 +162,11 @@ public class FirebaseHelper {
 
             @Override
             public void onCallBack(Organization organization) {
+
+            }
+
+            @Override
+            public void onCallBack(OrgPost orgPost) {
 
             }
 
@@ -201,6 +252,7 @@ public class FirebaseHelper {
     public interface FirestoreCallback {
         void onCallBack(UserInfo userInfo);
         void onCallBack(Organization organization);
+        void onCallBack(OrgPost orgPost);
     }
 
 
