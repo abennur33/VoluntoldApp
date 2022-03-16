@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpportunityPost">
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="333dp"
+        android:layout_height="159dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/line" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="368dp"
+        android:layout_height="416dp"
+        android:layout_marginTop="102dp"
+        android:layout_marginEnd="197dp"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/button15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView34"
+        app:srcCompat="@drawable/line" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="368dp"
+        android:layout_height="416dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="102dp"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/button15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView34"
+        app:srcCompat="@drawable/line" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="333dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:srcCompat="@drawable/line" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="266dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="72dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:gravity="center"
+        android:text="[title]"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="266dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="475dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:gravity="center"
+        android:text="[date]"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="310dp"
+        android:layout_height="341dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="[body text]"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="147dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="Go to Organization"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
