@@ -1,10 +1,10 @@
 package com.example.voluntold;
 
-public class Organization {
+public class Organization3 {
     private String name;
     private String orgID;
 
-    public Organization(String name, String orgID) {
+    public Organization3(String name, String orgID) {
         this.name = name;
         this.orgID = orgID;
     }

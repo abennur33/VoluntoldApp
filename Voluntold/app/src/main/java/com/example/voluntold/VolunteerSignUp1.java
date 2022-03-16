@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
 
-public class VolunteerSignUp extends AppCompatActivity {
+public class VolunteerSignUp1 extends AppCompatActivity {
 
     private EditText nameET, ageET, schoolET, newEmailET, newPasswordET;
     String email, password;
@@ -34,8 +34,8 @@ public class VolunteerSignUp extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        email =  intent.getStringExtra(SignUp.EXTRA_EMAIL) ;
-        password = intent.getStringExtra(SignUp.EXTRA_PASSWORD);
+        email =  intent.getStringExtra(SignUp1.EXTRA_EMAIL) ;
+        password = intent.getStringExtra(SignUp1.EXTRA_PASSWORD);
 
 
         nameET = findViewById(R.id.volNameET);
@@ -88,7 +88,7 @@ public class VolunteerSignUp extends AppCompatActivity {
                                 // get application context will get the activity we are currently in that
                                 // is sending the intent. Similar to how we have said "this" in the past
 
-                                Intent intent = new Intent(getApplicationContext(), VolDashboard.class);
+                                Intent intent = new Intent(getApplicationContext(), VolDashboard2.class);
                                 startActivity(intent);
                             } else {
                                 // user WASN'T created

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class VolunteerInformation extends AppCompatActivity {
+public class VolunteerInformation2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

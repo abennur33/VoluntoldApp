@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
 
-public class OrganizationSignUp extends AppCompatActivity {
+public class OrganizationSignUp1 extends AppCompatActivity {
 
     private EditText nameET, orgNameET, newEmailET, newPasswordET;
     String email, password;
@@ -33,8 +33,8 @@ public class OrganizationSignUp extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        email =  intent.getStringExtra(SignUp.EXTRA_EMAIL) ;
-        password = intent.getStringExtra(SignUp.EXTRA_PASSWORD);
+        email =  intent.getStringExtra(SignUp1.EXTRA_EMAIL) ;
+        password = intent.getStringExtra(SignUp1.EXTRA_PASSWORD);
 
         nameET = findViewById(R.id.inputOrgNameET);
         orgNameET = findViewById(R.id.inputNameOfOrgET);
@@ -82,7 +82,7 @@ public class OrganizationSignUp extends AppCompatActivity {
                                 // get application context will get the activity we are currently in that
                                 // is sending the intent. Similar to how we have said "this" in the past
 
-                                Intent intent = new Intent(getApplicationContext(), OrgDashboard.class);
+                                Intent intent = new Intent(getApplicationContext(), OrgDashboard3.class);
                                 startActivity(intent);
                             }
                             else {

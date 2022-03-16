@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
-public class LogIn extends AppCompatActivity {
+public class LogIn1 extends AppCompatActivity {
 
 
     private static final String TAG = "Luis";
@@ -54,13 +54,13 @@ public class LogIn extends AppCompatActivity {
 
         if (firebaseHelper.getAccountType().equals("Organization"))
         {
-            Intent intent = new Intent(LogIn.this, OrgDashboard.class);
+            Intent intent = new Intent(LogIn1.this, OrgDashboard3.class);
             startActivity(intent);
         }
 
         else if (firebaseHelper.getAccountType().equals("Volunteer"))
         {
-            Intent intent = new Intent(LogIn.this, VolDashboard.class);
+            Intent intent = new Intent(LogIn1.this, VolDashboard2.class);
             startActivity(intent);
         }
 
@@ -109,7 +109,7 @@ public class LogIn extends AppCompatActivity {
 
     }
     public void goHome(View v) {
-        Intent intent = new Intent(LogIn.this, MainActivity.class);
+        Intent intent = new Intent(LogIn1.this, MainActivity1.class);
         startActivity(intent);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.voluntold;
 
-public class VolOpportunity {
+public class VolOpportunity2 {
     public String orgID;
     public String volID;
 
@@ -10,7 +10,7 @@ public class VolOpportunity {
     private int date;
     private int year;
 
-    public VolOpportunity(String orgID, String volID, String title, int month, int date, int year) {
+    public VolOpportunity2(String orgID, String volID, String title, int month, int date, int year) {
         this.orgID = orgID;
         this.volID = volID;
         this.title = title;
