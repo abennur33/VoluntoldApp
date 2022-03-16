@@ -2,7 +2,7 @@ package com.example.voluntold;
 
 import java.util.ArrayList;
 
-public class OrgPost3 {
+public class OrgPost {
     public String orgID;
 
     private String title;
@@ -16,7 +16,7 @@ public class OrgPost3 {
     private int maxVolunteers;
     private ArrayList<String> volunteers = new ArrayList<>();
 
-    public OrgPost3(String orgID, String title, int month, int date, int year, String body) {
+    public OrgPost(String orgID, String title, int month, int date, int year, String body) {
         this.orgID = orgID;
         this.title = title;
         this.month = month;
@@ -25,7 +25,7 @@ public class OrgPost3 {
         this.body = body;
     }
 
-    public OrgPost3(String orgID, String title, int month, int date, int year, String body, int maxVolunteers) {
+    public OrgPost(String orgID, String title, int month, int date, int year, String body, int maxVolunteers) {
         this.orgID = orgID;
         this.title = title;
         this.month = month;

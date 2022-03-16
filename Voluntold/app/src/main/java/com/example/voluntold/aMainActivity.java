@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity1 extends AppCompatActivity {
+public class aMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,15 +14,15 @@ public class MainActivity1 extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void toSignUp(View v) {
-        Intent intent = new Intent(MainActivity1.this, SignUp1.class);
+        Intent intent = new Intent(aMainActivity.this, aSignUp.class);
         startActivity(intent);
     }
     public void toLogIn(View v) {
-        Intent intent = new Intent(MainActivity1.this, LogIn.class);
+        Intent intent = new Intent(aMainActivity.this, LogIn.class);
         startActivity(intent);
     }
     public void toVolunteerInfo(View v) {
-        Intent intent = new Intent(MainActivity1.this, VolunteerInformation.class);
+        Intent intent = new Intent(aMainActivity.this, VolunteerInformation.class);
         startActivity(intent);
     }
 }
