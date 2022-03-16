@@ -81,7 +81,7 @@ public class aSignUp extends AppCompatActivity {
 
 
     public void goHome(View v) {
-        Intent intent = new Intent(aSignUp.this, MainActivity.class);
+        Intent intent = new Intent(aSignUp.this, aMainActivity.class);
         startActivity(intent);
     }
 }
