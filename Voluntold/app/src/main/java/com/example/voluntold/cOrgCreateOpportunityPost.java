@@ -11,6 +11,7 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
     private String title, body;
     private int month, day, year;
     private EditText titleET, bodyET, monthET, dayET, yearET;
+    public static FirebaseHelper firebaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +32,10 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
         day = Integer.parseInt(dayET.getText().toString());
         year = Integer.parseInt(yearET.getText().toString());
 
-        String uid = LogIn.firebaseHelper.getmAuth().getUid();
+        String uid = firebaseHelper.getmAuth().getUid();
 
         OrgPost orgPost = new OrgPost(uid, title, month, day, year, body);
 
-        LogIn.firebaseHelper.addPost(orgPost);
+        firebaseHelper.addPost(orgPost);
     }
 }
