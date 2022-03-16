@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class OrgCreateOpportunityPost extends AppCompatActivity {
+public class cOrgCreateOpportunityPost extends AppCompatActivity {
 
     private String title, body;
     private int month, day, year;

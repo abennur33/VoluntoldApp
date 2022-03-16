@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SignUp extends AppCompatActivity {
+public class aSignUp extends AppCompatActivity {
 
     private static final String TAG = "Abhi";
     private EditText emailET, passwordET;
@@ -44,7 +44,7 @@ public class SignUp extends AppCompatActivity {
 
         else
         {
-            Intent intent = new Intent (SignUp.this, VolunteerSignUp.class);
+            Intent intent = new Intent (aSignUp.this, aVolunteerSignUp.class);
 
             intent.putExtra(EXTRA_EMAIL, email);
             intent.putExtra(EXTRA_PASSWORD, password);
@@ -70,7 +70,7 @@ public class SignUp extends AppCompatActivity {
 
         else
         {
-            Intent intent = new Intent (SignUp.this, OrganizationSignUp.class);
+            Intent intent = new Intent (aSignUp.this, aOrganizationSignUp.class);
 
             intent.putExtra(EXTRA_EMAIL, email);
             intent.putExtra(EXTRA_PASSWORD, password);
@@ -81,7 +81,7 @@ public class SignUp extends AppCompatActivity {
 
 
     public void goHome(View v) {
-        Intent intent = new Intent(SignUp.this, MainActivity.class);
+        Intent intent = new Intent(aSignUp.this, MainActivity.class);
         startActivity(intent);
     }
 }

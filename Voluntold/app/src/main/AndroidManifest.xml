@@ -11,19 +11,19 @@
         android:theme="@style/Theme.Voluntold"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".OrgCreateOpportunityPost"
+            android:name=".cOrgCreateOpportunityPost"
             android:exported="false" />
         <activity
-            android:name=".VolunteerSignUp"
+            android:name=".aVolunteerSignUp"
             android:exported="false" />
         <activity
-            android:name=".VolDashboard"
+            android:name=".bVolDashboard"
             android:exported="false" />
         <activity
-            android:name=".OrgDashboard"
+            android:name=".cOrgDashboard"
             android:exported="false" />
         <activity
-            android:name=".OrganizationSignUp"
+            android:name=".aOrganizationSignUp"
             android:exported="false" />
         <activity
             android:name=".OrganizationInformation"
@@ -35,7 +35,7 @@
             android:name=".LogIn"
             android:exported="false" />
         <activity
-            android:name=".SignUp"
+            android:name=".aSignUp"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -15,37 +15,44 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
 
-public class OrganizationSignUp extends AppCompatActivity {
+public class aVolunteerSignUp extends AppCompatActivity {
 
-    private EditText nameET, orgNameET, newEmailET, newPasswordET;
+    private EditText nameET, ageET, schoolET, newEmailET, newPasswordET;
     String email, password;
 
     private static final String TAG = "Abhi";
 
     public static FirebaseHelper firebaseHelper;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.organization_signup);
+        setContentView(R.layout.volunteer_signup);
 
         firebaseHelper = new FirebaseHelper();
 
         Intent intent = getIntent();
 
-        email =  intent.getStringExtra(SignUp.EXTRA_EMAIL) ;
-        password = intent.getStringExtra(SignUp.EXTRA_PASSWORD);
+        email =  intent.getStringExtra(aSignUp.EXTRA_EMAIL) ;
+        password = intent.getStringExtra(aSignUp.EXTRA_PASSWORD);
 
-        nameET = findViewById(R.id.inputOrgNameET);
-        orgNameET = findViewById(R.id.inputNameOfOrgET);
-        newEmailET = findViewById(R.id.newOrgEmailET);
-        newPasswordET = findViewById(R.id.newOrgPasswordET);
+
+        nameET = findViewById(R.id.volNameET);
+        ageET = findViewById(R.id.volAgeET);
+        schoolET = findViewById(R.id.volSchoolET);
+        newEmailET = findViewById(R.id.newInputEmailET);
+        newPasswordET = findViewById(R.id.newInputPassET);
     }
+
 
     public void signUp(View v) {
         // Make references to EditText in xml
         String name = nameET.getText().toString();
-        String orgName = orgNameET.getText().toString();
+        String ageString = ageET.getText().toString();
+        int age = Integer.parseInt(ageString);
+        String school = schoolET.getText().toString();
+
         String newEmail = newEmailET.getText().toString();
         String newPassword = newPasswordET.getText().toString();
 
@@ -55,8 +62,7 @@ public class OrganizationSignUp extends AppCompatActivity {
             newPassword = "";
             newEmailET.setText("");
             newPasswordET.setText("");
-        }
-        else {
+        } else {
             firebaseHelper.getmAuth().createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -71,7 +77,7 @@ public class OrganizationSignUp extends AppCompatActivity {
                                 firebaseHelper.updateUid(user.getUid());
 
                                 // add a collection to our database to represent this user
-                                firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Organization", null, orgName, 0);
+                                firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Volunteer", school, null, age);
 
 
                                 // lets further investigate why this method call is needed
@@ -82,10 +88,9 @@ public class OrganizationSignUp extends AppCompatActivity {
                                 // get application context will get the activity we are currently in that
                                 // is sending the intent. Similar to how we have said "this" in the past
 
-                                Intent intent = new Intent(getApplicationContext(), OrgDashboard.class);
+                                Intent intent = new Intent(getApplicationContext(), bVolDashboard.class);
                                 startActivity(intent);
-                            }
-                            else {
+                            } else {
                                 // user WASN'T created
                                 Log.d(TAG, email + " sign up failed");
                             }
@@ -93,4 +98,7 @@ public class OrganizationSignUp extends AppCompatActivity {
                     });
         }
     }
+
+
 }
+
