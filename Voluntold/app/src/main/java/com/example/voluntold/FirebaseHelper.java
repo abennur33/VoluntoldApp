@@ -127,14 +127,11 @@ public class FirebaseHelper {
     }
 
     private void addPost(OrgPost o, FirestoreCallback firestoreCallback) {
-        db.collection("users").document(uid).collection("myWishList")
+        db.collection(uid).document("User Info: " + uid).collection("myPosts")
                 .add(o)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        db.collection("users").document(uid).collection("myWishList")
-                                .document(documentReference.getId())
-                                .update("docID", documentReference.getId());
                         Log.i(TAG, "just added " + o.getTitle());
                         readData(firestoreCallback);
                     }
