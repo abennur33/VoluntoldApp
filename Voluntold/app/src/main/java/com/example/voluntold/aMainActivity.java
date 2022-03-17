@@ -8,10 +8,14 @@ import android.view.View;
 
 public class aMainActivity extends AppCompatActivity {
 
+    public static FirebaseHelper firebaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseHelper = new FirebaseHelper();
     }
     public void toSignUp(View v) {
         Intent intent = new Intent(aMainActivity.this, aSignUp.class);
