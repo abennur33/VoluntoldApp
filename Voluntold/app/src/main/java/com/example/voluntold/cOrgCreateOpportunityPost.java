@@ -32,11 +32,11 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
         day = Integer.parseInt(dayET.getText().toString());
         year = Integer.parseInt(yearET.getText().toString());
 
-        String uid = aLogIn.firebaseHelper.getUid();
+        String uid = aMainActivity.firebaseHelper.getUid();
 
         OrgPost orgPost = new OrgPost(uid, title, month, day, year, body);
 
-        aLogIn.firebaseHelper.addPost(orgPost);
+        aMainActivity.firebaseHelper.addPost(orgPost);
 
         Intent intent = new Intent(cOrgCreateOpportunityPost.this, cOrgDashboard.class);
         startActivity(intent);

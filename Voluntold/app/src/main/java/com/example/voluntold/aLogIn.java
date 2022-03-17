@@ -24,7 +24,7 @@ public class aLogIn extends AppCompatActivity {
     private int buttonClicked;
     private UserInfo currUserInfo;
 
-    public static FirebaseHelper firebaseHelper;
+    private FirebaseHelper firebaseHelper;
 
 
     @Override
@@ -33,13 +33,13 @@ public class aLogIn extends AppCompatActivity {
         setContentView(R.layout.login_screen);
 
         // instantiate FirebaseHelper var
-        firebaseHelper = new FirebaseHelper();
+        firebaseHelper = aMainActivity.firebaseHelper;
 
         // Make references to xml elements
         emailET = findViewById(R.id.emailTV);
         passwordET = findViewById(R.id.passwordTV);
 
-        currUserInfo = firebaseHelper.getUserInfo();
+        currUserInfo = aMainActivity.firebaseHelper.getUserInfo();
 
 
     }
