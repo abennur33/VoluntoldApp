@@ -82,7 +82,7 @@ public class aOrganizationSignUp extends AppCompatActivity {
                                 // get application context will get the activity we are currently in that
                                 // is sending the intent. Similar to how we have said "this" in the past
 
-                                Intent intent = new Intent(getApplicationContext(), cOrgDashboard.class);
+                                Intent intent = new Intent(getApplicationContext(), cOrgCreateOpportunityPost.class);
                                 startActivity(intent);
                             }
                             else {
