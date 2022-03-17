@@ -227,7 +227,7 @@ public class FirebaseHelper {
                                 myInfo = doc.toObject(UserInfo.class);
                                 accountType = myInfo.getAccountType();
                             }
-                            Log.i(TAG, "success reading all data " + myInfo.toString());
+                            Log.i(TAG, "success reading all data ");
                             firestoreCallback.onCallBack(myInfo);
                         }
                     }

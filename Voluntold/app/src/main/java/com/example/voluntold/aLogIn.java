@@ -54,7 +54,7 @@ public class aLogIn extends AppCompatActivity {
 
         if (firebaseHelper.getAccountType().equals("Organization"))
         {
-            Intent intent = new Intent(aLogIn.this, cOrgDashboard.class);
+            Intent intent = new Intent(aLogIn.this, cOrgCreateOpportunityPost.class);
             startActivity(intent);
         }
 
