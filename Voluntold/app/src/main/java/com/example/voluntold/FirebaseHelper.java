@@ -127,7 +127,7 @@ public class FirebaseHelper {
     }
 
     private void addPost(OrgPost o, FirestoreCallback firestoreCallback) {
-        db.collection(uid).document("User Info: " + uid).collection("myPosts")
+        db.collection(uid).document("UserInfo: " + uid).collection("myPosts")
                 .add(o)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -245,6 +245,9 @@ public class FirebaseHelper {
         return accountType;
     }
 
+    public static String getUid() {
+        return uid;
+    }
 
     public interface FirestoreCallback {
         void onCallBack(UserInfo userInfo);
