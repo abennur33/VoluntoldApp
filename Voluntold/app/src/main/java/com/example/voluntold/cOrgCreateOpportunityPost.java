@@ -2,6 +2,7 @@ package com.example.voluntold;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,7 +12,6 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
     private String title, body;
     private int month, day, year;
     private EditText titleET, bodyET, monthET, dayET, yearET;
-    public static FirebaseHelper firebaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +32,13 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
         day = Integer.parseInt(dayET.getText().toString());
         year = Integer.parseInt(yearET.getText().toString());
 
-        String uid = firebaseHelper.getmAuth().getUid();
+        String uid = aLogIn.firebaseHelper.getUid();
 
         OrgPost orgPost = new OrgPost(uid, title, month, day, year, body);
 
-        firebaseHelper.addPost(orgPost);
+        aLogIn.firebaseHelper.addPost(orgPost);
+
+        Intent intent = new Intent(cOrgCreateOpportunityPost.this, cOrgDashboard.class);
+        startActivity(intent);
     }
 }
