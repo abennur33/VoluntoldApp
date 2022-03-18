@@ -94,4 +94,9 @@ public class OrgPost {
     public void addVolunteer(String uid) {
         volunteers.add(uid);
     }
+
+    @Override
+    public String toString() {
+        return title + "on " + month + "/" + date + "/" + year;
+    }
 }
