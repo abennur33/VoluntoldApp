@@ -4,7 +4,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.firebase.ui.auth.data.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -13,12 +12,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class FirebaseHelper {
 
@@ -74,7 +70,7 @@ public class FirebaseHelper {
                 }
 
                 @Override
-                public void onCallBack(ArrayList<Organization> allOrgs) {
+                public void onCallBack(ArrayList<OrgPost> allOrgs) {
 
                 }
             });
@@ -130,7 +126,7 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<Organization> allOrgs) {
+            public void onCallBack(ArrayList<OrgPost> allOrgs) {
 
             }
         });
@@ -178,7 +174,7 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<Organization> allOrgs) {
+            public void onCallBack(ArrayList<OrgPost> allOrgs) {
 
             }
 
@@ -272,6 +268,7 @@ public class FirebaseHelper {
     }
     public ArrayList<OrgPost> getAllPosts() {
         ArrayList<Organization> allOrgs = new ArrayList<>();
+        ArrayList<OrgPost> allPosts = new ArrayList<>();
         allOrgs = getAllOrgs(new FirestoreCallback() {
             @Override
             public void onCallBack(UserInfo userInfo) {
@@ -289,17 +286,58 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<Organization> allOrgs) {
+            public void onCallBack(ArrayList<OrgPost> allOrgs) {
 
             }
         });
 
         for(Organization o: allOrgs) {
+            allPosts.addAll(getPostsbyOrg(o.getOrgID(), new FirestoreCallback() {
+                @Override
+                public void onCallBack(UserInfo userInfo) {
 
+                }
+
+                @Override
+                public void onCallBack(Organization organization) {
+
+                }
+
+                @Override
+                public void onCallBack(OrgPost orgPost) {
+
+                }
+
+                @Override
+                public void onCallBack(ArrayList<OrgPost> allOrgs) {
+
+                }
+            }));
         }
+
+        return allPosts;
     }
 
-    private OrgPost getPostbyOrg
+    private ArrayList<OrgPost> getPostsbyOrg(String orgID, FirestoreCallback firestoreCallback) {
+        ArrayList<OrgPost> posts = new ArrayList<>();
+
+        db.collection(orgID). document("UserInfo: " + orgID).collection("myPosts")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for(DocumentSnapshot doc: task.getResult()) {
+                                posts.add(doc.toObject(OrgPost.class));
+                            }
+                            Log.i(TAG, "success reading all data ");
+                            firestoreCallback.onCallBack(posts);
+                        }
+                    }
+                });
+
+        return posts;
+    }
 
     public UserInfo getUserInfo()
     {
@@ -320,6 +358,7 @@ public class FirebaseHelper {
         void onCallBack(Organization organization);
         void onCallBack(OrgPost orgPost);
         void onCallBack(ArrayList<Organization> allOrgs);
+        void onCallBack(ArrayList<OrgPost> posts);
     }
 
 
