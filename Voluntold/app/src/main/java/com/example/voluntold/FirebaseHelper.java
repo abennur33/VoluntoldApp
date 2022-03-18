@@ -72,6 +72,11 @@ public class FirebaseHelper {
                 public void onCallBack(OrgPost orgPost) {
 
                 }
+
+                @Override
+                public void onCallBack(ArrayList<Organization> allOrgs) {
+
+                }
             });
         }
         else {
@@ -123,6 +128,11 @@ public class FirebaseHelper {
             public void onCallBack(OrgPost orgPost) {
 
             }
+
+            @Override
+            public void onCallBack(ArrayList<Organization> allOrgs) {
+
+            }
         });
     }
 
@@ -164,6 +174,11 @@ public class FirebaseHelper {
 
             @Override
             public void onCallBack(OrgPost orgPost) {
+
+            }
+
+            @Override
+            public void onCallBack(ArrayList<Organization> allOrgs) {
 
             }
 
@@ -235,6 +250,57 @@ public class FirebaseHelper {
     }
 
 
+    private ArrayList<Organization> getAllOrgs(FirestoreCallback firestoreCallback) {
+        ArrayList<Organization> allOrgs = new ArrayList<>();
+
+        db.collection("Organizations")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for(DocumentSnapshot doc: task.getResult()) {
+                                allOrgs.add(doc.toObject(Organization.class));
+                            }
+                            Log.i(TAG, "success reading all data ");
+                            firestoreCallback.onCallBack(allOrgs);
+                        }
+                    }
+                });
+
+        return allOrgs;
+    }
+    public ArrayList<OrgPost> getAllPosts() {
+        ArrayList<Organization> allOrgs = new ArrayList<>();
+        allOrgs = getAllOrgs(new FirestoreCallback() {
+            @Override
+            public void onCallBack(UserInfo userInfo) {
+
+            }
+
+            @Override
+            public void onCallBack(Organization organization) {
+
+            }
+
+            @Override
+            public void onCallBack(OrgPost orgPost) {
+
+            }
+
+            @Override
+            public void onCallBack(ArrayList<Organization> allOrgs) {
+
+            }
+        });
+
+        for(Organization o: allOrgs) {
+
+        }
+    }
+
+    private OrgPost getPostbyOrg
+
     public UserInfo getUserInfo()
     {
         return myInfo;
@@ -253,6 +319,7 @@ public class FirebaseHelper {
         void onCallBack(UserInfo userInfo);
         void onCallBack(Organization organization);
         void onCallBack(OrgPost orgPost);
+        void onCallBack(ArrayList<Organization> allOrgs);
     }
 
 
