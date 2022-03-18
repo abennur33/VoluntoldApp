@@ -7,7 +7,7 @@
     tools:context=".OpportunitiesView">
 
     <ListView
-        android:id="@+id/posts"
+        android:id="@+id/postView"
         android:layout_width="413dp"
         android:layout_height="523dp"
         android:layout_marginTop="18dp"
