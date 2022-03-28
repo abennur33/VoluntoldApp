@@ -21,7 +21,7 @@ public class OpportunitiesView extends AppCompatActivity {
         setContentView(R.layout.opportunities_view);
 
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-        postList = aMainActivity.firebaseHelper.();
+        postList = aMainActivity.firebaseHelper.getAllPosts();
         Intent intent = getIntent();
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
@@ -38,7 +38,9 @@ public class OpportunitiesView extends AppCompatActivity {
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
-                intent.putExtra("ITEM_TO_EDIT", postList.get(i));
+
                 startActivity(intent);
+            }
+        });
     }
 }

@@ -15,6 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class FirebaseHelper {
 
@@ -70,7 +72,12 @@ public class FirebaseHelper {
                 }
 
                 @Override
-                public void onCallBack(ArrayList<OrgPost> allOrgs) {
+                public void onCallBack(ArrayList<Organization> allOrgs) {
+
+                }
+
+                @Override
+                public void OnCallBack(ArrayList<OrgPost> posts) {
 
                 }
             });
@@ -126,7 +133,12 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<OrgPost> allOrgs) {
+            public void onCallBack(ArrayList<Organization> allOrgs) {
+
+            }
+
+            @Override
+            public void OnCallBack(ArrayList<OrgPost> posts) {
 
             }
         });
@@ -174,7 +186,12 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<OrgPost> allOrgs) {
+            public void onCallBack(ArrayList<Organization> allOrgs) {
+
+            }
+
+            @Override
+            public void OnCallBack(ArrayList<OrgPost> posts) {
 
             }
 
@@ -286,7 +303,12 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<OrgPost> allOrgs) {
+            public void onCallBack(ArrayList<Organization> allOrgs) {
+
+            }
+
+            @Override
+            public void OnCallBack(ArrayList<OrgPost> posts) {
 
             }
         });
@@ -309,7 +331,12 @@ public class FirebaseHelper {
                 }
 
                 @Override
-                public void onCallBack(ArrayList<OrgPost> allOrgs) {
+                public void onCallBack(ArrayList<Organization> allOrgs) {
+
+                }
+
+                @Override
+                public void OnCallBack(ArrayList<OrgPost> posts) {
 
                 }
             }));
@@ -318,7 +345,7 @@ public class FirebaseHelper {
         return allPosts;
     }
 
-    private ArrayList<OrgPost> getPostsbyOrg(String orgID, FirestoreCallback firestoreCallback) {
+    public ArrayList<OrgPost> getPostsbyOrg(String orgID, FirestoreCallback firestoreCallback) {
         ArrayList<OrgPost> posts = new ArrayList<>();
 
         db.collection(orgID). document("UserInfo: " + orgID).collection("myPosts")
@@ -328,10 +355,15 @@ public class FirebaseHelper {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
-                                posts.add(doc.toObject(OrgPost.class));
+                                OrgPost post = doc.toObject(OrgPost.class);
+                                Date currentdate = new Date();
+                                Date postDate = new Date(post.getYear(), post.getMonth() - 1, post.getDate());
+                                if(postDate.after(currentdate)) {
+                                    posts.add(post);
+                                }
                             }
                             Log.i(TAG, "success reading all data ");
-                            firestoreCallback.onCallBack(posts);
+                            firestoreCallback.OnCallBack(posts);
                         }
                     }
                 });
@@ -358,7 +390,7 @@ public class FirebaseHelper {
         void onCallBack(Organization organization);
         void onCallBack(OrgPost orgPost);
         void onCallBack(ArrayList<Organization> allOrgs);
-        void onCallBack(ArrayList<OrgPost> posts);
+        void OnCallBack(ArrayList<OrgPost> posts);
     }
 
 

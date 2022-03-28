@@ -35,6 +35,16 @@ public class OrgPost {
         this.maxVolunteers = maxVolunteers;
     }
 
+    public OrgPost() {
+        this.orgID = "noOrg";
+        this.title = "noTitle";
+        this.month = 0;
+        this.date = 0;
+        this.year = 0;
+        this.body = "noBody";
+        this.maxVolunteers = 0;
+    }
+
     public String getOrgID() {
         return orgID;
     }
