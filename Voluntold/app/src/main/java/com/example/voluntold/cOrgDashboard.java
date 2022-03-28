@@ -18,13 +18,16 @@ public class cOrgDashboard extends AppCompatActivity {
     private ArrayList<OrgPost> postList;
 
     private FirebaseAuth mAuth;
+    private FirebaseHelper.FirestoreCallback FirestoreCallback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.opportunities_view);
 
+        mAuth = FirebaseAuth.getInstance();
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-        postList = aMainActivity.firebaseHelper.();
+        postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid(), FirestoreCallback);
         Intent intent = getIntent();
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
@@ -37,14 +40,13 @@ public class cOrgDashboard extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(OpportunitiesView.this, OpportunityPost.class);
+                Intent intent = new Intent(cOrgDashboard.this, OpportunityPost.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
-                intent.putExtra("ITEM_TO_EDIT", postList.get(i));
                 startActivity(intent);
             }
-        mAuth = FirebaseAuth.getInstance();
+        }
     }
 
     public void signOut(View v) {
