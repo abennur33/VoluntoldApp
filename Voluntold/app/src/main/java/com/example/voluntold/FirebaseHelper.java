@@ -70,7 +70,12 @@ public class FirebaseHelper {
                 }
 
                 @Override
-                public void onCallBack(ArrayList<OrgPost> allOrgs) {
+                public void onCallBack(ArrayList<Organization> allOrgs) {
+
+                }
+
+                @Override
+                public void OnCallBack(ArrayList<OrgPost> posts) {
 
                 }
             });
@@ -126,7 +131,12 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<OrgPost> allOrgs) {
+            public void onCallBack(ArrayList<Organization> allOrgs) {
+
+            }
+
+            @Override
+            public void OnCallBack(ArrayList<OrgPost> posts) {
 
             }
         });
@@ -174,7 +184,12 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<OrgPost> allOrgs) {
+            public void onCallBack(ArrayList<Organization> allOrgs) {
+
+            }
+
+            @Override
+            public void OnCallBack(ArrayList<OrgPost> posts) {
 
             }
 
@@ -286,7 +301,12 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<OrgPost> allOrgs) {
+            public void onCallBack(ArrayList<Organization> allOrgs) {
+
+            }
+
+            @Override
+            public void OnCallBack(ArrayList<OrgPost> posts) {
 
             }
         });
@@ -309,7 +329,12 @@ public class FirebaseHelper {
                 }
 
                 @Override
-                public void onCallBack(ArrayList<OrgPost> allOrgs) {
+                public void onCallBack(ArrayList<Organization> allOrgs) {
+
+                }
+
+                @Override
+                public void OnCallBack(ArrayList<OrgPost> posts) {
 
                 }
             }));
@@ -331,7 +356,7 @@ public class FirebaseHelper {
                                 posts.add(doc.toObject(OrgPost.class));
                             }
                             Log.i(TAG, "success reading all data ");
-                            firestoreCallback.onCallBack(posts);
+                            firestoreCallback.OnCallBack(posts);
                         }
                     }
                 });
@@ -358,7 +383,7 @@ public class FirebaseHelper {
         void onCallBack(Organization organization);
         void onCallBack(OrgPost orgPost);
         void onCallBack(ArrayList<Organization> allOrgs);
-        void onCallBack(ArrayList<OrgPost> posts);
+        void OnCallBack(ArrayList<OrgPost> posts);
     }
 
 

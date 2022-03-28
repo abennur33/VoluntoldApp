@@ -38,9 +38,18 @@ public class UserInfo implements Parcelable {
         school = parcel.readString();
         organizationName = parcel.readString();
         age = parcel.readInt();
-
     }
 
+    public UserInfo() {
+        name = "noName";
+        email = "noEmail";
+        password = "noPassword";
+        uid = "noID";
+        accountType = "noType";
+        school = "noSchool";
+        organizationName = "noOrg";
+        age = 0;
+    }
 
     @Override
     public int describeContents() {
@@ -81,20 +90,6 @@ public class UserInfo implements Parcelable {
         this.allOpportunities = null;
     }
 
-
-
-    public UserInfo() {
-        this.name = "";
-        this.email = "";
-        this.password = "";
-        this.uid = "";
-        this.accountType = "";
-        this.school = "";
-        this.organizationName = "";
-        this.age = 0;
-        this.allPosts = null;
-        this.allOpportunities = null;
-    }
 
     public String toString() {
         return name + ", " + email + ", " + password + ", " + uid + ", " + accountType;

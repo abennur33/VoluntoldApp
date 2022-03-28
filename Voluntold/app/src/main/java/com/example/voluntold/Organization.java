@@ -9,6 +9,11 @@ public class Organization {
         this.orgID = orgID;
     }
 
+    public Organization() {
+        this.name = "noname";
+        this.orgID = "noOrg";
+    }
+
     public String getName() {
         return name;
     }
