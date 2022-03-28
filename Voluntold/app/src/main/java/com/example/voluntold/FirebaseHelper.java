@@ -343,7 +343,7 @@ public class FirebaseHelper {
         return allPosts;
     }
 
-    private ArrayList<OrgPost> getPostsbyOrg(String orgID, FirestoreCallback firestoreCallback) {
+    public ArrayList<OrgPost> getPostsbyOrg(String orgID, FirestoreCallback firestoreCallback) {
         ArrayList<OrgPost> posts = new ArrayList<>();
 
         db.collection(orgID). document("UserInfo: " + orgID).collection("myPosts")
@@ -353,6 +353,8 @@ public class FirebaseHelper {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
+                                OrgPost post = doc.toObject(OrgPost.class);
+                                Date
                                 posts.add(doc.toObject(OrgPost.class));
                             }
                             Log.i(TAG, "success reading all data ");
