@@ -15,6 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class FirebaseHelper {
 
@@ -354,8 +356,11 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 OrgPost post = doc.toObject(OrgPost.class);
-                                Date
-                                posts.add(doc.toObject(OrgPost.class));
+                                Date currentdate = new Date();
+                                Date postDate = new Date(post.getYear(), post.getMonth() - 1, post.getDate());
+                                if(postDate.after(currentdate)) {
+                                    posts.add(post);
+                                }
                             }
                             Log.i(TAG, "success reading all data ");
                             firestoreCallback.OnCallBack(posts);
