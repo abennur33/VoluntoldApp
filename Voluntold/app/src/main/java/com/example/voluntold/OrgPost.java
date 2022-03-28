@@ -95,6 +95,11 @@ public class OrgPost {
         volunteers.add(uid);
     }
 
+    public void decrementMaxVolunteers()
+    {
+        maxVolunteers -= 1;
+    }
+
     @Override
     public String toString() {
         return title + "on " + month + "/" + date + "/" + year;

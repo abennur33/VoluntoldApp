@@ -23,9 +23,9 @@
         android:layout_marginTop="102dp"
         android:layout_marginEnd="197dp"
         android:rotation="90"
-        app:layout_constraintBottom_toTopOf="@+id/button15"
+        app:layout_constraintBottom_toTopOf="@+id/goToOrgButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView34"
+        app:layout_constraintTop_toTopOf="@+id/postTitleTV"
         app:srcCompat="@drawable/line" />
 
     <ImageView
@@ -35,9 +35,9 @@
         android:layout_marginStart="172dp"
         android:layout_marginTop="102dp"
         android:rotation="90"
-        app:layout_constraintBottom_toTopOf="@+id/button15"
+        app:layout_constraintBottom_toTopOf="@+id/goToOrgButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView34"
+        app:layout_constraintTop_toTopOf="@+id/postTitleTV"
         app:srcCompat="@drawable/line" />
 
     <ImageView
@@ -61,7 +61,7 @@
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/postTitleTV"
         android:layout_width="266dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/postDateTV"
         android:layout_width="266dp"
         android:layout_height="50dp"
         android:layout_marginEnd="72dp"
@@ -85,10 +85,10 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+        app:layout_constraintTop_toBottomOf="@+id/postTitleTV" />
 
     <TextView
-        android:id="@+id/textView48"
+        android:id="@+id/contentOfPostTV"
         android:layout_width="310dp"
         android:layout_height="341dp"
         android:layout_marginTop="30dp"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/goToOrgButton"
         android:layout_width="147dp"
         android:layout_height="60dp"
         android:layout_marginBottom="20dp"
