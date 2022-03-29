@@ -40,6 +40,7 @@ public class OpportunityPost extends AppCompatActivity {
         clickedOrgPost.decrementMaxVolunteers();
 
         Intent intent = new Intent(OpportunityPost.this, bVolDashboard.class);
+        startActivity(intent);
 
     }
 }
