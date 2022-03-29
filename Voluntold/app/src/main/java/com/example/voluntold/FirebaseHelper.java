@@ -275,7 +275,7 @@ public class FirebaseHelper {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 allOrgs.add(doc.toObject(Organization.class));
                             }
-                            Log.i(TAG, "success reading all data ");
+                            Log.i(TAG, "success grabbing orgs");
                             firestoreCallback.onCallBack(allOrgs);
                         }
                     }
@@ -314,6 +314,7 @@ public class FirebaseHelper {
         });
 
         for(Organization o: allOrgs) {
+            Log.i(TAG, o.getName());
             allPosts.addAll(getPostsbyOrg(o.getOrgID(), new FirestoreCallback() {
                 @Override
                 public void onCallBack(UserInfo userInfo) {
@@ -356,15 +357,18 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 OrgPost post = doc.toObject(OrgPost.class);
-                                Date currentdate = new Date();
-                                Date postDate = new Date(post.getYear(), post.getMonth() - 1, post.getDate());
-                                if(postDate.after(currentdate)) {
+                                //Date currentdate = new Date();
+                                //Date postDate = new Date(post.getYear(), post.getMonth() - 1, post.getDate());
+                                /*if(postDate.after(currentdate)) {
                                     posts.add(post);
                                 }
+                                 */
+                                posts.add(post);
                             }
-                            Log.i(TAG, "success reading all data ");
+                            Log.i(TAG, "success getting post");
                             firestoreCallback.OnCallBack(posts);
                         }
+                        else Log.i(TAG, "failed to grab post");
                     }
                 });
 

@@ -112,6 +112,6 @@ public class OrgPost {
 
     @Override
     public String toString() {
-        return title + "on " + month + "/" + date + "/" + year;
+        return getTitle() + "on " + getMonth() + "/" + getDate() + "/" + getYear();
     }
 }

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class OpportunitiesView extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
+    private ArrayList<String> titles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +22,10 @@ public class OpportunitiesView extends AppCompatActivity {
         setContentView(R.layout.opportunities_view);
 
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-        postList = aMainActivity.firebaseHelper.getAllPosts();
+        //postList = aMainActivity.firebaseHelper.getAllPosts();
         Intent intent = getIntent();
+
+        postList = aMainActivity.firebaseHelper.getAllPosts();
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, postList);
