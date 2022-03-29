@@ -46,7 +46,7 @@ public class cOrgDashboard extends AppCompatActivity {
                 // In this case, it is sending the particular WishListItem object
                 startActivity(intent);
             }
-        }
+        });
     }
 
     public void signOut(View v) {
