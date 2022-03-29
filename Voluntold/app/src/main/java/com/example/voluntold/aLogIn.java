@@ -39,7 +39,7 @@ public class aLogIn extends AppCompatActivity {
         emailET = findViewById(R.id.emailTV);
         passwordET = findViewById(R.id.passwordTV);
 
-        currUserInfo = aMainActivity.firebaseHelper.getUserInfo();
+        //currUserInfo = aMainActivity.firebaseHelper.getUserInfo();
 
 
     }
