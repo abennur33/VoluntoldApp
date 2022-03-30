@@ -25,7 +25,7 @@ public class OpportunityPost extends AppCompatActivity {
         TextView displayContentTV = findViewById(R.id.contentOfPostTV);
 
         displayTitleTV.setText(clickedOrgPost.getTitle());
-        displayDateTV.setText(clickedOrgPost.getDate());
+        displayDateTV.setText(clickedOrgPost.getMonth() + "-" + clickedOrgPost.getDate() + "-" + clickedOrgPost.getYear());
         displayContentTV.setText(clickedOrgPost.getBody());
     }
 
@@ -35,7 +35,9 @@ public class OpportunityPost extends AppCompatActivity {
                 aMainActivity.firebaseHelper.getmAuth().getUid(), clickedOrgPost.getTitle(), clickedOrgPost.getMonth(),
                 clickedOrgPost.getDate(), clickedOrgPost.getYear());
 
-        aMainActivity.firebaseHelper.getUserInfo().addVolOpportunity(volOpportunity);
+        UserInfo userInfoObjOfCurUser = aMainActivity.firebaseHelper.getUserInfo();
+
+        userInfoObjOfCurUser.addVolOpportunity(volOpportunity);
 
         clickedOrgPost.decrementMaxVolunteers();
 
