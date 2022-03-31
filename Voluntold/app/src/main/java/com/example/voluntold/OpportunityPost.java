@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 public class OpportunityPost extends AppCompatActivity {
 
     OrgPost clickedOrgPost;
+    String TAG = "Abhi";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class OpportunityPost extends AppCompatActivity {
                 clickedOrgPost.getDate(), clickedOrgPost.getYear());
 
         UserInfo userInfoObjOfCurUser = aMainActivity.firebaseHelper.getUserInfo();
+        // Log.i(TAG, userInfoObjOfCurUser.toString());
 
         userInfoObjOfCurUser.addVolOpportunity(volOpportunity);
 

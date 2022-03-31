@@ -23,7 +23,7 @@ public class cOrgDashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opportunities_view);
+        setContentView(R.layout.activity_org_dashboard);
 
         mAuth = FirebaseAuth.getInstance();
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
