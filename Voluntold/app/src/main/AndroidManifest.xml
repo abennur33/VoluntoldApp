@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Voluntold"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".OpportunitiesView"
+            android:name=".bDiscoverOpportunities"
             android:exported="false" />
         <activity
             android:name=".OpportunityPost"
