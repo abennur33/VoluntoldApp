@@ -26,6 +26,8 @@ public class FirebaseHelper {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
+    private ArrayList<Organization> allOrgs = new ArrayList<>();
+
     private UserInfo myInfo;
 
     private String accountType;
@@ -58,7 +60,7 @@ public class FirebaseHelper {
             readData(new FirestoreCallback() {
                 @Override
                 public void onCallBack(UserInfo userInfo) {
-                    Log.i(TAG, "Inside attachReadDataToUser, onCallBack");
+
                 }
 
                 @Override
@@ -72,7 +74,7 @@ public class FirebaseHelper {
                 }
 
                 @Override
-                public void onCallBack(ArrayList<Organization> allOrgs) {
+                public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
 
                 }
 
@@ -133,7 +135,7 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<Organization> allOrgs) {
+            public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
 
             }
 
@@ -186,7 +188,7 @@ public class FirebaseHelper {
             }
 
             @Override
-            public void onCallBack(ArrayList<Organization> allOrgs) {
+            public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
 
             }
 
@@ -263,8 +265,8 @@ public class FirebaseHelper {
     }
 
 
-    private ArrayList<Organization> getAllOrgs(FirestoreCallback firestoreCallback) {
-        ArrayList<Organization> allOrgs = new ArrayList<>();
+    private void getAllOrgs(OrganizationCallback organizationCallback) {
+
 
         db.collection("Organizations")
                 .get()
@@ -273,45 +275,28 @@ public class FirebaseHelper {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
+                                Log.i(TAG, doc.getData().toString());
                                 allOrgs.add(doc.toObject(Organization.class));
                             }
                             Log.i(TAG, "success grabbing orgs");
-                            firestoreCallback.onCallBack(allOrgs);
+                            Log.i(TAG, allOrgs.toString());
+                            organizationCallback.onCallBackOrgs(allOrgs);
                         }
                     }
                 });
-
-        return allOrgs;
+        Log.i(TAG, "returning form getallorgs" + allOrgs.toString());
     }
+
     public ArrayList<OrgPost> getAllPosts() {
-        ArrayList<Organization> allOrgs = new ArrayList<>();
         ArrayList<OrgPost> allPosts = new ArrayList<>();
-        allOrgs = getAllOrgs(new FirestoreCallback() {
+        getAllOrgs(new OrganizationCallback() {
             @Override
-            public void onCallBack(UserInfo userInfo) {
-
-            }
-
-            @Override
-            public void onCallBack(Organization organization) {
-
-            }
-
-            @Override
-            public void onCallBack(OrgPost orgPost) {
-
-            }
-
-            @Override
-            public void onCallBack(ArrayList<Organization> allOrgs) {
-
-            }
-
-            @Override
-            public void OnCallBack(ArrayList<OrgPost> posts) {
+            public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
 
             }
         });
+
+        Log.i(TAG, "before loop" + allOrgs.toString());
 
         for(Organization o: allOrgs) {
             Log.i(TAG, o.getName());
@@ -332,7 +317,7 @@ public class FirebaseHelper {
                 }
 
                 @Override
-                public void onCallBack(ArrayList<Organization> allOrgs) {
+                public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
 
                 }
 
@@ -393,11 +378,13 @@ public class FirebaseHelper {
         void onCallBack(UserInfo userInfo);
         void onCallBack(Organization organization);
         void onCallBack(OrgPost orgPost);
-        void onCallBack(ArrayList<Organization> allOrgs);
+        void onCallBackOrgs(ArrayList<Organization> allOrgs);
         void OnCallBack(ArrayList<OrgPost> posts);
     }
 
-
+    public interface OrganizationCallback {
+        void onCallBackOrgs(ArrayList<Organization> allOrgs);
+    }
 
 
 }
