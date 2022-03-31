@@ -1,8 +1,11 @@
 package com.example.voluntold;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class OrgPost {
+public class OrgPost implements Parcelable {
     public String orgID;
 
     private String title;
@@ -15,6 +18,47 @@ public class OrgPost {
 
     private int maxVolunteers;
     private ArrayList<String> volunteers = new ArrayList<>();
+
+    public static final Parcelable.Creator<OrgPost> CREATOR = new Parcelable.Creator<OrgPost>() {
+
+        @Override
+        public OrgPost createFromParcel(Parcel parcel) {
+            return new OrgPost(parcel);
+        }
+
+        @Override
+        public OrgPost[] newArray(int size) {
+            return new OrgPost[0];
+        }
+    };
+
+    public OrgPost(Parcel parcel) {
+        orgID = parcel.readString();
+        title = parcel.readString();
+        month = parcel.readInt();
+        date = parcel.readInt();
+        year = parcel.readInt();
+        maxVolunteers = parcel.readInt();
+        volunteers = parcel.readArrayList(null);
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel dest, int i) {
+        dest.writeString(orgID);
+        dest.writeString(title);
+        dest.writeInt(month);
+        dest.writeInt(date);
+        dest.writeInt(year);
+        dest.writeInt(maxVolunteers);
+        dest.writeList(volunteers);
+
+    }
+
 
     public OrgPost(String orgID, String title, int month, int date, int year, String body) {
         this.orgID = orgID;
