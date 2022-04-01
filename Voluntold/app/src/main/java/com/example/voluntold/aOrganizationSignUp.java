@@ -93,4 +93,9 @@ public class aOrganizationSignUp extends AppCompatActivity {
                     });
         }
     }
+
+    public void goBack(View v) {
+        Intent intent = new Intent(this, aSignUp.class);
+        startActivity(intent);
+    }
 }

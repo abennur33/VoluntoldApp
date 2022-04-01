@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".aOrganizationSignUp">
 
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="43dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="6dp"
+        android:onClick="goBack"
+        app:layout_constraintEnd_toStartOf="@+id/textView21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
     <EditText
         android:id="@+id/newOrgPasswordET"
         android:layout_width="242dp"

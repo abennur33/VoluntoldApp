@@ -66,6 +66,7 @@
         android:layout_marginStart="17dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="60dp"
+        android:onClick="toVolunteerInfo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView4"

@@ -46,4 +46,9 @@ public class bDiscoverOpportunities extends AppCompatActivity {
             }
         });
     }
+
+    public void goBack(View v) {
+        Intent intent = new Intent(this, bVolDashboard.class);
+        startActivity(intent);
+    }
 }
