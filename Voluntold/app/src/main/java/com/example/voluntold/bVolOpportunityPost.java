@@ -1,14 +1,13 @@
 package com.example.voluntold;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class OpportunityPost extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class bVolOpportunityPost extends AppCompatActivity {
 
     OrgPost clickedOrgPost;
     String TAG = "Abhi";
@@ -44,7 +43,7 @@ public class OpportunityPost extends AppCompatActivity {
 
         clickedOrgPost.decrementMaxVolunteers();
 
-        Intent intent = new Intent(OpportunityPost.this, bVolDashboard.class);
+        Intent intent = new Intent(bVolOpportunityPost.this, bVolDashboard.class);
         startActivity(intent);
 
     }

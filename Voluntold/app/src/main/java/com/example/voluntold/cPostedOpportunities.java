@@ -13,9 +13,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class bSavedOpportunities extends AppCompatActivity {
+public class cPostedOpportunities extends AppCompatActivity {
 
-    private ArrayList<VolOpportunity> oppList;
+    private ArrayList<OrgPost> postList;
 
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
@@ -23,15 +23,15 @@ public class bSavedOpportunities extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.volunteer_discover_opportunities);
+        setContentView(R.layout.activity_org_dashboard);
 
         mAuth = FirebaseAuth.getInstance();
-        // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-//        postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid(), FirestoreCallback);
+         //NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
+        postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid(), (FirebaseHelper.PostCallback) FirestoreCallback);
         Intent intent = getIntent();
 
-        ArrayAdapter<VolOpportunity> listAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, oppList);
+        ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, postList);
         // may change simple_list_item_1 to custom ListView layout
 
         ListView listView = (ListView) findViewById(R.id.postView);
@@ -40,12 +40,18 @@ public class bSavedOpportunities extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(bSavedOpportunities.this, cOrgOpportunityPost.class);
+                Intent intent = new Intent(cPostedOpportunities.this, cOrgOpportunityPost.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
                 startActivity(intent);
             }
         });
+    }
+
+    public void signOut(View v) {
+        mAuth.signOut();
+        Intent p = new Intent(this, aMainActivity.class);
+        startActivity(p);
     }
 }

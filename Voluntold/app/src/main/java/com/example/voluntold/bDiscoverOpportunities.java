@@ -19,13 +19,13 @@ public class bDiscoverOpportunities extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opportunities_view);
+        setContentView(R.layout.volunteer_discover_opportunities);
 
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
         //postList = aMainActivity.firebaseHelper.getAllPosts();
         Intent intent = getIntent();
 
-        postList = aMainActivity.firebaseHelper.getAllPosts();
+        //postList = aMainActivity.firebaseHelper.getAllPosts();
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, postList);
@@ -37,7 +37,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(bDiscoverOpportunities.this, OpportunityPost.class);
+                Intent intent = new Intent(bDiscoverOpportunities.this, cOrgOpportunityPost.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object

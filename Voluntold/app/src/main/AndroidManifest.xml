@@ -14,7 +14,7 @@
             android:name=".bDiscoverOpportunities"
             android:exported="false" />
         <activity
-            android:name=".OpportunityPost"
+            android:name=".cOrgOpportunityPost"
             android:exported="false" />
         <activity
             android:name=".cOrgCreateOpportunityPost"
