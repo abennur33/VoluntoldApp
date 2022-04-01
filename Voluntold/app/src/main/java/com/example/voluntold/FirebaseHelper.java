@@ -15,8 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class FirebaseHelper {
 
@@ -27,6 +25,7 @@ public class FirebaseHelper {
     private FirebaseFirestore db;
 
     private ArrayList<Organization> allOrgs = new ArrayList<>();
+    private ArrayList<OrgPost> allPosts = new ArrayList<>();
 
     private UserInfo myInfo;
 
@@ -62,27 +61,23 @@ public class FirebaseHelper {
                 public void onCallBack(UserInfo userInfo) {
 
                 }
-
-                @Override
-                public void onCallBack(Organization organization) {
-
-                }
-
-                @Override
-                public void onCallBack(OrgPost orgPost) {
-
-                }
-
+            });
+            getAllOrgs(new OrganizationCallback() {
                 @Override
                 public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
 
                 }
-
-                @Override
-                public void OnCallBack(ArrayList<OrgPost> posts) {
-
-                }
             });
+
+            for(Organization o: allOrgs) {
+                Log.i(TAG, o.getName());
+                allPosts.addAll(getPostsbyOrg(o.getOrgID(), new PostCallback() {
+                    @Override
+                    public void onCallBackPosts(ArrayList<OrgPost> posts) {
+
+                    }
+                }));
+            }
         }
         else {
             Log.i(TAG, "No one is logged in");
@@ -123,26 +118,6 @@ public class FirebaseHelper {
             public void onCallBack(UserInfo userInfo) {
 
             }
-
-            @Override
-            public void onCallBack(Organization organization) {
-
-            }
-
-            @Override
-            public void onCallBack(OrgPost orgPost) {
-
-            }
-
-            @Override
-            public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
-
-            }
-
-            @Override
-            public void OnCallBack(ArrayList<OrgPost> posts) {
-
-            }
         });
     }
 
@@ -176,27 +151,6 @@ public class FirebaseHelper {
             public void onCallBack(UserInfo userInfo) {
 
             }
-
-            @Override
-            public void onCallBack(Organization organization) {
-
-            }
-
-            @Override
-            public void onCallBack(OrgPost orgPost) {
-
-            }
-
-            @Override
-            public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
-
-            }
-
-            @Override
-            public void OnCallBack(ArrayList<OrgPost> posts) {
-
-            }
-
         });
 
     }
@@ -266,7 +220,7 @@ public class FirebaseHelper {
 
 
     private void getAllOrgs(OrganizationCallback organizationCallback) {
-
+        allOrgs.clear();
 
         db.collection("Organizations")
                 .get()
@@ -287,51 +241,7 @@ public class FirebaseHelper {
         Log.i(TAG, "returning form getallorgs" + allOrgs.toString());
     }
 
-    public ArrayList<OrgPost> getAllPosts() {
-        ArrayList<OrgPost> allPosts = new ArrayList<>();
-        getAllOrgs(new OrganizationCallback() {
-            @Override
-            public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
-
-            }
-        });
-
-        Log.i(TAG, "before loop" + allOrgs.toString());
-
-        for(Organization o: allOrgs) {
-            Log.i(TAG, o.getName());
-            allPosts.addAll(getPostsbyOrg(o.getOrgID(), new FirestoreCallback() {
-                @Override
-                public void onCallBack(UserInfo userInfo) {
-
-                }
-
-                @Override
-                public void onCallBack(Organization organization) {
-
-                }
-
-                @Override
-                public void onCallBack(OrgPost orgPost) {
-
-                }
-
-                @Override
-                public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
-
-                }
-
-                @Override
-                public void OnCallBack(ArrayList<OrgPost> posts) {
-
-                }
-            }));
-        }
-
-        return allPosts;
-    }
-
-    public ArrayList<OrgPost> getPostsbyOrg(String orgID, FirestoreCallback firestoreCallback) {
+    public ArrayList<OrgPost> getPostsbyOrg(String orgID, PostCallback postCallback) {
         ArrayList<OrgPost> posts = new ArrayList<>();
 
         db.collection(orgID). document("UserInfo: " + orgID).collection("myPosts")
@@ -351,7 +261,7 @@ public class FirebaseHelper {
                                 posts.add(post);
                             }
                             Log.i(TAG, "success getting post");
-                            firestoreCallback.OnCallBack(posts);
+                            postCallback.onCallBackPosts(posts);
                         }
                         else Log.i(TAG, "failed to grab post");
                     }
@@ -374,17 +284,19 @@ public class FirebaseHelper {
         return uid;
     }
 
+    public ArrayList<OrgPost> getPosts() {
+        return allPosts;
+    }
+
     public interface FirestoreCallback {
         void onCallBack(UserInfo userInfo);
-        void onCallBack(Organization organization);
-        void onCallBack(OrgPost orgPost);
-        void onCallBackOrgs(ArrayList<Organization> allOrgs);
-        void OnCallBack(ArrayList<OrgPost> posts);
     }
 
     public interface OrganizationCallback {
         void onCallBackOrgs(ArrayList<Organization> allOrgs);
     }
 
-
+    public interface PostCallback {
+        void onCallBackPosts(ArrayList<OrgPost> posts);
+    }
 }
