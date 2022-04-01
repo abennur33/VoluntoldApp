@@ -23,7 +23,7 @@ public class bSavedOpportunities extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opportunities_view);
+        setContentView(R.layout.volunteer_discover_opportunities);
 
         mAuth = FirebaseAuth.getInstance();
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE

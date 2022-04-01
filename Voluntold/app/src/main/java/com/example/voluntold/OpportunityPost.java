@@ -46,6 +46,10 @@ public class OpportunityPost extends AppCompatActivity {
 
         Intent intent = new Intent(OpportunityPost.this, bVolDashboard.class);
         startActivity(intent);
+    }
 
+    public void goBack(View v) {
+        Intent intent = new Intent(this, bDiscoverOpportunities.class);
+        startActivity(intent);
     }
 }
