@@ -30,15 +30,11 @@ public class aMainActivity extends AppCompatActivity {
         //udpateIfLoggedIn();
     }
 
-    public void udpateIfLoggedIn(){
-        //FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
+    public void udpateIfLoggedIn() {
+        FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
 
-        if (firebaseHelper != null)
+        if (user != null)
         {
-            Intent intent = new Intent(aMainActivity.this, bVolDashboard.class);
-            startActivity(intent);
-        }
-        else {
             Intent intent = new Intent(aMainActivity.this, cOrgDashboard.class);
             startActivity(intent);
         }
