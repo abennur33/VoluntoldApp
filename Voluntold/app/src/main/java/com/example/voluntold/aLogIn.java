@@ -101,7 +101,7 @@ public class aLogIn extends AppCompatActivity {
                             }
                             else {
                                 //sign in failed
-                                Log.d(TAG, email + " failed to log in");
+                                Log.d(TAG, email + " failed to log in" + task.getException());
                             }
                         }
                     });

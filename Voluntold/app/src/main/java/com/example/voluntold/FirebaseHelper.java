@@ -62,26 +62,27 @@ public class FirebaseHelper {
 
                 }
             });
-            getAllOrgs(new OrganizationCallback() {
-                @Override
-                public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
-
-                }
-            });
-
-            for(Organization o: allOrgs) {
-                Log.i(TAG, o.getName());
-                allPosts.addAll(getPostsbyOrg(o.getOrgID(), new PostCallback() {
-                    @Override
-                    public void onCallBackPosts(ArrayList<OrgPost> posts) {
-
-                    }
-                }));
+//            getAllOrgs(new OrganizationCallback() {
+//                @Override
+//                public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
+//
+//                }
+//            });
+//
+//            for(Organization o: allOrgs) {
+//                Log.i(TAG, o.getName());
+//                allPosts.addAll(getPostsbyOrg(o.getOrgID(), new PostCallback() {
+//                    @Override
+//                    public void onCallBackPosts(ArrayList<OrgPost> posts) {
+//
+//                    }
+//                }));
+//            }
+//        }
+        }
+        else{
+                Log.i(TAG, "No one is logged in");
             }
-        }
-        else {
-            Log.i(TAG, "No one is logged in");
-        }
     }
 
     public void addUserToFirestore(String name, String email, String password, String uid, String accountType,
@@ -210,6 +211,7 @@ public class FirebaseHelper {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 myInfo = doc.toObject(UserInfo.class);
                                 accountType = myInfo.getAccountType();
+                                Log.i(TAG, accountType);
                             }
                             Log.i(TAG, "success reading all data ");
                             firestoreCallback.onCallBack(myInfo);
