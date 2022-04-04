@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,8 +16,10 @@ import java.util.ArrayList;
 
 public class cOrgDashboard extends AppCompatActivity {
 
+    private static final String TAG = "Josh";
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
+    public static FirebaseHelper firebaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,11 @@ public class cOrgDashboard extends AppCompatActivity {
     }
 
     public void signOut(View v) {
-        mAuth.signOut();
+        firebaseHelper.getmAuth().signOut();
+        firebaseHelper.updateUid(null);
+
+        Log.i(TAG, "user logged out");
+
         Intent p = new Intent(this, aMainActivity.class);
         startActivity(p);
     }

@@ -62,23 +62,22 @@ public class FirebaseHelper {
 
                 }
             });
-//            getAllOrgs(new OrganizationCallback() {
-//                @Override
-//                public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
-//
-//                }
-//            });
-//
-//            for(Organization o: allOrgs) {
-//                Log.i(TAG, o.getName());
-//                allPosts.addAll(getPostsbyOrg(o.getOrgID(), new PostCallback() {
-//                    @Override
-//                    public void onCallBackPosts(ArrayList<OrgPost> posts) {
-//
-//                    }
-//                }));
-//            }
-//        }
+            getAllOrgs(new OrganizationCallback() {
+                @Override
+                public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
+
+                }
+            });
+
+            for(Organization o: allOrgs) {
+                Log.i(TAG, o.getName());
+                allPosts.addAll(getPostsbyOrg(o.getOrgID(), new PostCallback() {
+                    @Override
+                    public void onCallBackPosts(ArrayList<OrgPost> posts) {
+
+                    }
+                }));
+            }
         }
         else{
                 Log.i(TAG, "No one is logged in");
