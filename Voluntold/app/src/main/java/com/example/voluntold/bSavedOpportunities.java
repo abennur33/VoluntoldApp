@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class bSavedOpportunities extends AppCompatActivity {
 
-    private ArrayList<VolOpportunity> oppList;
+    private ArrayList<VolOpportunity> postList;
 
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
@@ -31,7 +31,7 @@ public class bSavedOpportunities extends AppCompatActivity {
         Intent intent = getIntent();
 
         ArrayAdapter<VolOpportunity> listAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, oppList);
+                this, android.R.layout.simple_list_item_1, postList);
         // may change simple_list_item_1 to custom ListView layout
 
         ListView listView = (ListView) findViewById(R.id.postView);
