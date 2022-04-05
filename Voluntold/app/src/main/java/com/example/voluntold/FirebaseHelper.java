@@ -300,4 +300,9 @@ public class FirebaseHelper {
     public interface PostCallback {
         void onCallBackPosts(ArrayList<OrgPost> posts);
     }
+
+    public void clearAccType()
+    {
+        accountType = "";
+    }
 }
