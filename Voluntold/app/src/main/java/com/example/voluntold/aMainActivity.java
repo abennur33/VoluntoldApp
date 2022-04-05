@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ public class aMainActivity extends AppCompatActivity {
 
     public static FirebaseHelper firebaseHelper;
     private TextView testTV;
+    private static final String TAG = "Luis";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
