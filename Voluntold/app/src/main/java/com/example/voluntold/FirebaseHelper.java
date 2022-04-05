@@ -27,9 +27,7 @@ public class FirebaseHelper {
     private ArrayList<Organization> allOrgs = new ArrayList<>();
     private ArrayList<OrgPost> allPosts = new ArrayList<>();
 
-    private UserInfo myInfo;
-
-    private String accountType;
+    private UserInfo myInfo = new UserInfo();
 
     public FirebaseHelper()
     {
@@ -62,12 +60,15 @@ public class FirebaseHelper {
 
                 }
             });
+
             getAllOrgs(new OrganizationCallback() {
                 @Override
                 public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
 
                 }
             });
+
+            Log.i(TAG, mAuth.getCurrentUser().getEmail() + " test");
 
             for(Organization o: allOrgs) {
                 Log.i(TAG, o.getName());
@@ -209,8 +210,8 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 myInfo = doc.toObject(UserInfo.class);
-                                accountType = myInfo.getAccountType();
-                                Log.i(TAG, accountType);
+                                //accountType = myInfo.getAccountType();
+                                Log.i(TAG, myInfo.getAccountType());
                             }
                             Log.i(TAG, "success reading all data ");
                             firestoreCallback.onCallBack(myInfo);
@@ -276,10 +277,10 @@ public class FirebaseHelper {
         return myInfo;
     }
 
-    public String getAccountType()
-    {
-        return accountType;
-    }
+//    public String getAccountType()
+//    {
+//        return accountType;
+//    }
 
     public static String getUid() {
         return uid;
@@ -301,8 +302,8 @@ public class FirebaseHelper {
         void onCallBackPosts(ArrayList<OrgPost> posts);
     }
 
-    public void clearAccType()
-    {
-        accountType = "";
-    }
+//    public void clearAccType()
+//    {
+//        accountType = "";
+//    }
 }

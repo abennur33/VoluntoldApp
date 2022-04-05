@@ -23,7 +23,7 @@ public class bVolDashboard extends AppCompatActivity {
     public void signOut(View v) {
         mAuth.signOut();
         
-        aMainActivity.firebaseHelper.clearAccType();
+        aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
         aMainActivity.firebaseHelper.updateUid(null);
 
         Intent p = new Intent(this, aMainActivity.class);
