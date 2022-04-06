@@ -33,7 +33,7 @@ public class aMainActivity extends AppCompatActivity {
         udpateIfLoggedIn();
     }
 
-<<<<<<< HEAD
+
 //    public void updateIfLoggedIn() {
 //        FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
 //
@@ -43,7 +43,7 @@ public class aMainActivity extends AppCompatActivity {
 //            startActivity(intent);
 //        }
 //    }
-=======
+
     public void udpateIfLoggedIn() {
         FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
 
@@ -61,7 +61,6 @@ public class aMainActivity extends AppCompatActivity {
             }
         }
     }
->>>>>>> d7984b08ca8b14dbe190789c3a03079a2f8d7b42
 
     public void toSignUp(View v) {
         Intent intent = new Intent(aMainActivity.this, aSignUp.class);
