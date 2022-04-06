@@ -19,18 +19,20 @@ public class cOrgDashboard extends AppCompatActivity {
     private static final String TAG = "Josh";
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
-
+    public static FirebaseHelper firebaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_org_dashboard);
 
-        mAuth = aMainActivity.firebaseHelper.getmAuth();
+        mAuth = FirebaseAuth.getInstance();
     }
 
     public void signOut(View v) {
-        mAuth.signOut();
+        firebaseHelper.getmAuth().signOut();
+        firebaseHelper.updateUid(null);
+
         Log.i(TAG, "user logged out");
 
         Intent p = new Intent(this, aMainActivity.class);
