@@ -32,15 +32,15 @@ public class aMainActivity extends AppCompatActivity {
         //udpateIfLoggedIn();
     }
 
-    public void udpateIfLoggedIn() {
-        FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
-
-        if (user != null)
-        {
-            Intent intent = new Intent(aMainActivity.this, cOrgDashboard.class);
-            startActivity(intent);
-        }
-    }
+//    public void updateIfLoggedIn() {
+//        FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
+//
+//        if (user != null)
+//        {
+//            Intent intent = new Intent(aMainActivity.this, cOrgDashboard.class);
+//            startActivity(intent);
+//        }
+//    }
 
     public void toSignUp(View v) {
         Intent intent = new Intent(aMainActivity.this, aSignUp.class);
