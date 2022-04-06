@@ -30,10 +30,10 @@ public class aMainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly
-        udpateIfLoggedIn();
+        //updateIfLoggedIn();
     }
 
-    public void udpateIfLoggedIn() {
+    public void updateIfLoggedIn() {
         FirebaseUser user = firebaseHelper.getmAuth().getCurrentUser();
 
         if (user != null)

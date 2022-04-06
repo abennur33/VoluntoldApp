@@ -57,7 +57,7 @@ public class FirebaseHelper {
             readData(new FirestoreCallback() {
                 @Override
                 public void onCallBack(UserInfo userInfo) {
-
+                    Log.i(TAG, "Inside attachReadDataToUser, onCallback " + userInfo.getAccountType());
                 }
             });
 
@@ -69,6 +69,13 @@ public class FirebaseHelper {
             });
 
             Log.i(TAG, mAuth.getCurrentUser().getEmail() + " test");
+
+            if (myInfo != null) {
+                Log.i(TAG, "after" + myInfo.getAccountType());
+            }
+            else {
+                Log.i(TAG, "nobody logged in");
+            }
 
             for(Organization o: allOrgs) {
                 Log.i(TAG, o.getName());
@@ -213,8 +220,11 @@ public class FirebaseHelper {
                                 //accountType = myInfo.getAccountType();
                                 Log.i(TAG, myInfo.getAccountType());
                             }
-                            Log.i(TAG, "success reading all data ");
+                            Log.i(TAG, "success reading all data");
                             firestoreCallback.onCallBack(myInfo);
+                        }
+                        else {
+                            Log.d(TAG, "Error getting documents", task.getException());
                         }
                     }
                 });
