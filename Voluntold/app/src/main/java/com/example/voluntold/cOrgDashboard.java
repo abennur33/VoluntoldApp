@@ -30,10 +30,10 @@ public class cOrgDashboard extends AppCompatActivity {
     }
 
     public void signOut(View v) {
-        firebaseHelper.getmAuth().signOut();
-        firebaseHelper.updateUid(null);
+        mAuth.signOut();
 
-        Log.i(TAG, "user logged out");
+        aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
+        aMainActivity.firebaseHelper.updateUid(null);
 
         Intent p = new Intent(this, aMainActivity.class);
         startActivity(p);

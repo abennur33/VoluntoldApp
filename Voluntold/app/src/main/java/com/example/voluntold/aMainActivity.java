@@ -22,8 +22,6 @@ public class aMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         firebaseHelper = new FirebaseHelper();
-
-        testTV = findViewById(R.id.test);
     }
 
     @Override
