@@ -1,6 +1,9 @@
 package com.example.voluntold;
 
-public class VolOpportunity {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class VolOpportunity implements Parcelable {
     public String orgID;
     public String volID;
 
@@ -10,6 +13,51 @@ public class VolOpportunity {
     private int date;
     private int year;
 
+    public static final Parcelable.Creator<VolOpportunity> CREATOR = new Parcelable.Creator<VolOpportunity>() {
+
+        @Override
+        public VolOpportunity createFromParcel(Parcel parcel) {
+            return new VolOpportunity(parcel);
+        }
+
+        @Override
+        public VolOpportunity[] newArray(int size) {
+            return new VolOpportunity[0];
+        }
+    };
+
+    public VolOpportunity(Parcel parcel) {
+        orgID = parcel.readString();
+        volID = parcel.readString();
+        title = parcel.readString();
+        month = parcel.readInt();
+        date = parcel.readInt();
+        year = parcel.readInt();
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+
+    @Override
+    /**
+     * This is what is used when we send the Event object through an intent
+     * It is also a method that is part of the Parceable interface and is needed
+     * to set up the object that is being sent.  Then, when it is received, the
+     * other Event constructor that accepts a Parcel reference can "unpack it"
+     *
+     */
+    public void writeToParcel(Parcel dest, int i) {
+        dest.writeString(orgID);
+        dest.writeString(volID);
+        dest.writeString(title);
+        dest.writeInt(month);
+        dest.writeInt(date);
+        dest.writeInt(year);
+    }
     public VolOpportunity(String orgID, String volID, String title, int month, int date, int year) {
         this.orgID = orgID;
         this.volID = volID;
