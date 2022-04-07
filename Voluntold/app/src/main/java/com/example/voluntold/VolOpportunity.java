@@ -66,4 +66,8 @@ public class VolOpportunity {
     public void setYear(int year) {
         this.year = year;
     }
+
+    public String toString() {
+        return getTitle() + "on " + getMonth() + "/" + getDate() + "/" + getYear();
+    }
 }
