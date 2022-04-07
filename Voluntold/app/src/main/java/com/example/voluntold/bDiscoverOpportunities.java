@@ -22,10 +22,9 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         setContentView(R.layout.volunteer_discover_opportunities);
 
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-        //postList = aMainActivity.firebaseHelper.getAllPosts();
         Intent intent = getIntent();
 
-        //postList = aMainActivity.firebaseHelper.getAllPosts();
+        postList = aMainActivity.firebaseHelper.getPosts();
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, postList);

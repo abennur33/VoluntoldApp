@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class bSavedOpportunities extends AppCompatActivity {
 
-    private ArrayList<VolOpportunity> postList;
+    private ArrayList<OrgPost> postList;
 
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
@@ -27,10 +27,10 @@ public class bSavedOpportunities extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-//        postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid(), FirestoreCallback);
+        postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid());
         Intent intent = getIntent();
 
-        ArrayAdapter<VolOpportunity> listAdapter = new ArrayAdapter<>(
+        ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, postList);
         // may change simple_list_item_1 to custom ListView layout
 
