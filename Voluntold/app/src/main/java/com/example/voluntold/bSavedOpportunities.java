@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class bSavedOpportunities extends AppCompatActivity {
 
-    private ArrayList<OrgPost> postList;
+    private ArrayList<VolOpportunity> savedList;
 
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
@@ -27,11 +27,11 @@ public class bSavedOpportunities extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-        postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid());
+        savedList = aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities();
         Intent intent = getIntent();
 
-        ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, postList);
+        ArrayAdapter<VolOpportunity> listAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, savedList);
         // may change simple_list_item_1 to custom ListView layout
 
         ListView listView = (ListView) findViewById(R.id.postView);
@@ -44,7 +44,7 @@ public class bSavedOpportunities extends AppCompatActivity {
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
-                intent.putExtra("ITEM_TO_EDIT", postList.get(i));
+                intent.putExtra("ITEM_TO_EDIT", savedList.get(i));
                 startActivity(intent);
             }
         });
