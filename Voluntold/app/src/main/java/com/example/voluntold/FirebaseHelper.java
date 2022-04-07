@@ -253,7 +253,20 @@ public class FirebaseHelper {
         Log.i(TAG, "returning form getallorgs" + allOrgs.toString());
     }
 
-    public ArrayList<OrgPost> getPostsbyOrg(String orgID, PostCallback postCallback) {
+    public ArrayList<OrgPost> getPostsbyOrg(String orgID) {
+        ArrayList<OrgPost> posts = new ArrayList<>();
+
+        posts = getPostsbyOrg(orgID, new PostCallback() {
+            @Override
+            public void onCallBackPosts(ArrayList<OrgPost> posts) {
+
+            }
+        });
+
+        return posts;
+    }
+
+    private ArrayList<OrgPost> getPostsbyOrg(String orgID, PostCallback postCallback) {
         ArrayList<OrgPost> posts = new ArrayList<>();
 
         db.collection(orgID). document("UserInfo: " + orgID).collection("myPosts")
