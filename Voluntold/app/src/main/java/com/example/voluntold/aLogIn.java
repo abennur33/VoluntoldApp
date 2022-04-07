@@ -91,6 +91,7 @@ public class aLogIn extends AppCompatActivity {
                             else {
                                 //sign in failed
                                 Log.d(TAG, email + " failed to log in" + task.getException());
+                                Toast.makeText(getApplicationContext(), "Wrong email or password", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
