@@ -79,6 +79,11 @@ public class FirebaseHelper {
 
             getAllPosts(new PostCallback() {
                 @Override
+                public void onCallBackPost(OrgPost post) {
+
+                }
+
+                @Override
                 public void onCallBackPosts(ArrayList<OrgPost> posts) {
 
                 }
@@ -132,6 +137,9 @@ public class FirebaseHelper {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+                        db.collection("AllPosts")
+                                .document(documentReference.getId())
+                                .update("docID", documentReference.getId());
                         Log.i(TAG, "just added " + o.getTitle());
                         readData(firestoreCallback);
                     }
@@ -273,51 +281,59 @@ public class FirebaseHelper {
     }
 
 
-    public ArrayList<OrgPost> getPostsbyOrg(String orgID) {
-        ArrayList<OrgPost> posts = new ArrayList<>();
+    public UserInfo getUserInfo()
+    {
+        return myInfo;
+    }
 
-        posts = getPostsbyOrg(orgID, new PostCallback() {
+    public void addVoltoPost(OrgPost o, String volID) {
+        addVoltoPost(o, volID, new PostCallback() {
+            @Override
+            public void onCallBackPost(OrgPost post) {
+
+            }
+
             @Override
             public void onCallBackPosts(ArrayList<OrgPost> posts) {
 
             }
         });
-
-        return posts;
     }
 
-    private ArrayList<OrgPost> getPostsbyOrg(String orgID, PostCallback postCallback) {
-        ArrayList<OrgPost> posts = new ArrayList<>();
-
-        db.collection(orgID). document("UserInfo: " + orgID).collection("myPosts")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+    private void addVoltoPost(OrgPost o, String volID, PostCallback postCallback) {
+        String docId = o.getDocID();
+        o.addVolunteer(volID);
+        db.collection("AllPosts")
+                .document(docId)
+                .set(o)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()) {
-                            for(DocumentSnapshot doc: task.getResult()) {
-                                OrgPost post = doc.toObject(OrgPost.class);
-                                //Date currentdate = new Date();
-                                //Date postDate = new Date(post.getYear(), post.getMonth() - 1, post.getDate());
-                                /*if(postDate.after(currentdate)) {
-                                    posts.add(post);
-                                }
-                                 */
-                                posts.add(post);
-                            }
-                            Log.i(TAG, "success getting post");
-                            postCallback.onCallBackPosts(posts);
-                        }
-                        else Log.i(TAG, "failed to grab post");
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Success updating document");
                     }
                 });
-
-        return posts;
     }
 
-    public UserInfo getUserInfo()
-    {
-        return myInfo;
+    public void addPosttoVol(UserInfo u) {
+        addPosttoVol(u, new FirestoreCallback() {
+            @Override
+            public void onCallBack(UserInfo userInfo) {
+
+            }
+        });
+    }
+
+    private void addPosttoVol(UserInfo u, FirestoreCallback firestoreCallback) {
+        String docId = "User Info: " + u.getUserUID();
+        db.collection(u.getUserUID())
+                .document(docId)
+                .set(u)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Success updating document");
+                    }
+                });
     }
 
 //    public String getAccountType()
@@ -342,6 +358,7 @@ public class FirebaseHelper {
     }
 
     public interface PostCallback {
+        void onCallBackPost(OrgPost post);
         void onCallBackPosts(ArrayList<OrgPost> posts);
     }
 

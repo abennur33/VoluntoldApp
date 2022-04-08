@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class OrgPost implements Parcelable {
     public String orgID;
+    private String docID;
 
     private String title;
 
@@ -34,6 +35,7 @@ public class OrgPost implements Parcelable {
 
     public OrgPost(Parcel parcel) {
         orgID = parcel.readString();
+        docID = parcel.readString();
         title = parcel.readString();
         month = parcel.readInt();
         date = parcel.readInt();
@@ -50,6 +52,7 @@ public class OrgPost implements Parcelable {
 
     public void writeToParcel(Parcel dest, int i) {
         dest.writeString(orgID);
+        dest.writeString(docID);
         dest.writeString(title);
         dest.writeInt(month);
         dest.writeInt(date);
@@ -81,6 +84,7 @@ public class OrgPost implements Parcelable {
 
     public OrgPost() {
         this.orgID = "noOrg";
+        this.docID = "";
         this.title = "noTitle";
         this.month = 0;
         this.date = 0;
@@ -152,6 +156,14 @@ public class OrgPost implements Parcelable {
     public void decrementMaxVolunteers()
     {
         maxVolunteers -= 1;
+    }
+
+    public String getDocID() {
+        return docID;
+    }
+
+    public void setDocID(String docID) {
+        this.docID = docID;
     }
 
     @Override
