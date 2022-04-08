@@ -40,8 +40,8 @@ public class bVolOpportunityPost extends AppCompatActivity {
         // Log.i(TAG, userInfoObjOfCurUser.toString());
 
         userInfoObjOfCurUser.addVolOpportunity(volOpportunity);
-
-        clickedOrgPost.decrementMaxVolunteers();
+        aMainActivity.firebaseHelper.addPosttoVol(userInfoObjOfCurUser);
+        aMainActivity.firebaseHelper.addVoltoPost(clickedOrgPost, userInfoObjOfCurUser.getUserUID());
 
         Intent intent = new Intent(bVolOpportunityPost.this, bVolDashboard.class);
         startActivity(intent);
