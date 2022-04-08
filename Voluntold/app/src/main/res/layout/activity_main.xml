@@ -21,43 +21,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="148dp"
-        android:layout_height="146dp"
-        android:layout_marginStart="131dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="132dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <Button
         android:id="@+id/button3"
         android:layout_width="139dp"
         android:layout_height="61dp"
-        android:layout_marginTop="103dp"
         android:layout_marginEnd="44dp"
         android:fontFamily="@font/advent_pro_bold"
         android:onClick="toSignUp"
         android:text="Sign Up"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        tools:layout_editor_absoluteY="370dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="139dp"
         android:layout_height="61dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="103dp"
         android:fontFamily="@font/advent_pro_bold"
         android:onClick="toLogIn"
         android:text="Log In"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        tools:layout_editor_absoluteY="370dp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -85,5 +71,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="243dp"
+        android:layout_height="274dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/virgin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
