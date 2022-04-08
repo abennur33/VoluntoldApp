@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcel;
 import android.util.Log;
 import android.view.View;
@@ -54,6 +55,16 @@ public class aMainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void toLogIn(View v) {
+        LoadingDialog loadingDialog = new LoadingDialog(aMainActivity.this);
+        loadingDialog.startLoadingDialog();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismissDialog();
+            }
+        }, 2500);
+
         Intent intent = new Intent(aMainActivity.this, aLogIn.class);
         startActivity(intent);
     }
