@@ -253,7 +253,7 @@ public class FirebaseHelper {
     private void getAllPosts(PostCallback postCallback) {
         allPosts.clear();
 
-        db.collection("Organizations")
+        db.collection("AllPosts")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -261,10 +261,10 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 Log.i(TAG, doc.getData().toString());
-                                allOrgs.add(doc.toObject(Organization.class));
+                                allPosts.add(doc.toObject(OrgPost.class));
                             }
                             Log.i(TAG, "success grabbing orgs");
-                            Log.i(TAG, allOrgs.toString());
+                            Log.i(TAG, allPosts.toString());
                             postCallback.onCallBackPosts(allPosts);
                         }
                     }
