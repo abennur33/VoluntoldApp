@@ -57,7 +57,7 @@ public class FirebaseHelper {
             readData(new FirestoreCallback() {
                 @Override
                 public void onCallBack(UserInfo userInfo) {
-                    Log.i(TAG, "Inside attachReadDataToUser, onCallback " + userInfo.getAccountType());
+                    //Log.i(TAG, "Inside attachReadDataToUser, onCallback " + userInfo.getAccountType());
                 }
             });
 
