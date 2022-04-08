@@ -77,15 +77,12 @@ public class FirebaseHelper {
                 Log.i(TAG, "nobody logged in");
             }
 
-            for(Organization o: allOrgs) {
-                Log.i(TAG, o.getName());
-                allPosts.addAll(getPostsbyOrg(o.getOrgID(), new PostCallback() {
-                    @Override
-                    public void onCallBackPosts(ArrayList<OrgPost> posts) {
+            getAllPosts(new PostCallback() {
+                @Override
+                public void onCallBackPosts(ArrayList<OrgPost> posts) {
 
-                    }
-                }));
-            }
+                }
+            });
         }
         else{
                 Log.i(TAG, "No one is logged in");
@@ -130,7 +127,7 @@ public class FirebaseHelper {
     }
 
     private void addPost(OrgPost o, FirestoreCallback firestoreCallback) {
-        db.collection(uid).document("UserInfo: " + uid).collection("myPosts")
+        db.collection("AllPosts")
                 .add(o)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -252,6 +249,29 @@ public class FirebaseHelper {
                 });
         Log.i(TAG, "returning form getallorgs" + allOrgs.toString());
     }
+
+    private void getAllPosts(PostCallback postCallback) {
+        allPosts.clear();
+
+        db.collection("Organizations")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for(DocumentSnapshot doc: task.getResult()) {
+                                Log.i(TAG, doc.getData().toString());
+                                allOrgs.add(doc.toObject(Organization.class));
+                            }
+                            Log.i(TAG, "success grabbing orgs");
+                            Log.i(TAG, allOrgs.toString());
+                            postCallback.onCallBackPosts(allPosts);
+                        }
+                    }
+                });
+        Log.i(TAG, "returning form getallorgs" + allPosts.toString());
+    }
+
 
     public ArrayList<OrgPost> getPostsbyOrg(String orgID) {
         ArrayList<OrgPost> posts = new ArrayList<>();
