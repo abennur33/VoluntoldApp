@@ -28,7 +28,7 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
          //NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-        postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid());
+        //postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid());
         Intent intent = getIntent();
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(

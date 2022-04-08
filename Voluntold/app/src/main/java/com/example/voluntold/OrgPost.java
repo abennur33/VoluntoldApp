@@ -168,6 +168,6 @@ public class OrgPost implements Parcelable {
 
     @Override
     public String toString() {
-        return getTitle() + "on " + getMonth() + "/" + getDate() + "/" + getYear() + "     " + volunteers.size() + "/" + getMaxVolunteers() + " volunteers signed up";
+        return getTitle() + " on " + getMonth() + "/" + getDate() + "/" + getYear() + "   " + volunteers.size() + "/" + getMaxVolunteers() + " volunteers";
     }
 }
