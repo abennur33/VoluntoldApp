@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class cPostedOpportunities extends AppCompatActivity {
+public class cOrgPostedOpportunities extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
 
@@ -23,7 +23,8 @@ public class cPostedOpportunities extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opportunity_post);
+        setContentView(R.layout.vol_view_opportunity_post);
+        // CHANGE XML HERE
 
         mAuth = FirebaseAuth.getInstance();
          //NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
@@ -40,7 +41,7 @@ public class cPostedOpportunities extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(cPostedOpportunities.this, cOrgOpportunityPost.class);
+                Intent intent = new Intent(cOrgPostedOpportunities.this, cOrgOpportunityPost.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object

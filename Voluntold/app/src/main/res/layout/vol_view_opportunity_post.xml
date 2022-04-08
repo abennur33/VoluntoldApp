@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cOrgOpportunityPost">
+    tools:context=".bVolOpportunityPost">
+
+    <TextView
+        android:id="@+id/contentOfPostTV"
+        android:layout_width="310dp"
+        android:layout_height="341dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="[body text]"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -32,10 +45,11 @@
         android:id="@+id/imageView7"
         android:layout_width="368dp"
         android:layout_height="416dp"
-        android:layout_marginStart="172dp"
+        android:layout_marginStart="300dp"
         android:layout_marginTop="102dp"
         android:rotation="90"
         app:layout_constraintBottom_toTopOf="@+id/goToOrgButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/postTitleTV"
         app:srcCompat="@drawable/line" />
@@ -44,7 +58,7 @@
         android:id="@+id/imageView5"
         android:layout_width="333dp"
         android:layout_height="159dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton6"
@@ -56,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
+        android:onClick="goBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
@@ -86,19 +101,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postTitleTV" />
-
-    <TextView
-        android:id="@+id/contentOfPostTV"
-        android:layout_width="310dp"
-        android:layout_height="341dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/advent_pro_light"
-        android:text="[body text]"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/goToOrgButton"

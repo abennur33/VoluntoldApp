@@ -15,7 +15,7 @@ public class cOrgOpportunityPost extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opportunity_post);
+        setContentView(R.layout.org_view_opportunity_post);
 
         Intent intent = getIntent();
 
@@ -46,5 +46,10 @@ public class cOrgOpportunityPost extends AppCompatActivity {
         Intent intent = new Intent(cOrgOpportunityPost.this, bVolDashboard.class);
         startActivity(intent);
 
+    }
+
+    public void goBack(View v) {
+        Intent intent = new Intent(this, cOrgDashboard.class);
+        startActivity(intent);
     }
 }

@@ -41,4 +41,9 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
         Intent intent = new Intent(cOrgCreateOpportunityPost.this, cOrgDashboard.class);
         startActivity(intent);
     }
+
+    public void goHome(View v) {
+        Intent intent = new Intent(this, cOrgDashboard.class);
+        startActivity(intent);
+    }
 }
