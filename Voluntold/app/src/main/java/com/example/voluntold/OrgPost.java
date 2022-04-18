@@ -70,6 +70,7 @@ public class OrgPost implements Parcelable {
         this.date = date;
         this.year = year;
         this.body = body;
+        this.volunteers = null;
     }
 
     public OrgPost(String orgID, String title, int month, int date, int year, String body, int maxVolunteers) {
@@ -80,6 +81,7 @@ public class OrgPost implements Parcelable {
         this.year = year;
         this.body = body;
         this.maxVolunteers = maxVolunteers;
+        this.volunteers  = null;
     }
 
     public OrgPost() {
@@ -91,6 +93,7 @@ public class OrgPost implements Parcelable {
         this.year = 0;
         this.body = "noBody";
         this.maxVolunteers = 0;
+        this.volunteers  = null;
     }
 
     public String getOrgID() {
@@ -123,7 +126,7 @@ public class OrgPost implements Parcelable {
 
     public void setDate(int date) {
         this.date = date;
-    }
+    } 
 
     public int getYear() {
         return year;
@@ -149,8 +152,7 @@ public class OrgPost implements Parcelable {
         this.maxVolunteers = maxVolunteers;
     }
 
-    public void addVolunteer(String uid) {
-        volunteers.add(uid);
+    public void addVolunteer(String uid) { volunteers.add(uid);
     }
 
     public void decrementMaxVolunteers()

@@ -41,7 +41,7 @@ public class bVolOpportunityPost extends AppCompatActivity {
 
         userInfoObjOfCurUser.addVolOpportunity(volOpportunity);
         aMainActivity.firebaseHelper.addPosttoVol(userInfoObjOfCurUser);
-        aMainActivity.firebaseHelper.addVoltoPost(clickedOrgPost, userInfoObjOfCurUser.getUserUID());
+        aMainActivity.firebaseHelper.addVoltoPost(clickedOrgPost, userInfoObjOfCurUser);
 
         Intent intent = new Intent(bVolOpportunityPost.this, bVolDashboard.class);
         startActivity(intent);

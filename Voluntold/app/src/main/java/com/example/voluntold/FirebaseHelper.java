@@ -182,10 +182,6 @@ public class FirebaseHelper {
 
                         // This will set the docID key for the WishListItem that was just added.
 
-                        db.collection(uid)
-
-                                .document(documentReference.getId()).update("docID", documentReference.getId());
-
                         Log.i(TAG, "just added " + o.getName());
 
                         readData(firestoreCallback);
@@ -286,8 +282,8 @@ public class FirebaseHelper {
         return myInfo;
     }
 
-    public void addVoltoPost(OrgPost o, String volID) {
-        addVoltoPost(o, volID, new PostCallback() {
+    public void addVoltoPost(OrgPost o, UserInfo u) {
+        addVoltoPost(o, u, new PostCallback() {
             @Override
             public void onCallBackPost(OrgPost post) {
 
@@ -300,16 +296,22 @@ public class FirebaseHelper {
         });
     }
 
-    private void addVoltoPost(OrgPost o, String volID, PostCallback postCallback) {
+    private void addVoltoPost(OrgPost o, UserInfo u, PostCallback postCallback) {
         String docId = o.getDocID();
-        o.addVolunteer(volID);
         db.collection("AllPosts")
                 .document(docId)
-                .set(o)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                .collection("Volunteers")
+                .add(u)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
-                    public void onSuccess(Void unused) {
-                        Log.i(TAG, "Success updating document");
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.i(TAG, "just added " + o.getTitle());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error adding document", e);
                     }
                 });
     }
@@ -324,7 +326,7 @@ public class FirebaseHelper {
     }
 
     private void addPosttoVol(UserInfo u, FirestoreCallback firestoreCallback) {
-        String docId = "User Info: " + u.getUserUID();
+        String docId = "UserInfo: " + u.getUserUID();
         db.collection(u.getUserUID())
                 .document(docId)
                 .set(u)

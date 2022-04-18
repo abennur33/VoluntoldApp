@@ -20,10 +20,16 @@
             android:name=".bDiscoverOpportunities"
             android:exported="false" />
         <activity
+            android:name=".bVolOpportunityPost"
+            android:exported="false" />
+        <activity
             android:name=".cOrgOpportunityPost"
             android:exported="false" />
         <activity
             android:name=".cOrgCreateOpportunityPost"
+            android:exported="false" />
+        <activity
+            android:name=".cOrgPostedOpportunities"
             android:exported="false" />
         <activity
             android:name=".aVolunteerSignUp"
