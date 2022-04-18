@@ -182,10 +182,6 @@ public class FirebaseHelper {
 
                         // This will set the docID key for the WishListItem that was just added.
 
-                        db.collection(uid)
-
-                                .document(documentReference.getId()).update("docID", documentReference.getId());
-
                         Log.i(TAG, "just added " + o.getName());
 
                         readData(firestoreCallback);
@@ -324,7 +320,7 @@ public class FirebaseHelper {
     }
 
     private void addPosttoVol(UserInfo u, FirestoreCallback firestoreCallback) {
-        String docId = "User Info: " + u.getUserUID();
+        String docId = "UserInfo: " + u.getUserUID();
         db.collection(u.getUserUID())
                 .document(docId)
                 .set(u)
