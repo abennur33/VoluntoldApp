@@ -36,7 +36,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(bDiscoverOpportunities.this, cOrgOpportunityPost.class);
+                Intent intent = new Intent(bDiscoverOpportunities.this, bVolOpportunityPost.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
