@@ -18,7 +18,7 @@ public class OrgPost implements Parcelable {
     private String body;
 
     private int maxVolunteers;
-    private ArrayList<String> volunteers;
+    private ArrayList<String> volunteers = new ArrayList<>();
 
     public static final Parcelable.Creator<OrgPost> CREATOR = new Parcelable.Creator<OrgPost>() {
 
@@ -70,7 +70,7 @@ public class OrgPost implements Parcelable {
         this.date = date;
         this.year = year;
         this.body = body;
-        this.volunteers  = new ArrayList<>();
+        this.volunteers = null;
     }
 
     public OrgPost(String orgID, String title, int month, int date, int year, String body, int maxVolunteers) {
@@ -81,7 +81,7 @@ public class OrgPost implements Parcelable {
         this.year = year;
         this.body = body;
         this.maxVolunteers = maxVolunteers;
-        this.volunteers  = new ArrayList<>();
+        this.volunteers  = null;
     }
 
     public OrgPost() {
@@ -93,7 +93,7 @@ public class OrgPost implements Parcelable {
         this.year = 0;
         this.body = "noBody";
         this.maxVolunteers = 0;
-        this.volunteers  = new ArrayList<>();
+        this.volunteers  = null;
     }
 
     public String getOrgID() {
