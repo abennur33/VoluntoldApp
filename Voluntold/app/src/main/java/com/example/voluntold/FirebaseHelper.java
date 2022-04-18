@@ -298,7 +298,6 @@ public class FirebaseHelper {
 
     private void addVoltoPost(OrgPost o, String volID, PostCallback postCallback) {
         String docId = o.getDocID();
-        o.addVolunteer(volID);
         db.collection("AllPosts")
                 .document(docId)
                 .set(o)
