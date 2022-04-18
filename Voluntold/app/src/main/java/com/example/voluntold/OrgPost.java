@@ -123,7 +123,7 @@ public class OrgPost implements Parcelable {
 
     public void setDate(int date) {
         this.date = date;
-    }
+    } 
 
     public int getYear() {
         return year;

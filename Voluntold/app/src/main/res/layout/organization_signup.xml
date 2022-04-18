@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".aOrganizationSignUp">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/advent_pro_light"
+        android:text="ORG CATEGORY"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputNameOfOrgET" />
+
     <ImageButton
         android:id="@+id/imageButton10"
         android:layout_width="43dp"
@@ -74,16 +87,16 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputNameOfOrgET"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.219" />
 
     <EditText
         android:id="@+id/inputNameOfOrgET"
         android:layout_width="247dp"
         android:layout_height="39dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="216dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="textEmailAddress"
@@ -97,7 +110,7 @@
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/advent_pro_light"
         android:text="ORG. NAME:"
         android:textColor="@color/black"
@@ -196,4 +209,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newOrgPasswordET" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="189dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="51dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputNameOfOrgET" />
 </androidx.constraintlayout.widget.ConstraintLayout>

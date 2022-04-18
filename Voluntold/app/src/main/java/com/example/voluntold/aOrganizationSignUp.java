@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,10 +21,12 @@ public class aOrganizationSignUp extends AppCompatActivity {
 
     private EditText nameET, orgNameET, newEmailET, newPasswordET;
     String email, password;
+    private Spinner s;
 
     private static final String TAG = "Abhi";
 
     public static FirebaseHelper firebaseHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,15 @@ public class aOrganizationSignUp extends AppCompatActivity {
         orgNameET = findViewById(R.id.inputNameOfOrgET);
         newEmailET = findViewById(R.id.newOrgEmailET);
         newPasswordET = findViewById(R.id.newOrgPasswordET);
+
+        String[] arraySpinner = new String[] {
+                "Agriculture/Food", "Environment", "Education", "Health", "Community", "Other"
+        };
+        s = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(adapter);
     }
 
     public void signUp(View v) {
