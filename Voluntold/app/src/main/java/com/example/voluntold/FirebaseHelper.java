@@ -342,6 +342,7 @@ public class FirebaseHelper {
 //    {
 //        return accountType;
 //    }
+    
 
     public static String getUid() {
         return uid;
