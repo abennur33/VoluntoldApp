@@ -77,7 +77,7 @@ public class aVolunteerSignUp extends AppCompatActivity {
                                 firebaseHelper.updateUid(user.getUid());
 
                                 // add a collection to our database to represent this user
-                                firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Volunteer", school, null, age);
+                                firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Volunteer", school, null, null, age);
 
 
                                 // lets further investigate why this method call is needed

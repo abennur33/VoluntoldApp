@@ -95,9 +95,9 @@ public class FirebaseHelper {
     }
 
     public void addUserToFirestore(String name, String email, String password, String uid, String accountType,
-                                   String school, String organizationName, int age)
+                                   String school, String organizationName, String orgType, int age)
     {
-        UserInfo userInfo = new UserInfo(name, email, password, uid, accountType, school, organizationName, age);
+        UserInfo userInfo = new UserInfo(name, email, password, uid, accountType, school, organizationName, orgType, age);
 
         db.collection(uid).document("UserInfo: " + uid)
                 .set(userInfo)
