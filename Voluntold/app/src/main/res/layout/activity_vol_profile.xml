@@ -6,29 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".VolProfile">
 
-    <ImageView
-        android:id="@+id/editVolSchoolBT"
-        android:layout_width="51dp"
-        android:layout_height="33dp"
+    <EditText
+        android:id="@+id/enterNewVolSchoolET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintHorizontal_bias="0.855"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863"
-        app:srcCompat="@drawable/realpencil" />
+        app:layout_constraintVertical_bias="0.869" />
 
-    <ImageView
-        android:id="@+id/editVolAgeBT"
-        android:layout_width="51dp"
-        android:layout_height="33dp"
+    <Button
+        android:id="@+id/confirmEditVolSchoolBT"
+        android:layout_width="53dp"
+        android:layout_height="38dp"
+        android:text="OK"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintHorizontal_bias="0.332"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768"
-        app:srcCompat="@drawable/realpencil" />
+        app:layout_constraintVertical_bias="0.872" />
+
+    <Button
+        android:id="@+id/confirmEditVolAgeBT"
+        android:layout_width="53dp"
+        android:layout_height="38dp"
+        android:text="OK"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.776" />
+
+    <Button
+        android:id="@+id/confirmEditVolNameBT"
+        android:layout_width="53dp"
+        android:layout_height="38dp"
+        android:text="OK"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.676" />
+
+    <Button
+        android:id="@+id/editVolSchoolBT"
+        android:layout_width="53dp"
+        android:layout_height="38dp"
+        android:background="@drawable/realpencil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.318"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <Button
+        android:id="@+id/editVolAgeBT"
+        android:layout_width="53dp"
+        android:layout_height="38dp"
+        android:background="@drawable/realpencil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.775" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -123,16 +175,42 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.855" />
 
-    <ImageView
+    <Button
         android:id="@+id/editVolNameBT"
-        android:layout_width="51dp"
-        android:layout_height="33dp"
+        android:layout_width="53dp"
+        android:layout_height="38dp"
+        android:background="@drawable/realpencil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintHorizontal_bias="0.326"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.668"
-        app:srcCompat="@drawable/realpencil" />
+        app:layout_constraintVertical_bias="0.676" />
+
+    <EditText
+        android:id="@+id/enterNewVolNameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.67" />
+
+    <EditText
+        android:id="@+id/enterNewVolAgeET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.772" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
