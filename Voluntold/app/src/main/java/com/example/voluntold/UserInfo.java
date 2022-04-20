@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class UserInfo implements Parcelable {
-    private String name, email, password, uid, accountType, school, organizationName;
+    private String name, email, password, uid, accountType, school, organizationName, orgType;
     private int age;
 
     private ArrayList<OrgPost> allPosts = new ArrayList<>();
@@ -38,6 +38,7 @@ public class UserInfo implements Parcelable {
         school = parcel.readString();
         organizationName = parcel.readString();
         age = parcel.readInt();
+        orgType = parcel.readString();
     }
 
     public UserInfo() {
@@ -48,6 +49,7 @@ public class UserInfo implements Parcelable {
         accountType = "noType";
         school = "noSchool";
         organizationName = "noOrg";
+        orgType = "noType";
         age = 0;
     }
 
@@ -73,11 +75,12 @@ public class UserInfo implements Parcelable {
         dest.writeString(accountType);
         dest.writeString(school);
         dest.writeString(organizationName);
+        dest.writeString(orgType);
         dest.writeInt(age);
     }
 
     public UserInfo(String name, String email, String password, String uid,
-                    String accountType, String school, String organizationName, int age) {
+                    String accountType, String school, String organizationName, String orgType, int age) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -86,6 +89,7 @@ public class UserInfo implements Parcelable {
         this.school = school;
         this.organizationName = organizationName;
         this.age = age;
+        this.orgType = orgType;
         this.allPosts = null;
         this.allOpportunities = null;
     }
