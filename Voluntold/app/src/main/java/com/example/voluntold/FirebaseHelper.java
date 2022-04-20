@@ -343,22 +343,21 @@ public class FirebaseHelper {
 //        return accountType;
 //    }
 
-    public void editUserName(String newName) {
+    public void updateUserInfo(UserInfo u) {
         // edit WishListItem w to the database
         // this method is overloaded and incorporates the interface to handle the asynch calls
-        editData(newName, new FirestoreCallback() {
+        updateUserInfo(u, new FirestoreCallback() {
             @Override
-            public void onCallback(String newName) {
-                Log.i(TAG, "Inside editData, onCallback " + newName);
+            public void onCallBack(UserInfo userInfo) {
+
             }
         });
     }
 
-    private void editData(String newName, FirestoreCallback firestoreCallback)
+    private void updateUserInfo(UserInfo u, FirestoreCallback firestoreCallback)
     {
-        db.collection(uid).document("UserInfo: " + uid).collection("myWishList")
-                .document(docId)
-                .set(w)
+        db.collection(uid).document("UserInfo: " + uid)
+                .set(u)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
