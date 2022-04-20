@@ -169,6 +169,10 @@ public class UserInfo implements Parcelable {
         this.age = age;
     }
 
+    public String getOrgType(){ return orgType; }
+
+    public void setOrgType(String orgType) {this.orgType = orgType; }
+
     public ArrayList getAllOrgPosts()
     {
         return allPosts;

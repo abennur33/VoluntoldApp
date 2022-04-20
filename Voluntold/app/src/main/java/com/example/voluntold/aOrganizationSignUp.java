@@ -61,6 +61,7 @@ public class aOrganizationSignUp extends AppCompatActivity {
         String orgName = orgNameET.getText().toString();
         String newEmail = newEmailET.getText().toString();
         String newPassword = newPasswordET.getText().toString();
+        String orgType = s.getSelectedItem().toString();
 
         if (!email.equals(newEmail) || !password.equals(newPassword)) {
             Toast.makeText(getApplicationContext(), "Email or password does not match", Toast.LENGTH_SHORT).show();
@@ -85,7 +86,7 @@ public class aOrganizationSignUp extends AppCompatActivity {
 
                                 // add a collection to our database to represent this user
                                 firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Organization", null, orgName, orgType,0);
-
+                                Log.i(TAG, orgType);
 
                                 // lets further investigate why this method call is needed
                                 firebaseHelper.attachReadDataToUser();

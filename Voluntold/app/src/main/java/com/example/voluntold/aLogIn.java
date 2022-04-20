@@ -90,6 +90,7 @@ public class aLogIn extends AppCompatActivity {
                                 // we can do any other UI updating or change screens based on how our app
                                 // should respond
                                 Log.i(TAG, email + " is signed in");
+                                Log.i(TAG, firebaseHelper.getUserInfo().getOrgType());
 
                                 // this will help us with the asych method calls
                                 firebaseHelper.attachReadDataToUser();
