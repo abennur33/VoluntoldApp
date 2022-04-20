@@ -30,22 +30,33 @@ public class cOrgOpportunityPost extends AppCompatActivity {
         displayContentTV.setText(clickedOrgPost.getBody());
     }
 
-    public void signUpUserForOrganizationPost(View v)
+//    public void signUpUserForOrganizationPost(View v)
+//    {
+//        VolOpportunity volOpportunity = new VolOpportunity(clickedOrgPost.getOrgID(),
+//                aMainActivity.firebaseHelper.getmAuth().getUid(), clickedOrgPost.getTitle(), clickedOrgPost.getMonth(),
+//                clickedOrgPost.getDate(), clickedOrgPost.getYear());
+//
+//        UserInfo userInfoObjOfCurUser = aMainActivity.firebaseHelper.getUserInfo();
+//        // Log.i(TAG, userInfoObjOfCurUser.toString());
+//
+//        userInfoObjOfCurUser.addVolOpportunity(volOpportunity);
+//
+//        clickedOrgPost.decrementMaxVolunteers();
+//
+//        Intent intent = new Intent(cOrgOpportunityPost.this, bVolDashboard.class);
+//        startActivity(intent);
+//
+//    }
+
+    public void editOpportunity(View v)
     {
-        VolOpportunity volOpportunity = new VolOpportunity(clickedOrgPost.getOrgID(),
-                aMainActivity.firebaseHelper.getmAuth().getUid(), clickedOrgPost.getTitle(), clickedOrgPost.getMonth(),
-                clickedOrgPost.getDate(), clickedOrgPost.getYear());
 
-        UserInfo userInfoObjOfCurUser = aMainActivity.firebaseHelper.getUserInfo();
-        // Log.i(TAG, userInfoObjOfCurUser.toString());
+    }
 
-        userInfoObjOfCurUser.addVolOpportunity(volOpportunity);
-
-        clickedOrgPost.decrementMaxVolunteers();
-
-        Intent intent = new Intent(cOrgOpportunityPost.this, bVolDashboard.class);
+    public void viewVolunteers(View v)
+    {
+        Intent intent = new Intent(this, cViewVolunteers.class);
         startActivity(intent);
-
     }
 
     public void goBack(View v) {
