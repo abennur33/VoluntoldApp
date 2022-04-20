@@ -61,13 +61,28 @@
         android:id="@+id/goToOrgButton"
         android:layout_width="147dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/advent_pro_bold"
-        android:onClick="signUpUserForOrganizationPost"
+        android:onClick="editOpportunity"
         android:text="Edit Opportunity"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/goToVolsButton"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/goToVolsButton"
+        android:layout_width="147dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/advent_pro_bold"
+        android:onClick="viewVolunteers"
+        android:text="View Volunteers"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
