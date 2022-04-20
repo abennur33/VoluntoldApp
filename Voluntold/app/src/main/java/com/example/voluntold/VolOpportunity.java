@@ -1,7 +1,10 @@
 package com.example.voluntold;
 
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import androidx.annotation.RequiresApi;
 
 public class VolOpportunity implements Parcelable {
     public String orgID;
@@ -13,8 +16,11 @@ public class VolOpportunity implements Parcelable {
     private int date;
     private int year;
 
+    private boolean completed;
+
     public static final Parcelable.Creator<VolOpportunity> CREATOR = new Parcelable.Creator<VolOpportunity>() {
 
+        @RequiresApi(api = Build.VERSION_CODES.Q)
         @Override
         public VolOpportunity createFromParcel(Parcel parcel) {
             return new VolOpportunity(parcel);
@@ -26,6 +32,7 @@ public class VolOpportunity implements Parcelable {
         }
     };
 
+    @RequiresApi(api = Build.VERSION_CODES.Q) //java suggested this for read boolean
     public VolOpportunity(Parcel parcel) {
         orgID = parcel.readString();
         volID = parcel.readString();
@@ -33,6 +40,7 @@ public class VolOpportunity implements Parcelable {
         month = parcel.readInt();
         date = parcel.readInt();
         year = parcel.readInt();
+        completed = parcel.readBoolean();
     }
 
 
@@ -42,6 +50,7 @@ public class VolOpportunity implements Parcelable {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     /**
      * This is what is used when we send the Event object through an intent
@@ -57,6 +66,7 @@ public class VolOpportunity implements Parcelable {
         dest.writeInt(month);
         dest.writeInt(date);
         dest.writeInt(year);
+        dest.writeBoolean(completed);
     }
     public VolOpportunity(String orgID, String volID, String title, int month, int date, int year) {
         this.orgID = orgID;
@@ -65,6 +75,14 @@ public class VolOpportunity implements Parcelable {
         this.month = month;
         this.date = date;
         this.year = year;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     public String getOrgID() {
