@@ -35,6 +35,9 @@
             android:name=".cOrgCreateOpportunityPost"
             android:exported="false" />
         <activity
+            android:name=".cOrgViewOpportunity"
+            android:exported="false" />
+        <activity
             android:name=".cOrgPostedOpportunities"
             android:exported="false" />
         <activity

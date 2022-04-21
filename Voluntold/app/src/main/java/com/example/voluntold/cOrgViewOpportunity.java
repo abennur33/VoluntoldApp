@@ -9,22 +9,27 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 
-public class cOrgPostedOpportunities extends AppCompatActivity {
+public class cOrgViewOpportunity extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
-    private ArrayList<String> titles;
+
+    private FirebaseAuth mAuth;
+    private FirebaseHelper.FirestoreCallback FirestoreCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.volunteer_posted_opportunities);
+        setContentView(R.layout.vol_view_opportunity_post);
+        // CHANGE XML HERE
 
-        // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
+        mAuth = FirebaseAuth.getInstance();
+         //NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
+        //postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid());
         Intent intent = getIntent();
-
-        postList = aMainActivity.firebaseHelper.getPosts();
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, postList);
@@ -36,7 +41,7 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(cOrgPostedOpportunities.this, bVolOpportunityPost.class);
+                Intent intent = new Intent(cOrgViewOpportunity.this, cOrgOpportunityPost.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
@@ -46,8 +51,9 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
         });
     }
 
-    public void goBack(View v) {
-        Intent intent = new Intent(this, bVolDashboard.class);
-        startActivity(intent);
+    public void signOut(View v) {
+        mAuth.signOut();
+        Intent p = new Intent(this, aMainActivity.class);
+        startActivity(p);
     }
 }
