@@ -8,21 +8,28 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 
 public class bDiscoverOpportunities extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
-    private ArrayList<String> titles;
+    private Spinner s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.volunteer_discover_opportunities);
 
-        // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-        Intent intent = getIntent();
+        String[] arraySpinner = new String[] {
+                "Date", "Agriculture/Food", "Environment", "Education", "Health", "Community", "Other"
+        };
+        s = (Spinner) findViewById(R.id.spinner2);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(adapter);
 
         postList = aMainActivity.firebaseHelper.getPosts();
 
