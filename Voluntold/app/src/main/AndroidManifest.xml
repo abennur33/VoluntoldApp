@@ -11,11 +11,14 @@
         android:theme="@style/Theme.Voluntold"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".cViewVolunteers"
+            android:name=".EditVolProfile"
             android:exported="false" />
         <activity
-            android:name=".VolProfile"
-            android:exported="true" />
+            android:name=".ViewVolProfile"
+            android:exported="false" />
+        <activity
+            android:name=".cViewVolunteers"
+            android:exported="false" />
         <activity
             android:name=".aIntermediateLogInScreen"
             android:exported="false" />

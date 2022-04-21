@@ -42,5 +42,12 @@ public class bVolDashboard extends AppCompatActivity {
         startActivity(f);
     }
 
+    public void takeToVolProfilePage(View v)
+    {
+        Intent g = new Intent(this, ViewVolProfile.class);
+        startActivity(g);
+    }
+
+
 
 }

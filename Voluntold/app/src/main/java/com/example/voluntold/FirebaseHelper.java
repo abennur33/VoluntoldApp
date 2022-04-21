@@ -373,6 +373,7 @@ public class FirebaseHelper {
                 });
     }
 
+
     public static String getUid() {
         return uid;
     }
