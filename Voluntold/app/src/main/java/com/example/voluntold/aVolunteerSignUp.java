@@ -48,6 +48,7 @@ public class aVolunteerSignUp extends AppCompatActivity {
 
     public void signUp(View v) {
         // Make references to EditText in xml
+
         String name = nameET.getText().toString();
         String ageString = ageET.getText().toString();
         int age = Integer.parseInt(ageString);
