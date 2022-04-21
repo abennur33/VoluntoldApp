@@ -146,7 +146,7 @@ public class UserInfo implements Parcelable {
         return school;
     }
 
-    public void setSchool(String accountType)
+    public void setSchool(String school)
     {
         this.school = school;
     }
