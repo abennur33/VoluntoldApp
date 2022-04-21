@@ -37,4 +37,10 @@ public class ViewVolProfile extends AppCompatActivity {
         Intent p = new Intent(this, EditVolProfile.class);
         startActivity(p);
     }
+
+    public void goBackToVolDashboard(View v)
+    {
+        Intent p = new Intent(this, bVolDashboard.class);
+        startActivity(p);
+    }
 }

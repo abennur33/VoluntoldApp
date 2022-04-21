@@ -2,6 +2,7 @@ package com.example.voluntold;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,5 +47,11 @@ public class EditVolProfile extends AppCompatActivity {
 
 
 
+    }
+
+    public void goBackToProfileScreen(View v)
+    {
+        Intent p = new Intent(this, ViewVolProfile.class);
+        startActivity(p);
     }
 }
