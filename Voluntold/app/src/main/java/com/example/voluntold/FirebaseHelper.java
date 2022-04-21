@@ -223,7 +223,7 @@ public class FirebaseHelper {
 
 //                                Log.i(TAG, "user school: " + doc.get("school"));
                                 // this above line is correctly getting data from firestore, not sure why setSchool is not working
-                                myInfo.setSchool((String)doc.get("school"));
+                                myInfo.setSchool(getUserInfo().getSchool());
                                 Log.i(TAG, "user school from myInfo: " + myInfo.getSchool());
                             }
                             Log.i(TAG, "success reading all data");
