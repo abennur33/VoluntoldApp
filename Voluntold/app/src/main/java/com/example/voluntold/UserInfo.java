@@ -47,7 +47,7 @@ public class UserInfo implements Parcelable {
         password = "noPassword";
         uid = "noID";
         accountType = "noType";
-        school = "noSchool";
+        school = "noschoollisted";
         organizationName = "noOrg";
         orgType = "noType";
         age = 0;
