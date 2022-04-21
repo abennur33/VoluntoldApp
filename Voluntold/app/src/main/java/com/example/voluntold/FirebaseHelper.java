@@ -321,8 +321,8 @@ public class FirebaseHelper {
                 });
     }
 
-    public void addPosttoVol(UserInfo u) {
-        addPosttoVol(u, new FirestoreCallback() {
+    public void addPosttoVol(VolOpportunity v) {
+        addPosttoVol(v, new FirestoreCallback() {
             @Override
             public void onCallBack(UserInfo userInfo) {
 
@@ -330,15 +330,22 @@ public class FirebaseHelper {
         });
     }
 
-    private void addPosttoVol(UserInfo u, FirestoreCallback firestoreCallback) {
-        String docId = "UserInfo: " + u.getUserUID();
-        db.collection(u.getUserUID())
+    private void addPosttoVol(VolOpportunity v, FirestoreCallback firestoreCallback) {
+        String docId = "UserInfo: " + uid;
+        db.collection(uid)
                 .document(docId)
-                .set(u)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                .collection("savedPosts")
+                .add(v)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
-                    public void onSuccess(Void unused) {
-                        Log.i(TAG, "Success updating document");
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.i(TAG, "just added " + v.getTitle());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error adding document", e);
                     }
                 });
     }
