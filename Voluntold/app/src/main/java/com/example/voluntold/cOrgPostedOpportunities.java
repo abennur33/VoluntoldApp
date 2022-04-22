@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class cOrgPostedOpportunities extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
+    private ArrayList<OrgPost> allPostList;
     private ArrayList<String> titles;
 
     @Override
@@ -23,8 +24,14 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
 
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
         Intent intent = getIntent();
+        allPostList = aMainActivity.firebaseHelper.getPosts();
+        String orgID = aMainActivity.firebaseHelper.getmAuth().getUid();
 
-        postList = aMainActivity.firebaseHelper.getPosts();
+        for (int i = 0; i < allPostList.size(); i++) {
+            if (allPostList.get(i).getOrgID().equals(orgID)) {
+                postList.add(allPostList.get(i));
+            }
+        }
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, postList);
