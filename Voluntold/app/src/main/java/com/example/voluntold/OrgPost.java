@@ -14,6 +14,7 @@ public class OrgPost implements Parcelable {
     private int month;
     private int date;
     private int year;
+    private int comparisonDate;
 
     private String body;
 
@@ -42,6 +43,7 @@ public class OrgPost implements Parcelable {
         year = parcel.readInt();
         maxVolunteers = parcel.readInt();
         volunteers = parcel.readArrayList(null);
+        comparisonDate = parcel.readInt();
     }
 
 
@@ -59,7 +61,7 @@ public class OrgPost implements Parcelable {
         dest.writeInt(year);
         dest.writeInt(maxVolunteers);
         dest.writeList(volunteers);
-
+        dest.writeInt(comparisonDate);
     }
 
 
@@ -71,6 +73,7 @@ public class OrgPost implements Parcelable {
         this.year = year;
         this.body = body;
         this.volunteers = null;
+        this.comparisonDate = (int) (10000*(year + ((double) month/100) + ((double) date/10000)));
     }
 
     public OrgPost(String orgID, String title, int month, int date, int year, String body, int maxVolunteers) {
@@ -82,6 +85,8 @@ public class OrgPost implements Parcelable {
         this.body = body;
         this.maxVolunteers = maxVolunteers;
         this.volunteers  = null;
+        this.comparisonDate = (int) (10000*(year + ((double) month/100) + ((double) date/10000)));
+
     }
 
     public OrgPost() {
@@ -94,6 +99,15 @@ public class OrgPost implements Parcelable {
         this.body = "noBody";
         this.maxVolunteers = 0;
         this.volunteers  = null;
+        this.comparisonDate = 0;
+    }
+
+    public double getComparisonDate() {
+        return comparisonDate;
+    }
+
+    public void setComparisonDate(int comparisonDate) {
+        this.comparisonDate = comparisonDate;
     }
 
     public String getOrgID() {
