@@ -11,6 +11,12 @@
         android:theme="@style/Theme.Voluntold"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditOrgProfile"
+            android:exported="true" />
+        <activity
+            android:name=".ViewOrgProfile"
+            android:exported="true" />
+        <activity
             android:name=".EditVolProfile"
             android:exported="false" />
         <activity

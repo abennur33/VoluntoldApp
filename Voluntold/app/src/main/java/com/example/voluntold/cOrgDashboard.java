@@ -44,4 +44,10 @@ public class cOrgDashboard extends AppCompatActivity {
         startActivity(f);
     }
 
+    public void takeToOrgProfile(View v)
+    {
+        Intent g = new Intent(this, ViewOrgProfile.class);
+        startActivity(g);
+    }
+
 }
