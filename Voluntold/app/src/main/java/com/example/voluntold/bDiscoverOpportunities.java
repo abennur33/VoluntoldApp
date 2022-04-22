@@ -35,13 +35,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
 
         postList = aMainActivity.firebaseHelper.getPosts();
 
-        if (s.getSelectedItem().equals("Agriculture/Food")) {
-            for (int k = 0; k < postList.size(); k++) {
-                if (postList.get(k).equals("Agriculture/Food")) {
-                    sortedList.add(postList.get(k));
-                }
-            }
-        }
+
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, sortedList);
@@ -64,7 +58,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
     }
 
     public void dateSort(ArrayList<OrgPost> sortedList) {
-        
+
     }
 
     public void goBack(View v) {
