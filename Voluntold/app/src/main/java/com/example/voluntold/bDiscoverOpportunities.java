@@ -11,10 +11,12 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class bDiscoverOpportunities extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
+    private ArrayList<OrgPost> sortedList;
     private Spinner s;
 
     @Override
@@ -33,8 +35,16 @@ public class bDiscoverOpportunities extends AppCompatActivity {
 
         postList = aMainActivity.firebaseHelper.getPosts();
 
+        if (s.getSelectedItem().equals("Agriculture/Food")) {
+            for (int k = 0; k < postList.size(); k++) {
+                if (postList.get(k).equals("Agriculture/Food")) {
+                    sortedList.add(postList.get(k));
+                }
+            }
+        }
+
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, postList);
+                this, android.R.layout.simple_list_item_1, sortedList);
         // may change simple_list_item_1 to custom ListView layout
 
         ListView listView = (ListView) findViewById(R.id.postView);
@@ -51,6 +61,10 @@ public class bDiscoverOpportunities extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void dateSort(ArrayList<OrgPost> sortedList) {
+        
     }
 
     public void goBack(View v) {
