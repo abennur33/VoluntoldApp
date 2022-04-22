@@ -262,7 +262,7 @@ public class FirebaseHelper {
     private void getAllPosts(PostCallback postCallback) {
         allPosts.clear();
 
-        db.collection("AllPosts")
+        db.collection("AllPosts").orderBy("comparisonDate")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
