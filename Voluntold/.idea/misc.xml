@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/abhib/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_edit_org_profile.xml" value="0.25" />
+        <entry key="..\:/Users/abhib/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_edit_vol_profile.xml" value="0.15" />
+        <entry key="..\:/Users/abhib/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_view_org_profile.xml" value="0.22" />
+        <entry key="..\:/Users/abhib/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_view_vol_profile.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/abhib/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/organization_signup.xml" value="0.25" />
         <entry key="..\:/Users/bennur1539/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/org_create_opportunity_post.xml" value="0.1" />
         <entry key="..\:/Users/bennur1539/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/signup_screen.xml" value="0.1890625" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_edit_org_profile.xml" value="0.1421875" />

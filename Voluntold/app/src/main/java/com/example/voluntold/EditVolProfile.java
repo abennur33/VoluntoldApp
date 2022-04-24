@@ -73,7 +73,7 @@ public class EditVolProfile extends AppCompatActivity {
 
     }
 
-    public void goBackToProfileScreen(View v)
+    public void goBackToVolProfileScreen(View v)
     {
         Intent p = new Intent(this, ViewVolProfile.class);
         startActivity(p);
