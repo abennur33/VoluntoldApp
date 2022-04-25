@@ -48,6 +48,8 @@ public class aVolunteerSignUp extends AppCompatActivity {
 
     public void signUp(View v) {
         // Make references to EditText in xml
+//        if (aMainActivity.firebaseHelper.getmAuth().getCurrentUser() != null)
+//            aMainActivity.firebaseHelper.getmAuth().signOut();
 
         String name = nameET.getText().toString();
         String ageString = ageET.getText().toString();
