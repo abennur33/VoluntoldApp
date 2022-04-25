@@ -11,16 +11,16 @@
         android:theme="@style/Theme.Voluntold"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".EditOrgProfile"
+            android:name=".cEditOrgProfile"
             android:exported="true" />
         <activity
             android:name=".ViewOrgProfile"
             android:exported="true" />
         <activity
-            android:name=".EditVolProfile"
+            android:name=".bEditVolProfile"
             android:exported="false" />
         <activity
-            android:name=".ViewVolProfile"
+            android:name=".bViewVolProfile"
             android:exported="false" />
         <activity
             android:name=".cViewVolunteers"
@@ -42,6 +42,9 @@
             android:exported="false" />
         <activity
             android:name=".cOrgViewOpportunity"
+            android:exported="false" />
+        <activity
+            android:name=".cEditOpportunity"
             android:exported="false" />
         <activity
             android:name=".cOrgPostedOpportunities"

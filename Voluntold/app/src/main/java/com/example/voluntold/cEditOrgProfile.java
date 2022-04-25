@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class EditOrgProfile extends AppCompatActivity {
+public class cEditOrgProfile extends AppCompatActivity {
 
     EditText newOrgNameET;
     EditText newOrgOrgNameET;

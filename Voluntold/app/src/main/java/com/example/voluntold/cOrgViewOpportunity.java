@@ -3,9 +3,7 @@ package com.example.voluntold;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,44 +14,36 @@ import java.util.ArrayList;
 public class cOrgViewOpportunity extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
+    OrgPost clickedOrgPost;
 
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.vol_view_opportunity_post);
-        // CHANGE XML HERE
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.org_view_opportunity_post);
 
-        mAuth = FirebaseAuth.getInstance();
-         //NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
-        //postList = aMainActivity.firebaseHelper.getPostsbyOrg(mAuth.getUid());
-        Intent intent = getIntent();
+            Intent intent = getIntent();
 
-        ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, postList);
-        // may change simple_list_item_1 to custom ListView layout
+            clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT");
 
-        ListView listView = (ListView) findViewById(R.id.postView);
-        listView.setAdapter(listAdapter);
+            TextView displayTitleTV = findViewById(R.id.postTitleTV);
+            TextView displayDateTV = findViewById(R.id.postDateTV);
+            TextView displayContentTV = findViewById(R.id.contentOfPostTV);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(cOrgViewOpportunity.this, cOrgOpportunityPost.class);
-
-                // Sends the specific object at index i to the Edit activity
-                // In this case, it is sending the particular WishListItem object
-                intent.putExtra("ITEM_TO_EDIT", postList.get(i));
-                startActivity(intent);
-            }
-        });
+            displayTitleTV.setText(clickedOrgPost.getTitle());
+            displayDateTV.setText(clickedOrgPost.getMonth() + "-" + clickedOrgPost.getDate() + "-" + clickedOrgPost.getYear());
+            displayContentTV.setText(clickedOrgPost.getBody());
     }
 
-    public void signOut(View v) {
-        mAuth.signOut();
-        Intent p = new Intent(this, aMainActivity.class);
+    public void editOpportunity(View v) {
+        Intent p = new Intent(cOrgViewOpportunity.this, cEditOpportunity.class);
+        p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
+        startActivity(p);
+    }
+    public void viewVolunteers(View v) {
+        Intent p = new Intent(this, cViewVolunteers.class);
         startActivity(p);
     }
 }

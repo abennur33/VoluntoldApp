@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -44,7 +43,7 @@ public class bVolDashboard extends AppCompatActivity {
 
     public void takeToVolProfilePage(View v)
     {
-        Intent g = new Intent(this, ViewVolProfile.class);
+        Intent g = new Intent(this, bViewVolProfile.class);
         startActivity(g);
     }
 

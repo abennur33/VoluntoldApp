@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/postTitleTV" />
 
     <Button
-        android:id="@+id/goToOrgButton"
+        android:id="@+id/submitButton"
         android:layout_width="147dp"
         android:layout_height="60dp"
         android:layout_marginStart="51dp"

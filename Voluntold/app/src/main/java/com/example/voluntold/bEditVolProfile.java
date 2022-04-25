@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class EditVolProfile extends AppCompatActivity {
+public class bEditVolProfile extends AppCompatActivity {
 
     EditText newVolNameET;
     EditText newVolAgeET;
@@ -75,7 +75,7 @@ public class EditVolProfile extends AppCompatActivity {
 
     public void goBackToVolProfileScreen(View v)
     {
-        Intent p = new Intent(this, ViewVolProfile.class);
+        Intent p = new Intent(this, bViewVolProfile.class);
         startActivity(p);
     }
 }

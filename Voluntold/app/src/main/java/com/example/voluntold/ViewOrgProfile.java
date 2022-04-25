@@ -37,7 +37,7 @@ public class ViewOrgProfile extends AppCompatActivity {
 
     public void takeToEditOrgProfileScreen(View v)
     {
-        Intent p = new Intent(this, EditOrgProfile.class);
+        Intent p = new Intent(this, cEditOrgProfile.class);
         startActivity(p);
     }
 
