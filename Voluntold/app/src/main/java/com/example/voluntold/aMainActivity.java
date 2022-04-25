@@ -28,8 +28,7 @@ public class aMainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly
-        //updateIfLoggedIn();
+        updateIfLoggedIn();
     }
 
     public void updateIfLoggedIn() {
@@ -37,16 +36,8 @@ public class aMainActivity extends AppCompatActivity {
 
         if (user != null)
         {
-            Log.i(TAG, firebaseHelper.getUserInfo().getAccountType());
-            Log.i(TAG, firebaseHelper.getUserInfo().getAccountType());
-            if (firebaseHelper.getUserInfo().getAccountType().equals("Organization")) {
-                Intent intent = new Intent(this, cOrgDashboard.class);
-                startActivity(intent);
-            }
-            else if (firebaseHelper.getUserInfo().getAccountType().equals("Volunteer")) {
-                Intent intent = new Intent(this, bVolDashboard.class);
-                startActivity(intent);
-            }
+            Intent s = new Intent(this, aIntermediateLogInScreen.class);
+            startActivity(s);
         }
     }
 
