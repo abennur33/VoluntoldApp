@@ -33,7 +33,7 @@ public class bVolOpportunityPost extends AppCompatActivity {
     public void signUpUserForOrganizationPost(View v)
     {
         VolOpportunity volOpportunity = new VolOpportunity(clickedOrgPost.getOrgID(),
-                aMainActivity.firebaseHelper.getmAuth().getUid(), clickedOrgPost.getTitle(), clickedOrgPost.getMonth(),
+                aMainActivity.firebaseHelper.getmAuth().getUid(), clickedOrgPost.getDocID(), clickedOrgPost.getTitle(), clickedOrgPost.getMonth(),
                 clickedOrgPost.getDate(), clickedOrgPost.getYear());
 
         UserInfo userInfoObjOfCurUser = aMainActivity.firebaseHelper.getUserInfo();

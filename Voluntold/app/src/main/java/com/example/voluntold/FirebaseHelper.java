@@ -335,17 +335,18 @@ public class FirebaseHelper {
         db.collection(uid)
                 .document(docId)
                 .collection("savedPosts")
-                .add(v)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                .document(v.getDocID())
+                .set(v)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.i(TAG, "just added " + v.getTitle());
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, v.getTitle() + " added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.i(TAG, "Error adding document", e);
+                        Log.d(TAG, "Error adding", e);
                     }
                 });
     }
@@ -370,6 +371,35 @@ public class FirebaseHelper {
     {
         db.collection(uid).document("UserInfo: " + uid)
                 .set(u)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Success updating document");
+                        readData(firestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error updating document", e);
+                    }
+                });
+    }
+
+    public void verifyUserforVolOpp(UserInfo u, OrgPost o, VolOpportunity v) {
+        verifyUserforVolOpp(u, o, v, new FirestoreCallback() {
+            @Override
+            public void onCallBack(UserInfo userInfo) {
+
+            }
+        });
+    }
+
+    private void verifyUserforVolOpp(UserInfo u, OrgPost o, VolOpportunity v, FirestoreCallback firestoreCallback)
+    {
+        db.collection(u.getUserUID()).document("UserInfo: " + u.getUserUID()).collection("savedPosts")
+                .document(u.getUserUID() + "-volOPP-" + o.getDocID())
+                .set(v)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

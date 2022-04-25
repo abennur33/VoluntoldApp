@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi;
 public class VolOpportunity implements Parcelable {
     public String orgID;
     public String volID;
+    public String docID;
 
     private String title;
 
@@ -36,6 +37,7 @@ public class VolOpportunity implements Parcelable {
     public VolOpportunity(Parcel parcel) {
         orgID = parcel.readString();
         volID = parcel.readString();
+        docID = parcel.readString();
         title = parcel.readString();
         month = parcel.readInt();
         date = parcel.readInt();
@@ -62,19 +64,33 @@ public class VolOpportunity implements Parcelable {
     public void writeToParcel(Parcel dest, int i) {
         dest.writeString(orgID);
         dest.writeString(volID);
+        dest.writeString(docID);
         dest.writeString(title);
         dest.writeInt(month);
         dest.writeInt(date);
         dest.writeInt(year);
         dest.writeBoolean(completed);
     }
-    public VolOpportunity(String orgID, String volID, String title, int month, int date, int year) {
+    public VolOpportunity(String orgID, String volID, String docID, String title, int month, int date, int year) {
         this.orgID = orgID;
         this.volID = volID;
+        this.docID = volID + "-volOPP-" + docID;
         this.title = title;
         this.month = month;
         this.date = date;
         this.year = year;
+        completed = false;
+    }
+
+    public VolOpportunity() {
+        this.volID = "volID";
+        this.orgID = "orgID";
+        this.docID = "docID";
+        this.title = "title";
+        this.month = 0;
+        this.date = 0;
+        this.year = 0;
+
     }
 
     public boolean isCompleted() {
@@ -135,5 +151,13 @@ public class VolOpportunity implements Parcelable {
 
     public String toString() {
         return getTitle() + "on " + getMonth() + "/" + getDate() + "/" + getYear();
+    }
+
+    public String getDocID() {
+        return docID;
+    }
+
+    public void setDocID(String docID) {
+        this.docID = docID;
     }
 }
