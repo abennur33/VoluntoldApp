@@ -85,7 +85,7 @@ public class aOrganizationSignUp extends AppCompatActivity {
                                 firebaseHelper.updateUid(user.getUid());
 
                                 // add a collection to our database to represent this user
-                                firebaseHelper.addUserToFirestore(name, email, password, user.getUid(), "Organization", null, orgName, orgType,0);
+                                firebaseHelper.addUserToFirestore("Organization", name, orgType, orgName, null, 0, email, password, user.getUid());
                                 Log.i(TAG, orgType);
 
                                 // lets further investigate why this method call is needed

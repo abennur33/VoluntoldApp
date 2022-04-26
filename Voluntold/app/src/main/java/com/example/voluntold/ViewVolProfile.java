@@ -39,7 +39,7 @@ public class ViewVolProfile extends AppCompatActivity {
 
     public void takeToEditVolProfileScreen(View v)
     {
-        Intent p = new Intent(this, EditVolProfile.class);
+        Intent p = new Intent(this, bEditVolProfile.class);
         startActivity(p);
     }
 

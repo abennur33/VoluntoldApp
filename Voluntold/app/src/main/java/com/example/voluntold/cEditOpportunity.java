@@ -43,29 +43,29 @@ public class cEditOpportunity extends AppCompatActivity {
 
     }
 
-    public void editOpportunity(View v) {
-        Intent p = new Intent(cEditOpportunity.this, cEditOpportunity.class);
-        p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
-        startActivity(p);
-    }
-
-    public void updateData(View v) {
-        String newTitle = displayTitleET.getText().toString();
-        Integer newMonth = Integer.parseInt(monthET.getText().toString());
-        Integer newDay= Integer.parseInt(monthET.getText().toString());
-        Integer newYear = Integer.parseInt(monthET.getText().toString());
-        String newContent = displayContentET.getText().toString();
-        String docID = clickedOrgPost.getDocID();
-        clickedOrgPost.setTitle(newTitle);
-        clickedOrgPost.setMonth(newMonth);
-        clickedOrgPost.setDate(newDay);
-        clickedOrgPost.setYear(newYear);
-        clickedOrgPost.setBody(newContent);
-        // NEED TO DO ASAP
-        // firebaseHelper code
-        MainActivity.firebaseHelper.editData(w);
-        Toast.makeText(this, "Data updated", Toast.LENGTH_SHORT).show();
-    }
+//    public void editOpportunity(View v) {
+//        Intent p = new Intent(cEditOpportunity.this, cEditOpportunity.class);
+//        p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
+//        startActivity(p);
+//    }
+//
+//    public void updateData(View v) {
+//        String newTitle = displayTitleET.getText().toString();
+//        Integer newMonth = Integer.parseInt(monthET.getText().toString());
+//        Integer newDay= Integer.parseInt(monthET.getText().toString());
+//        Integer newYear = Integer.parseInt(monthET.getText().toString());
+//        String newContent = displayContentET.getText().toString();
+//        String docID = clickedOrgPost.getDocID();
+//        clickedOrgPost.setTitle(newTitle);
+//        clickedOrgPost.setMonth(newMonth);
+//        clickedOrgPost.setDate(newDay);
+//        clickedOrgPost.setYear(newYear);
+//        clickedOrgPost.setBody(newContent);
+//        // NEED TO DO ASAP
+//        // firebaseHelper code
+//        MainActivity.firebaseHelper.editData(w);
+//        Toast.makeText(this, "Data updated", Toast.LENGTH_SHORT).show();
+//    }
 
 
 }

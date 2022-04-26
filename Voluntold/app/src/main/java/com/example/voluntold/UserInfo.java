@@ -30,27 +30,27 @@ public class UserInfo implements Parcelable {
     };
 
     public UserInfo(Parcel parcel) {
+        accountType = parcel.readString();
         name = parcel.readString();
+        orgType = parcel.readString();
+        organizationName = parcel.readString();
+        school = parcel.readString();
+        age = parcel.readInt();
         email = parcel.readString();
         password = parcel.readString();
         uid = parcel.readString();
-        accountType = parcel.readString();
-        school = parcel.readString();
-        organizationName = parcel.readString();
-        age = parcel.readInt();
-        orgType = parcel.readString();
     }
 
     public UserInfo() {
-        name = "noName";
-        email = "noEmail";
-        password = "noPassword";
-        uid = "noID";
-        accountType = "noType";
-        school = "noschoollisted";
-        organizationName = "noOrg";
-        orgType = "noType";
+        accountType = "no acc";
+        name = "no name";
+        orgType = "no org type";
+        organizationName = "no org name";
+        school = "no school";
         age = 0;
+        email = "no email";
+        password = "no password";
+        uid = "no uid";
     }
 
     @Override
@@ -68,30 +68,30 @@ public class UserInfo implements Parcelable {
      *
      */
     public void writeToParcel(Parcel dest, int i) {
+        dest.writeString(accountType);
         dest.writeString(name);
+        dest.writeString(orgType);
+        dest.writeString(organizationName);
+        dest.writeString(school);
+        dest.writeInt(age);
         dest.writeString(email);
         dest.writeString(password);
         dest.writeString(uid);
-        dest.writeString(accountType);
-        dest.writeString(school);
-        dest.writeString(organizationName);
-        dest.writeString(orgType);
-        dest.writeInt(age);
     }
 
-    public UserInfo(String name, String email, String password, String uid,
-                    String accountType, String school, String organizationName, String orgType, int age) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.uid = uid;
-        this.accountType = accountType;
-        this.school = school;
-        this.organizationName = organizationName;
-        this.age = age;
-        this.orgType = orgType;
-        this.allPosts = null;
-        this.allOpportunities = null;
+    public UserInfo(String accountType, String name, String orgType, String organizationName,
+                    String school, int age, String email, String password, String uid) {
+      this.accountType = accountType;
+      this.allPosts = null;
+      this.name = name;
+      this.orgType = orgType;
+      this.organizationName = organizationName;
+      this.school = school;
+      this.age = age;
+      this.email = email;
+      this.password = password;
+      this.uid = uid;
+      this.allOpportunities = null;
     }
 
 
