@@ -40,7 +40,7 @@ public class cOrgDashboard extends AppCompatActivity {
     }
     public void takeToPostedOppPage(View v)
     {
-        Intent f = new Intent(this, cOrgViewOpportunity.class);
+        Intent f = new Intent(this, cOrgPostedOpportunities.class);
         startActivity(f);
     }
 
