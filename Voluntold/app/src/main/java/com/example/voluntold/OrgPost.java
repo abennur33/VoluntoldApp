@@ -173,6 +173,10 @@ public class OrgPost implements Parcelable {
         this.volunteers = users;
     }
 
+    public ArrayList<UserInfo> getVolunteers() {
+        return volunteers;
+    }
+
     public void decrementMaxVolunteers()
     {
         maxVolunteers -= 1;
