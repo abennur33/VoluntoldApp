@@ -31,6 +31,7 @@ public class UserInfo implements Parcelable {
 
     public UserInfo(Parcel parcel) {
         accountType = parcel.readString();
+        allPosts = parcel.readArrayList(null);
         name = parcel.readString();
         orgType = parcel.readString();
         organizationName = parcel.readString();
@@ -39,10 +40,12 @@ public class UserInfo implements Parcelable {
         email = parcel.readString();
         password = parcel.readString();
         uid = parcel.readString();
+        allOpportunities = parcel.readArrayList(null);
     }
 
     public UserInfo() {
         accountType = "no acc";
+        allPosts = null;
         name = "no name";
         orgType = "no org type";
         organizationName = "no org name";
@@ -51,6 +54,7 @@ public class UserInfo implements Parcelable {
         email = "no email";
         password = "no password";
         uid = "no uid";
+        allOpportunities = null;
     }
 
     @Override
@@ -69,6 +73,7 @@ public class UserInfo implements Parcelable {
      */
     public void writeToParcel(Parcel dest, int i) {
         dest.writeString(accountType);
+        dest.writeList(allPosts);
         dest.writeString(name);
         dest.writeString(orgType);
         dest.writeString(organizationName);
@@ -77,12 +82,13 @@ public class UserInfo implements Parcelable {
         dest.writeString(email);
         dest.writeString(password);
         dest.writeString(uid);
+        dest.writeList(allOpportunities);
     }
 
-    public UserInfo(String accountType, String name, String orgType, String organizationName,
-                    String school, int age, String email, String password, String uid) {
+    public UserInfo(String accountType, ArrayList<OrgPost> allPosts, String name, String orgType, String organizationName,
+                    String school, int age, String email, String password, String uid, ArrayList<VolOpportunity> allOpportunities) {
       this.accountType = accountType;
-      this.allPosts = null;
+      this.allPosts = allPosts;
       this.name = name;
       this.orgType = orgType;
       this.organizationName = organizationName;
@@ -91,7 +97,7 @@ public class UserInfo implements Parcelable {
       this.email = email;
       this.password = password;
       this.uid = uid;
-      this.allOpportunities = null;
+      this.allOpportunities = allOpportunities;
     }
 
 
@@ -178,8 +184,8 @@ public class UserInfo implements Parcelable {
         return allPosts;
     }
 
-    public void setOrgPostArray(ArrayList newOrgPostList){
-        this.allPosts = newOrgPostList;
+    public void setAllOrgPosts(ArrayList newAllPosts){
+        this.allPosts = newAllPosts;
     }
 
     public ArrayList getVolOpportunities()
@@ -187,8 +193,8 @@ public class UserInfo implements Parcelable {
         return allOpportunities;
     }
 
-    public void setVolOppurtunityList(ArrayList newVolOppList){
-        this.allOpportunities = newVolOppList;
+    public void setVolOpportunities(ArrayList allOpportunities){
+        this.allOpportunities = allOpportunities;
     }
 
     public void addVolOpportunity(VolOpportunity volOpportunity)

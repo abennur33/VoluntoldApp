@@ -28,12 +28,14 @@ public class FirebaseHelper {
     private ArrayList<Organization> allOrgs = new ArrayList<>();
     private ArrayList<OrgPost> allPosts = new ArrayList<>();
 
-    private UserInfo myInfo = new UserInfo();
+    private UserInfo myInfo;
 
     public FirebaseHelper()
     {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        myInfo = new UserInfo();
 
 //        uid = mAuth.getUid();
 
@@ -58,7 +60,7 @@ public class FirebaseHelper {
             readData(new FirestoreCallback() {
                 @Override
                 public void onCallBack(UserInfo userInfo) {
-                    //Log.i(TAG, "Inside attachReadDataToUser, onCallback " + userInfo.getAccountType());
+                    Log.i(TAG, "Inside attachReadDataToUser, onCallback " + userInfo.getAccountType());
                 }
             });
 
@@ -95,15 +97,18 @@ public class FirebaseHelper {
             }
     }
 
-    public void addUserToFirestore(String accountType, String name, String orgType, String organizationName, String school, int age, String email, String password, String uid)
+    public void addUserToFirestore(String accountType, ArrayList<OrgPost> allPosts, String name, String orgType, String organizationName, String school, int age, String email,
+                                   String password, String uid, ArrayList<VolOpportunity> allOpportunities)
     {
-        UserInfo userInfo = new UserInfo(accountType, name, orgType, organizationName, school, age, email, password, uid);
+        UserInfo userInfo = new UserInfo(accountType, allPosts, name, orgType, organizationName, school, age, email, password, uid, allOpportunities);
 
         db.collection(uid).document("UserInfo: " + uid)
                 .set(userInfo)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
+                        updateUid(uid);
+                        attachReadDataToUser();
                         Log.i(TAG, "account added");
                     }
                 })
@@ -208,7 +213,7 @@ public class FirebaseHelper {
     }
 
     private void readData(FirestoreCallback firestoreCallback) {
-        myInfo = null;
+//        myInfo = null;
 
         db.collection(uid)
                 .get()
@@ -218,15 +223,15 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 myInfo = doc.toObject(UserInfo.class);
-                                //accountType = myInfo.getAccountType();
-                               // Log.i(TAG, myInfo.getAccountType());
+                               String email = myInfo.getUserEmail();
+                               Log.i(TAG, "in readData " + email);
 
 //                                Log.i(TAG, "user school: " + doc.get("school"));
                                 // this above line is correctly getting data from firestore, not sure why setSchool is not working
                                 myInfo.setSchool(getUserInfo().getSchool());
                                 Log.i(TAG, "user school from myInfo: " + myInfo.getSchool());
                             }
-                            Log.i(TAG, "success reading all data");
+                            Log.i(TAG, "success reading user data");
                             firestoreCallback.onCallBack(myInfo);
                         }
                         else {
@@ -297,6 +302,7 @@ public class FirebaseHelper {
 
     public UserInfo getUserInfo()
     {
+        Log.i(TAG, myInfo.getUserEmail());
         return myInfo;
     }
 

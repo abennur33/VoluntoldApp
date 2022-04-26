@@ -80,7 +80,8 @@ public class aVolunteerSignUp extends AppCompatActivity {
                                 firebaseHelper.updateUid(user.getUid());
 
                                 // add a collection to our database to represent this user
-                                firebaseHelper.addUserToFirestore("Volunteer", name, null, null, school, age, email, password, user.getUid());
+                                firebaseHelper.addUserToFirestore("Volunteer", null, name, null, null, school,
+                                        age, email, password, user.getUid(), null);
                                 Log.i(TAG, "school " + school);
 
 
