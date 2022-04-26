@@ -24,21 +24,21 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.volunteer_discover_opportunities);
 
-        String[] arraySpinner = new String[] {
-                "Date", "Agriculture/Food", "Environment", "Education", "Health", "Community", "Other"
-        };
-        s = (Spinner) findViewById(R.id.spinner2);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, arraySpinner);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s.setAdapter(adapter);
+//        String[] arraySpinner = new String[] {
+//                "Date", "Agriculture/Food", "Environment", "Education", "Health", "Community", "Other"
+//        };
+//        s = (Spinner) findViewById(R.id.spinner2);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_dropdown_item, arraySpinner);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        s.setAdapter(adapter);
 
         postList = aMainActivity.firebaseHelper.getPosts();
 
 
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, sortedList);
+                this, android.R.layout.simple_list_item_1, postList);
         // may change simple_list_item_1 to custom ListView layout
 
         ListView listView = (ListView) findViewById(R.id.postView);

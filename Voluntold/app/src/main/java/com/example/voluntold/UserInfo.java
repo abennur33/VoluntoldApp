@@ -102,7 +102,7 @@ public class UserInfo implements Parcelable {
 
 
     public String toString() {
-        return name + ", " + email + ", " + password + ", " + uid + ", " + accountType;
+        return name + "," + uid;
     }
 
     public String getName() {
@@ -201,5 +201,7 @@ public class UserInfo implements Parcelable {
     {
         allOpportunities.add(volOpportunity);
     }
+
+
 
 }

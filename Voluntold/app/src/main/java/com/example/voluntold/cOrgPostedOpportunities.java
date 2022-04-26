@@ -2,6 +2,7 @@ package com.example.voluntold;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,9 +14,10 @@ import java.util.ArrayList;
 
 public class cOrgPostedOpportunities extends AppCompatActivity {
 
-    private ArrayList<OrgPost> postList;
+    private ArrayList<OrgPost> postList = new ArrayList<>();
     private ArrayList<OrgPost> allPostList;
     private ArrayList<String> titles;
+    public final String TAG = "Josh";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
         Intent intent = getIntent();
         allPostList = aMainActivity.firebaseHelper.getPosts();
         String orgID = aMainActivity.firebaseHelper.getmAuth().getUid();
+
+        Log.i(TAG, allPostList.get(0).getTitle());
 
         for (int i = 0; i < allPostList.size(); i++) {
             if (allPostList.get(i).getOrgID().equals(orgID)) {
