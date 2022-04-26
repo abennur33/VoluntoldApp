@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.firebase.ui.auth.data.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -269,7 +270,20 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 Log.i(TAG, doc.getData().toString());
-                                allPosts.add(doc.toObject(OrgPost.class));
+                                OrgPost post = doc.toObject(OrgPost.class);
+                                db.collection("AllPosts").document(doc.getId()).collection("Volunteers")
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                ArrayList<UserInfo> users = new ArrayList<>();
+                                                for(DocumentSnapshot udoc: task.getResult()) {
+                                                    users.add(udoc.toObject(UserInfo.class));
+                                                }
+                                                post.setVolunteers(users);
+                                            }
+                                        });
+                                allPosts.add(post);
                             }
                             Log.i(TAG, "success grabbing orgs");
                             Log.i(TAG, allPosts.toString());

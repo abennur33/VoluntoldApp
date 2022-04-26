@@ -19,7 +19,7 @@ public class OrgPost implements Parcelable {
     private String body;
 
     private int maxVolunteers;
-    private ArrayList<String> volunteers = new ArrayList<>();
+    private ArrayList<UserInfo> volunteers = new ArrayList<>();
 
     public static final Parcelable.Creator<OrgPost> CREATOR = new Parcelable.Creator<OrgPost>() {
 
@@ -166,7 +166,11 @@ public class OrgPost implements Parcelable {
         this.maxVolunteers = maxVolunteers;
     }
 
-    public void addVolunteer(String uid) { volunteers.add(uid);
+    public void addVolunteer(UserInfo u) { volunteers.add(u);
+    }
+
+    public void setVolunteers(ArrayList<UserInfo> users) {
+        this.volunteers = users;
     }
 
     public void decrementMaxVolunteers()
