@@ -28,7 +28,7 @@ public class aMainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        //updateIfLoggedIn();
+        updateIfLoggedIn();
     }
 
     public void updateIfLoggedIn() {

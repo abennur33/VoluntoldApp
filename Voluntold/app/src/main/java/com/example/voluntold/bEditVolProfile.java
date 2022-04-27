@@ -35,17 +35,17 @@ public class bEditVolProfile extends AppCompatActivity {
 
     }
 
-//    public void changeVolName(View v)
-//    {
-//        String newVolName = newVolNameET.getText().toString();
-//
-//        // Changes the name but the school to "no school"
-//        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (newVolName, aMainActivity.firebaseHelper.getUserInfo().getUserEmail(),
-//                aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
-//                aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getSchool(), null
-//                , null, aMainActivity.firebaseHelper.getUserInfo().getUserAge()));
-//
-//    }
+    public void changeVolName(View v)
+    {
+        String newVolName = newVolNameET.getText().toString();
+
+        // Changes the name but the school to "no school"
+        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), newVolName,
+                null, null, aMainActivity.firebaseHelper.getUserInfo().getSchool(), aMainActivity.firebaseHelper.getUserInfo().getUserAge(),
+                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
+                aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
+
+    }
 //
 //    public void changeVolAge(View v)
 //    {

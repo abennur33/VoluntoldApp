@@ -32,9 +32,9 @@ public class ViewVolProfile extends AppCompatActivity {
 
         Log.i(TAG, "user info name: " + currUserInfoObj.getName());
 
-        displayVolNameTV.setText("Name: " + currUserInfoObj.getName());
-        displayVolAgeTV.setText("Age: " + Integer.toString(currUserInfoObj.getUserAge()));
-        displayVolSchoolTV.setText("School: " + currUserInfoObj.getSchool());
+        displayVolNameTV.setText("Name: " + aMainActivity.firebaseHelper.myInfo.getName());
+        displayVolAgeTV.setText("Age: " + Integer.toString(aMainActivity.firebaseHelper.myInfo.getUserAge()));
+        displayVolSchoolTV.setText("School: " + aMainActivity.firebaseHelper.myInfo.getSchool());
     }
 
     public void takeToEditVolProfileScreen(View v)

@@ -28,7 +28,7 @@ public class FirebaseHelper {
     private ArrayList<Organization> allOrgs = new ArrayList<>();
     private ArrayList<OrgPost> allPosts = new ArrayList<>();
 
-    private UserInfo myInfo;
+    public static UserInfo myInfo;
 
     public FirebaseHelper()
     {
