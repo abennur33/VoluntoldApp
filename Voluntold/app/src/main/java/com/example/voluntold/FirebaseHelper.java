@@ -276,7 +276,7 @@ public class FirebaseHelper {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 Log.i(TAG, doc.getData().toString());
                                 OrgPost post = doc.toObject(OrgPost.class);
-                                db.collection("AllPosts").document(doc.getId()).collection("Volunteers")
+                                db.collection("AllPosts").document(doc.getId()).collection("Volunteers").orderBy("Name")
                                         .get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
