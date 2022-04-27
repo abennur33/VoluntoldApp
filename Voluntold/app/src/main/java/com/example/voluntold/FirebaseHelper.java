@@ -443,6 +443,10 @@ public class FirebaseHelper {
         return allPosts;
     }
 
+    public ArrayList<Organization> getOrgs() {
+        return allOrgs;
+    }
+
     public interface FirestoreCallback {
         void onCallBack(UserInfo userInfo);
     }

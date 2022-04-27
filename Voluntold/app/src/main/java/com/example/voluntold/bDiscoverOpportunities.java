@@ -16,6 +16,7 @@ import java.util.Calendar;
 public class bDiscoverOpportunities extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
+    private ArrayList<Organization> orgList;
     private ArrayList<OrgPost> sortedList;
     private Spinner s;
 
@@ -24,16 +25,18 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.volunteer_discover_opportunities);
 
-//        String[] arraySpinner = new String[] {
-//                "Date", "Agriculture/Food", "Environment", "Education", "Health", "Community", "Other"
-//        };
-//        s = (Spinner) findViewById(R.id.spinner2);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_dropdown_item, arraySpinner);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        s.setAdapter(adapter);
+        String[] arraySpinner = new String[] {
+                "Date", "Agriculture/Food", "Environment", "Education", "Health", "Community", "Other"
+        };
+        s = (Spinner) findViewById(R.id.spinner2);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(adapter);
 
         postList = aMainActivity.firebaseHelper.getPosts();
+
+        orgList = aMainActivity.firebaseHelper.getOrgs();
 
 
 
@@ -53,6 +56,8 @@ public class bDiscoverOpportunities extends AppCompatActivity {
                 // In this case, it is sending the particular WishListItem object
                 intent.putExtra("ITEM_TO_EDIT", postList.get(i));
                 startActivity(intent);
+
+//                sortBy(s.getSelectedItem().toString());
             }
         });
     }
@@ -60,6 +65,22 @@ public class bDiscoverOpportunities extends AppCompatActivity {
     public void dateSort(ArrayList<OrgPost> sortedList) {
 
     }
+
+//    public void sortBy(String field)
+//    {
+//
+//       for (int i = 0; i < postList.size(); i++)
+//       {
+//           String uidOfOrgWhoPostedCurrentPost = postList.get(i).getOrgID();
+//           for (int j = 0; j < orgList.size(); j++)
+//           {
+//               if (orgList.get(j).get)
+//           }
+//       }
+//
+//
+//
+//    }
 
     public void goBack(View v) {
         Intent intent = new Intent(this, bVolDashboard.class);

@@ -46,32 +46,32 @@ public class bEditVolProfile extends AppCompatActivity {
                 aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
 
     }
-//
-//    public void changeVolAge(View v)
-//    {
-//        int newVolAge = Integer.parseInt(newVolAgeET.getText().toString());
-//
-//
-//        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getName(),
-//                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(),
-//                aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
-//                aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getSchool(), null
-//                , null, newVolAge));
-//
-//    }
-//
-//    public void changeVolSchool(View v)
-//    {
-//        String newVolSchool = newVolSchoolET.getText().toString();
-//
-//
-//        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getName(),
-//                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(),
-//                aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
-//                aMainActivity.firebaseHelper.getUserInfo().getAccountType(), newVolSchool, null
-//                , null, aMainActivity.firebaseHelper.getUserInfo().getUserAge()));
-//
-//    }
+
+    public void changeVolAge(View v)
+    {
+        int newVolAge = Integer.parseInt(newVolAgeET.getText().toString());
+
+
+        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(),
+                aMainActivity.firebaseHelper.getUserInfo().getName(), null, null, aMainActivity.firebaseHelper.getUserInfo().getSchool(), newVolAge,
+                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
+                aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
+
+
+    }
+
+    public void changeVolSchool(View v)
+    {
+        String newVolSchool = newVolSchoolET.getText().toString();
+
+
+        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(),
+                aMainActivity.firebaseHelper.getUserInfo().getName(), null, null, newVolSchool, aMainActivity.firebaseHelper.getUserInfo().getUserAge(),
+                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
+                aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
+
+
+    }
 
     public void goBackToVolProfileScreen(View v)
     {
