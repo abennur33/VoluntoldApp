@@ -47,4 +47,9 @@ public class cOrgViewOpportunity extends AppCompatActivity {
         p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
         startActivity(p);
     }
+
+    public void goBack(View v) {
+        Intent p = new Intent(this, cOrgPostedOpportunities.class);
+        startActivity(p);
+    }
 }

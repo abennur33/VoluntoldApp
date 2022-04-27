@@ -11,6 +11,9 @@
         android:theme="@style/Theme.Voluntold"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".cOrgVerifyVolunteer"
+            android:exported="false" />
+        <activity
             android:name=".cEditOrgProfile"
             android:exported="true" />
         <activity
