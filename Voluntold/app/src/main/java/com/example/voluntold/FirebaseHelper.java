@@ -276,7 +276,7 @@ public class FirebaseHelper {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 Log.i(TAG, doc.getData().toString());
                                 OrgPost post = doc.toObject(OrgPost.class);
-                                db.collection("AllPosts").document(doc.getId()).collection("Volunteers")
+                                db.collection("AllPosts").document(doc.getId()).collection("Volunteers").orderBy("Name")
                                         .get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
@@ -403,6 +403,36 @@ public class FirebaseHelper {
                         Log.i(TAG, "Error updating document", e);
                     }
                 });
+    }
+
+    private void editPost(OrgPost o, FirestoreCallback firestoreCallback) {
+        String docId = o.getDocID();
+        db.collection("AllPosts")
+                .document(docId)
+                .set(o)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, "Success updating document");
+                        readData(firestoreCallback);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG, "Error updating document", e);
+                    }
+                });
+    }
+
+    public void editPost(OrgPost o) {
+        // edit WishListItem w to the database
+        // this method is overloaded and incorporates the interface to handle the asynch calls
+        editPost(o, new FirestoreCallback() {
+            @Override
+            public void onCallBack(UserInfo userInfo) {
+            }
+        });
     }
 
     public void verifyUserforVolOpp(UserInfo u, OrgPost o, VolOpportunity v) {

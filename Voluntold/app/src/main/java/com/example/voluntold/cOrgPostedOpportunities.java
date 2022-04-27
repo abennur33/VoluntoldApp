@@ -58,7 +58,7 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
     }
 
     public void goBack(View v) {
-        Intent intent = new Intent(this, bVolDashboard.class);
+        Intent intent = new Intent(this, cOrgDashboard.class);
         startActivity(intent);
     }
 }
