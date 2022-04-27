@@ -197,10 +197,10 @@ public class UserInfo implements Parcelable {
         this.allOpportunities = allOpportunities;
     }
 
-    public void addVolOpportunity(VolOpportunity volOpportunity)
-    {
-        allOpportunities.add(volOpportunity);
-    }
+//    public void addVolOpportunity(VolOpportunity volOpportunity)
+//    {
+//        allOpportunities.add(volOpportunity);
+//    }
 
 
 

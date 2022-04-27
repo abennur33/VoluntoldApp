@@ -53,6 +53,7 @@ public class cViewVolunteers extends AppCompatActivity {
 
     public void goBack(View v) {
         Intent p = new Intent(this, cOrgViewOpportunity.class);
+        p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
         startActivity(p);
     }
 }
