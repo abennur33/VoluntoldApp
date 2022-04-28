@@ -36,7 +36,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
 
         postList = aMainActivity.firebaseHelper.getPosts();
 
-        orgList = aMainActivity.firebaseHelper.getOrgs();
+        //orgList = aMainActivity.firebaseHelper.getOrgs();
 
 
 
@@ -66,21 +66,21 @@ public class bDiscoverOpportunities extends AppCompatActivity {
 
     }
 
-    public void sortBy(String field)
-    {
+//    public void sortBy(String field)
+//    {
+//
+//       for (int i = 0; i < postList.size(); i++)
+//       {
+//           String uidOfOrgWhoPostedCurrentPost = postList.get(i).getOrgID();
+//           for (int j = 0; j < orgList.size(); j++)
+//           {
+//               if (orgList.get(j))
+//           }
+//       }
 
-       for (int i = 0; i < postList.size(); i++)
-       {
-           String uidOfOrgWhoPostedCurrentPost = postList.get(i).getOrgID();
-           for (int j = 0; j < orgList.size(); j++)
-           {
-               if (orgList.get(j))
-           }
-       }
 
 
-
-    }
+    //}
 
     public void goBack(View v) {
         Intent intent = new Intent(this, bVolDashboard.class);
