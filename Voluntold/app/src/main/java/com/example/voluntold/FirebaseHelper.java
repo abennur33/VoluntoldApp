@@ -122,7 +122,7 @@ public class FirebaseHelper {
         if (accountType.equals("Organization")) {
             Organization org = new Organization(organizationName, uid);
 
-            addOrg(org);
+            addOrg(userInfo);
         }
     }
 
@@ -157,13 +157,13 @@ public class FirebaseHelper {
                 });
     }
 
-    public void addOrg(Organization o) {
+    public void addOrg(UserInfo u) {
 
         // add WishListItem w to the database
 
         // this method is overloaded and incorporates the interface to handle the asynch calls
 
-        addOrg(o, new FirestoreCallback() {
+        addOrg(u, new FirestoreCallback() {
 
             @Override
             public void onCallBack(UserInfo userInfo) {
@@ -173,11 +173,11 @@ public class FirebaseHelper {
 
     }
 
-    private void addOrg(Organization o, FirestoreCallback firestoreCallback) {
+    private void addOrg(UserInfo u, FirestoreCallback firestoreCallback) {
 
         db.collection("Organizations")
 
-                .add(o)
+                .add(u)
 
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 
@@ -187,7 +187,7 @@ public class FirebaseHelper {
 
                         // This will set the docID key for the WishListItem that was just added.
 
-                        Log.i(TAG, "just added " + o.getName());
+                        Log.i(TAG, "just added " + u.getName());
 
                         readData(firestoreCallback);
 
