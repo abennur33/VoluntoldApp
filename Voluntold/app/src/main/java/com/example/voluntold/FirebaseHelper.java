@@ -253,6 +253,8 @@ public class FirebaseHelper {
     private void getAllPosts(PostCallback postCallback) {
         allPosts.clear();
 
+        ArrayList<UserInfo> users = new ArrayList<>();
+
         db.collection("AllPosts").orderBy("comparisonDate")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -267,7 +269,6 @@ public class FirebaseHelper {
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                                ArrayList<UserInfo> users = new ArrayList<>();
                                                 for(DocumentSnapshot udoc: task.getResult()) {
                                                     users.add(udoc.toObject(UserInfo.class));
                                                 }
