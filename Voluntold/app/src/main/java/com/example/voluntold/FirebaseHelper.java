@@ -71,7 +71,7 @@ public class FirebaseHelper {
                 }
             });
 
-            
+
             Log.i(TAG, mAuth.getCurrentUser().getEmail() + " test");
 
             if (myInfo != null) {
