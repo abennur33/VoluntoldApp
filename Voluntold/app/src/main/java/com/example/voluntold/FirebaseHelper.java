@@ -311,17 +311,18 @@ public class FirebaseHelper {
         db.collection("AllPosts")
                 .document(docId)
                 .collection("Volunteers")
-                .add(u)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                .document("volList-" + u.getUserUID())
+                .set(u)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.i(TAG, "just added " + o.getTitle());
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, u.getName() + " added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.i(TAG, "Error adding document", e);
+                        Log.d(TAG, "Error adding", e);
                     }
                 });
     }
