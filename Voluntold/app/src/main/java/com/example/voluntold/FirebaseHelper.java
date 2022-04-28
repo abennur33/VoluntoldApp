@@ -262,7 +262,7 @@ public class FirebaseHelper {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 Log.i(TAG, doc.getData().toString());
                                 OrgPost post = doc.toObject(OrgPost.class);
-                                db.collection("AllPosts").document(doc.getId()).collection("Volunteers").orderBy("Name")
+                                db.collection("AllPosts").document(doc.getId()).collection("Volunteers")
                                         .get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
@@ -311,17 +311,18 @@ public class FirebaseHelper {
         db.collection("AllPosts")
                 .document(docId)
                 .collection("Volunteers")
-                .add(u)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                .document("volList-" + u.getUserUID())
+                .set(u)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.i(TAG, "just added " + o.getTitle());
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, u.getName() + " added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.i(TAG, "Error adding document", e);
+                        Log.d(TAG, "Error adding", e);
                     }
                 });
     }
