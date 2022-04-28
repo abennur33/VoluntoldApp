@@ -176,36 +176,21 @@ public class FirebaseHelper {
 
     private void addOrg(UserInfo u, FirestoreCallback firestoreCallback) {
 
-        db.collection("Organizations")
+        db.collection("Organizations").document("orgList-" + u.getUserUID())
 
-                .add(u)
+                .set(u)
 
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-
-                    public void onSuccess(DocumentReference documentReference) {
-
-                        // This will set the docID key for the WishListItem that was just added.
-
-                        Log.i(TAG, "just added " + u.getName());
-
-                        readData(firestoreCallback);
-
+                    public void onSuccess(Void unused) {
+                        Log.i(TAG, u.getOrganizationName() + " added");
                     }
-
                 })
-
                 .addOnFailureListener(new OnFailureListener() {
-
                     @Override
-
                     public void onFailure(@NonNull Exception e) {
-
-                        Log.i(TAG, "Error adding document", e);
-
+                        Log.d(TAG, "Error adding", e);
                     }
-
                 });
     }
 
