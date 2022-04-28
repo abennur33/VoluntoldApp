@@ -42,7 +42,7 @@ public class OrgPost implements Parcelable {
         date = parcel.readInt();
         year = parcel.readInt();
         maxVolunteers = parcel.readInt();
-        volunteers = parcel.readArrayList(null);
+        //volunteers = parcel.readArrayList(null);
         comparisonDate = parcel.readInt();
     }
 
