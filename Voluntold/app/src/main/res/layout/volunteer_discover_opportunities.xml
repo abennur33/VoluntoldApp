@@ -10,7 +10,7 @@
         android:id="@+id/textView20"
         android:layout_width="98dp"
         android:layout_height="57dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/advent_pro_light"
         android:gravity="center"
@@ -28,7 +28,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView52"
@@ -57,12 +58,26 @@
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="275dp"
-        android:layout_height="58dp"
+        android:layout_width="242dp"
+        android:layout_height="36dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/textView52" />
+
+    <Button
+        android:id="@+id/searchVolOppsBT"
+        android:layout_width="54dp"
+        android:layout_height="35dp"
+        android:onClick="sortBy"
+        android:text="GO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.988"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.149" />
 </androidx.constraintlayout.widget.ConstraintLayout>

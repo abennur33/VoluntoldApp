@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,9 +17,10 @@ import java.util.Calendar;
 public class bDiscoverOpportunities extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
-    private ArrayList<Organization> orgList;
+    private ArrayList<UserInfo> orgList;
     private ArrayList<OrgPost> sortedList;
     private Spinner s;
+    String TAG = "Abhi2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         s.setAdapter(adapter);
 
         postList = aMainActivity.firebaseHelper.getPosts();
+        Log.i(TAG, postList.toString());
 
         orgList = aMainActivity.firebaseHelper.getOrgs();
 
@@ -57,7 +60,6 @@ public class bDiscoverOpportunities extends AppCompatActivity {
                 intent.putExtra("ITEM_TO_EDIT", postList.get(i));
                 startActivity(intent);
 
-//                sortBy(s.getSelectedItem().toString());
             }
         });
     }
@@ -66,18 +68,32 @@ public class bDiscoverOpportunities extends AppCompatActivity {
 
     }
 
-    public void sortBy(String field)
+    public void sortBy(View v)
     {
+        String field = s.getSelectedItem().toString();
+
+        ArrayList<OrgPost> filteredOrgPostArr = new ArrayList<>();
 
        for (int i = 0; i < postList.size(); i++)
        {
            String uidOfOrgWhoPostedCurrentPost = postList.get(i).getOrgID();
            for (int j = 0; j < orgList.size(); j++)
            {
-               if (orgList.get(j))
+               if (orgList.get(j).getUserUID().equals(uidOfOrgWhoPostedCurrentPost))
+               {
+                   if (orgList.get(j).getOrgType().equals(field))
+                   {
+                       filteredOrgPostArr.add(postList.get(i));
+                   }
+               }
            }
        }
 
+        ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, filteredOrgPostArr);
+
+        ListView listView = (ListView) findViewById(R.id.postView);
+        listView.setAdapter(listAdapter);
 
 
     }
