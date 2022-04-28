@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ public class cViewVolunteers extends AppCompatActivity {
     private ArrayList<UserInfo> volList;
     private ArrayList<String> volListNames = new ArrayList<>();
     OrgPost clickedOrgPost;
+    private final String TAG = "Josh";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +26,13 @@ public class cViewVolunteers extends AppCompatActivity {
 
         Intent intent = getIntent();
         clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT");
+        Log.i(TAG, clickedOrgPost.getVolunteers().toString());
 
         volList = clickedOrgPost.getVolunteers();
+//        Log.i(TAG, volList.get(0).toString());
 
         for (int i = 0; i < volList.size(); i++) {
-            volListNames.add(volList.get(i).getName());
+            volListNames.add(volList.get(i).toString());
         }
 
         ArrayAdapter<String> listAdapter = new ArrayAdapter<>(

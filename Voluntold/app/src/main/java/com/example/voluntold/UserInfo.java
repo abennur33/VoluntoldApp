@@ -102,7 +102,7 @@ public class UserInfo implements Parcelable {
 
 
     public String toString() {
-        return name + "," + uid;
+        return name + ", " + uid;
     }
 
     public String getName() {
