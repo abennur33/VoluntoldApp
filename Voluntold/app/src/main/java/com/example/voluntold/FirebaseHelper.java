@@ -25,7 +25,7 @@ public class FirebaseHelper {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
-    private ArrayList<Organization> allOrgs = new ArrayList<>();
+    private ArrayList<UserInfo> allOrgs = new ArrayList<>();
     private ArrayList<OrgPost> allPosts = new ArrayList<>();
 
     public static UserInfo myInfo;
@@ -66,11 +66,12 @@ public class FirebaseHelper {
 
             getAllOrgs(new OrganizationCallback() {
                 @Override
-                public void onCallBackOrgs(ArrayList<Organization> allOrgs) {
+                public void onCallBackOrgs(ArrayList<UserInfo> allOrgs) {
 
                 }
             });
 
+            
             Log.i(TAG, mAuth.getCurrentUser().getEmail() + " test");
 
             if (myInfo != null) {
@@ -253,7 +254,7 @@ public class FirebaseHelper {
                         if(task.isSuccessful()) {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 Log.i(TAG, doc.getData().toString());
-                                allOrgs.add(doc.toObject(Organization.class));
+                                allOrgs.add(doc.toObject(UserInfo.class));
                             }
                             Log.i(TAG, "success grabbing orgs");
                             Log.i(TAG, allOrgs.toString());
@@ -473,7 +474,7 @@ public class FirebaseHelper {
         return allPosts;
     }
 
-    public ArrayList<Organization> getOrgs() {
+    public ArrayList<UserInfo> getOrgs() {
         return allOrgs;
     }
 
@@ -482,7 +483,7 @@ public class FirebaseHelper {
     }
 
     public interface OrganizationCallback {
-        void onCallBackOrgs(ArrayList<Organization> allOrgs);
+        void onCallBackOrgs(ArrayList<UserInfo> allOrgs);
     }
 
     public interface PostCallback {
