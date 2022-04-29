@@ -26,6 +26,8 @@ public class cViewVolunteers extends AppCompatActivity {
 
         Intent intent = getIntent();
         clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT");
+        clickedOrgPost.setVolunteers(intent.getParcelableArrayListExtra("USERS_LIST"));
+        Log.i("Aadit", clickedOrgPost.getVolunteers().toString());
         Log.i(TAG, clickedOrgPost.getVolunteers().toString());
 
         volList = clickedOrgPost.getVolunteers();

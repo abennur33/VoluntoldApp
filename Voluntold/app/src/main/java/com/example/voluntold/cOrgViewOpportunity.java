@@ -2,6 +2,7 @@ package com.example.voluntold;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,7 +28,8 @@ public class cOrgViewOpportunity extends AppCompatActivity {
             Intent intent = getIntent();
 
             clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT");
-
+            clickedOrgPost.setVolunteers(intent.getParcelableArrayListExtra("USERS_LIST"));
+        Log.i("Aadit", "viewopp page" + clickedOrgPost.getVolunteers().toString());
             TextView displayTitleTV = findViewById(R.id.postTitleTV);
             TextView displayDateTV = findViewById(R.id.postDateTV);
             TextView displayContentTV = findViewById(R.id.contentOfPostTV);
@@ -45,6 +47,8 @@ public class cOrgViewOpportunity extends AppCompatActivity {
     public void viewVolunteers(View v) {
         Intent p = new Intent(this, cViewVolunteers.class);
         p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
+        ArrayList<UserInfo> users = clickedOrgPost.getVolunteers();
+        p.putParcelableArrayListExtra("USERS_LIST", users);
         startActivity(p);
     }
 
