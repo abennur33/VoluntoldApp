@@ -83,8 +83,9 @@ public class bDiscoverOpportunities extends AppCompatActivity {
                {
                    if (s.getSelectedItem().equals("Date")) {
                        int k, l;
-                       for (k = 0; k < postList.size(); k++)
+                       for (k = 1; k < postList.size(); k++)
                        {
+                           int key = (int) postList.get(i).getComparisonDate();
 
                        }
                    }

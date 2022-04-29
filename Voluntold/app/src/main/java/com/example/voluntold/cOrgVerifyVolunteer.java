@@ -14,6 +14,10 @@ public class cOrgVerifyVolunteer extends AppCompatActivity {
         setContentView(R.layout.org_verify_volunteer);
     }
 
+    public void verifyVolunteer() {
+        // verifies volunteer
+    }
+
     public void goBack(View v) {
         Intent p = new Intent(this, cViewVolunteers.class);
         startActivity(p);
