@@ -270,12 +270,16 @@ public class FirebaseHelper {
                                             @Override
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                 for(DocumentSnapshot udoc: task.getResult()) {
-                                                    users.add(udoc.toObject(UserInfo.class));
+                                                    UserInfo tempuser = udoc.toObject(UserInfo.class);
+                                                    Log.i("Aadit", tempuser.getName());
+                                                    users.add(tempuser);
                                                 }
                                                 post.setVolunteers(users);
+                                                Log.i("Aadit", post.getVolunteers().toString());
+                                                allPosts.add(post);
+                                                Log.i("Aadit", "" + allPosts.size());
                                             }
                                         });
-                                allPosts.add(post);
                             }
                             Log.i(TAG, "success grabbing orgs");
                             Log.i(TAG, allPosts.toString());
@@ -285,7 +289,6 @@ public class FirebaseHelper {
                 });
         Log.i(TAG, "returning form getallorgs" + allPosts.toString());
     }
-
 
     public UserInfo getUserInfo()
     {

@@ -52,6 +52,9 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
                 intent.putExtra("ITEM_TO_EDIT", postList.get(i));
+                Log.i("Aadit", "in postedopps" + postList.get(i).getVolunteers().toString());
+                ArrayList<UserInfo> users = postList.get(i).getVolunteers();
+                intent.putParcelableArrayListExtra("USERS_LIST", users);
                 startActivity(intent);
             }
         });
