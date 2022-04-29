@@ -51,7 +51,8 @@ public class cViewVolunteers extends AppCompatActivity {
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
-                intent.putExtra("ITEM_TO_EDIT", volList.get(i));
+                intent.putExtra("USER_TO_EDIT", volList.get(i));
+                intent.putExtra("ITEM_TO_EDIT", clickedOrgPost);
                 startActivity(intent);
             }
         });
