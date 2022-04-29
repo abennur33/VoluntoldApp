@@ -64,7 +64,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         });
     }
 
-    public void dateSort(ArrayList<OrgPost> sortedList) {
+    public void compareDate(OrgPost a, OrgPost b) {
 
     }
 
@@ -81,7 +81,14 @@ public class bDiscoverOpportunities extends AppCompatActivity {
            {
                if (orgList.get(j).getUserUID().equals(uidOfOrgWhoPostedCurrentPost))
                {
-                   if (orgList.get(j).getOrgType().equals(field))
+                   if (s.getSelectedItem().equals("Date")) {
+                       int k, l;
+                       for (k = 0; k < postList.size(); k++)
+                       {
+
+                       }
+                   }
+                   else if (orgList.get(j).getOrgType().equals(field))
                    {
                        filteredOrgPostArr.add(postList.get(i));
                    }
