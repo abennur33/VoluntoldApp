@@ -42,7 +42,9 @@ public class bDiscoverOpportunities extends AppCompatActivity {
 
         orgList = aMainActivity.firebaseHelper.getOrgs();
 
-        LocalDate localDate = LocalDate.now();
+        // code that filers out old posts
+
+        LocalDate localDate = LocalDate.now(); // this error doesn't do anything
         String[] dateElements = localDate.toString().split("-");
 
         int currDateYear = Integer.parseInt(dateElements[0]);
@@ -60,6 +62,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
             }
         }
 
+        dateSortDefault();
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, postList);
@@ -82,8 +85,26 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         });
     }
 
-    public void compareDate(OrgPost a, OrgPost b) {
+    public void dateSortDefault() {
+        ArrayList<OrgPost> filteredOrgPostArr = new ArrayList<>();
 
+        int k, l;
+        for (k = 1; k < postList.size(); k++)
+        {
+            OrgPost key = postList.get(k);
+            l = k - 1;
+
+            while (l >= 0 && postList.get(l).getComparisonDate() > key.getComparisonDate()) {
+                postList.set(l + 1, postList.get(l));
+                l = l - 1;
+            }
+            postList.set(l + 1, key);
+        }
+        Log.i(TAG, postList.toString());
+
+        for (int i = 0; i < postList.size(); i++) {
+            filteredOrgPostArr.add(postList.get(i));
+        }
     }
 
     public void sortBy(View v)
@@ -112,6 +133,8 @@ public class bDiscoverOpportunities extends AppCompatActivity {
                            }
                            postList.set(l + 1, key);
                        }
+                       Log.i(TAG, postList.toString());
+                       filteredOrgPostArr.add(postList.get(i));
                    }
                    else if (orgList.get(j).getOrgType().equals(field))
                    {
