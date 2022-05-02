@@ -24,10 +24,11 @@ public class cOrgVerifyVolunteer extends AppCompatActivity {
         clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT");
     }
 
-    public void verifyVolunteer() {
+    public void verifyVolunteer(View v) {
         VolOpportunity volOpportunity = new VolOpportunity(clickedOrgPost.getOrgID(),
                 aMainActivity.firebaseHelper.getmAuth().getUid(), clickedOrgPost.getDocID(), clickedOrgPost.getTitle(), clickedOrgPost.getMonth(),
                 clickedOrgPost.getDate(), clickedOrgPost.getYear());
+        volOpportunity.setCompleted(true);
         aMainActivity.firebaseHelper.verifyUserforVolOpp(clickedUser, clickedOrgPost, volOpportunity);
 
         Intent intent = new Intent(cOrgVerifyVolunteer.this, cOrgViewOpportunity.class);

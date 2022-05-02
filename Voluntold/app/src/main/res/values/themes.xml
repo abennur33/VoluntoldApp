@@ -13,4 +13,14 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name= "AppTheme" parent= "Theme.Voluntold" >
+        <item name= "android:textViewStyle" > @style/DMTextViewStyle </item>
+        <item name= "android:buttonStyle" > @style/DMButtonStyle </item>
+    </style>
+    <style name= "DMTextViewStyle" parent= "android:Widget.TextView" >
+        <item name= "android:fontFamily" > DM Sans </item>
+    </style>
+    <style name= "DMButtonStyle" parent= "android:Widget.Holo.Button" >
+        <item name= "android:fontFamily" > DM Sans </item>
+    </style>
 </resources>
