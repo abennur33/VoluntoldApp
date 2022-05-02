@@ -85,8 +85,14 @@ public class bDiscoverOpportunities extends AppCompatActivity {
                        int k, l;
                        for (k = 1; k < postList.size(); k++)
                        {
-                           int key = (int) postList.get(i).getComparisonDate();
+                           OrgPost key = postList.get(k);
+                           l = k - 1;
 
+                           while (l >= 0 && postList.get(l).getComparisonDate() > key.getComparisonDate()) {
+                               postList.set(l + 1, postList.get(l));
+                               l = l - 1;
+                           }
+                           postList.set(l + 1, key);
                        }
                    }
                    else if (orgList.get(j).getOrgType().equals(field))
