@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -41,6 +42,23 @@ public class bDiscoverOpportunities extends AppCompatActivity {
 
         orgList = aMainActivity.firebaseHelper.getOrgs();
 
+        LocalDate localDate = LocalDate.now();
+        String[] dateElements = localDate.toString().split("-");
+
+        int currDateYear = Integer.parseInt(dateElements[0]);
+        int currDateMonth = Integer.parseInt(dateElements[1]);
+        int currDateDay = Integer.parseInt(dateElements[2]);
+
+        int currDateToCompare = (int) (10000*(currDateYear + ((double) currDateMonth/100) + ((double) currDateDay/10000)));
+
+        for (int i = 0; i < postList.size(); i++)
+        {
+            if (postList.get(i).getComparisonDate() < currDateToCompare)
+            {
+                postList.remove(i);
+                i--;
+            }
+        }
 
 
         ArrayAdapter<OrgPost> listAdapter = new ArrayAdapter<>(
@@ -85,8 +103,14 @@ public class bDiscoverOpportunities extends AppCompatActivity {
                        int k, l;
                        for (k = 1; k < postList.size(); k++)
                        {
-                           int key = (int) postList.get(i).getComparisonDate();
+                           OrgPost key = postList.get(k);
+                           l = k - 1;
 
+                           while (l >= 0 && postList.get(l).getComparisonDate() > key.getComparisonDate()) {
+                               postList.set(l + 1, postList.get(l));
+                               l = l - 1;
+                           }
+                           postList.set(l + 1, key);
                        }
                    }
                    else if (orgList.get(j).getOrgType().equals(field))
