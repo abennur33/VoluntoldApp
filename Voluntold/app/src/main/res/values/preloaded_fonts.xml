@@ -7,5 +7,8 @@
         <item>@font/advent_pro_light_2</item>
         <item>@font/advent_pro_semibold</item>
         <item>@font/basic</item>
+        <item>@font/dm_sans</item>
+        <item>@font/dm_sans_bold</item>
+        <item>@font/dm_sans_medium</item>
     </array>
 </resources>
