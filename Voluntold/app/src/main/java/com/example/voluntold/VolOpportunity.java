@@ -90,7 +90,7 @@ public class VolOpportunity implements Parcelable {
         this.month = 0;
         this.date = 0;
         this.year = 0;
-
+        this.completed = false;
     }
 
     public boolean isCompleted() {
