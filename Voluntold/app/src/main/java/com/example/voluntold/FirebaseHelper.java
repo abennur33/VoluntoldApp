@@ -27,6 +27,7 @@ public class FirebaseHelper {
 
     private ArrayList<UserInfo> allOrgs = new ArrayList<>();
     private ArrayList<OrgPost> allPosts = new ArrayList<>();
+    private ArrayList<VolOpportunity> myVolOpps = new ArrayList<>();
 
     public static UserInfo myInfo;
 
@@ -89,6 +90,32 @@ public class FirebaseHelper {
 
                 @Override
                 public void onCallBackPosts(ArrayList<OrgPost> posts) {
+
+                }
+            });
+
+//            if (myInfo.getAccountType().equals("Volunteer")) {
+//                getMyVolOpps(new VolOppCallback() {
+//                    @Override
+//                    public void onCallBackVolOpp(VolOpportunity volOpportunity) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onCallBackVolOpps(ArrayList<VolOpportunity> volOpportunities) {
+//
+//                    }
+//                });
+//            }
+//            else Log.i(TAG, "testing volopps" + myInfo.getAccountType());
+            getMyVolOpps(new VolOppCallback() {
+                @Override
+                public void onCallBackVolOpp(VolOpportunity volOpportunity) {
+
+                }
+
+                @Override
+                public void onCallBackVolOpps(ArrayList<VolOpportunity> volOpportunities) {
 
                 }
             });
@@ -227,7 +254,6 @@ public class FirebaseHelper {
                 });
     }
 
-
     private void getAllOrgs(OrganizationCallback organizationCallback) {
         allOrgs.clear();
 
@@ -248,6 +274,27 @@ public class FirebaseHelper {
                     }
                 });
         Log.i(TAG, "returning form getallorgs" + allOrgs.toString());
+    }
+
+    private void getMyVolOpps(VolOppCallback volOppCallback) {
+        myVolOpps.clear();
+
+        db.collection(uid).document("UserInfo: " + uid).collection("savedPosts")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for(DocumentSnapshot doc: task.getResult()) {
+                                Log.i(TAG, doc.getData().toString());
+                                myVolOpps.add(doc.toObject(VolOpportunity.class));
+                            }
+                            Log.i(TAG, "success grabbing volopps");
+                            Log.i(TAG, myVolOpps.toString());
+                            volOppCallback.onCallBackVolOpps(myVolOpps);
+                        }
+                    }
+                });
     }
 
     private void getAllPosts(PostCallback postCallback) {
@@ -468,6 +515,8 @@ public class FirebaseHelper {
         return allOrgs;
     }
 
+    public ArrayList<VolOpportunity> getVolOpps() { return myVolOpps; }
+
     public interface FirestoreCallback {
         void onCallBack(UserInfo userInfo);
     }
@@ -479,6 +528,11 @@ public class FirebaseHelper {
     public interface PostCallback {
         void onCallBackPost(OrgPost post);
         void onCallBackPosts(ArrayList<OrgPost> posts);
+    }
+
+    public interface VolOppCallback {
+        void onCallBackVolOpp(VolOpportunity volOpportunity);
+        void onCallBackVolOpps(ArrayList<VolOpportunity> volOpportunities);
     }
 
 //    public void clearAccType()
