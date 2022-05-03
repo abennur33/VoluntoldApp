@@ -58,6 +58,24 @@ public class cViewVolunteers extends AppCompatActivity {
         });
     }
 
+    public void verifyAll(View v) {
+        for (UserInfo u: volList) {
+            VolOpportunity volOpportunity = new VolOpportunity(clickedOrgPost.getOrgID(),
+                    aMainActivity.firebaseHelper.getmAuth().getUid(), clickedOrgPost.getDocID(), clickedOrgPost.getTitle(), clickedOrgPost.getMonth(),
+                    clickedOrgPost.getDate(), clickedOrgPost.getYear());
+            volOpportunity.setCompleted(true);
+            aMainActivity.firebaseHelper.verifyUserforVolOpp(u, clickedOrgPost, volOpportunity);
+        }
+
+        Intent intent = new Intent(cViewVolunteers.this, cOrgViewOpportunity.class);
+
+        intent.putExtra("ITEM_TO_EDIT", clickedOrgPost);
+        Log.i("Aadit", "in postedopps" + clickedOrgPost.getVolunteers().toString());
+        ArrayList<UserInfo> users = clickedOrgPost.getVolunteers();
+        intent.putParcelableArrayListExtra("USERS_LIST", users);
+        startActivity(intent);
+    }
+
     public void goBack(View v) {
         Intent p = new Intent(this, cOrgViewOpportunity.class);
         p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
