@@ -27,10 +27,10 @@
         android:layout_height="61dp"
         android:layout_marginTop="39dp"
         android:layout_marginEnd="40dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:fontFamily="@font/dm_sans"
         android:onClick="toSignUp"
         android:text="Sign Up"
-        android:textSize="25sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -66,10 +66,10 @@
         android:layout_height="61dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="39dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:fontFamily="@font/dm_sans"
         android:onClick="toLogIn"
         android:text="Log In"
-        android:textSize="25sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 

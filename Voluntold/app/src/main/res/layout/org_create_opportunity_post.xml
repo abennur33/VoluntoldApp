@@ -11,14 +11,12 @@
         android:id="@+id/yearET"
         android:layout_width="284dp"
         android:layout_height="43dp"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="168dp"
         android:layout_marginEnd="38dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView28"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
@@ -27,9 +25,9 @@
         android:layout_height="33dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="168dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:fontFamily="@font/dm_sans"
         android:text="Year:"
-        android:textSize="25sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
@@ -37,14 +35,12 @@
         android:id="@+id/dayET"
         android:layout_width="284dp"
         android:layout_height="43dp"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="116dp"
         android:layout_marginEnd="38dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView28"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
@@ -53,9 +49,9 @@
         android:layout_height="33dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="120dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:fontFamily="@font/dm_sans"
         android:text="Day:"
-        android:textSize="25sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
@@ -63,13 +59,12 @@
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="284dp"
         android:layout_height="43dp"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="38dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView28"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
@@ -78,21 +73,21 @@
         android:layout_height="33dp"
         android:layout_marginStart="33dp"
         android:layout_marginTop="15dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:fontFamily="@font/dm_sans"
         android:text="Title:"
-        android:textSize="25sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
     <TextView
         android:id="@+id/textView29"
-        android:layout_width="62dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="68dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:layout_width="71dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/dm_sans"
         android:text="Month:"
-        android:textSize="23sp"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
@@ -105,6 +100,7 @@
         android:layout_marginEnd="38dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:fontFamily="@font/dm_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView29"
@@ -128,24 +124,12 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="130dp"
-        android:fontFamily="@font/advent_pro_light"
+        android:fontFamily="@font/dm_sans_bold"
         android:text="Add Post"
         android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton5"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="49dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/advent_pro_bold"
-        android:text="Title:"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
     <TextView
         android:id="@+id/textView33"
@@ -154,7 +138,7 @@
         android:layout_marginStart="33dp"
         android:layout_marginTop="34dp"
         android:layout_marginEnd="275dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:fontFamily="@font/dm_sans"
         android:text="Body Text"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,13 +149,12 @@
         android:id="@+id/titleET"
         android:layout_width="284dp"
         android:layout_height="43dp"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="38dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:fontFamily="@font/dm_sans"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView28"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <EditText
@@ -184,6 +167,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Enter text here"
+        android:fontFamily="@font/dm_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
@@ -196,7 +180,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="165dp"
         android:layout_marginBottom="17dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:fontFamily="@font/dm_sans"
         android:onClick="Post"
         android:text="Post"
         android:textSize="20sp"

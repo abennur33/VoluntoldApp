@@ -11,7 +11,7 @@
         android:layout_width="310dp"
         android:layout_height="341dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/advent_pro_light"
+        android:fontFamily="@font/dm_sans"
         android:text="[body text]"
         android:textSize="20sp"
         android:inputType="textMultiLine"
@@ -37,48 +37,51 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="72dp"
-        android:fontFamily="@font/advent_pro_light"
+        android:fontFamily="@font/dm_sans_bold"
         android:gravity="center"
         android:text="[title]"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/postDateTV"
+        android:id="@+id/monthET"
         android:layout_width="91dp"
         android:layout_height="58dp"
+        android:layout_marginStart="74dp"
         android:layout_marginBottom="476dp"
-        android:fontFamily="@font/advent_pro_light"
+        android:fontFamily="@font/dm_sans_medium"
         android:gravity="center"
         android:text="[date]"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="74dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/dayET"
         android:layout_width="91dp"
         android:layout_height="58dp"
         android:layout_marginBottom="476dp"
-        android:fontFamily="@font/advent_pro_light"
+        android:fontFamily="@font/dm_sans_medium"
         android:gravity="center"
         android:text="[date]"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="165dp" />
+        app:layout_constraintStart_toEndOf="@+id/monthET" />
 
     <EditText
         android:id="@+id/yearET"
         android:layout_width="91dp"
         android:layout_height="58dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="476dp"
-        android:fontFamily="@font/advent_pro_light"
+        android:fontFamily="@font/dm_sans_medium"
         android:gravity="center"
         android:text="[date]"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="256dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dayET" />
 
     <Button
         android:id="@+id/submitButton"
@@ -86,7 +89,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="132dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:fontFamily="@font/dm_sans"
         android:onClick="editOpportunity"
         android:text="Submit Changes"
         android:textSize="16sp"
