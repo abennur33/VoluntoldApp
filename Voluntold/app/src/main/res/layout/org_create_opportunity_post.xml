@@ -16,6 +16,7 @@
         android:fontFamily="@font/dm_sans"
         android:text="Max volunteers: "
         android:textSize="22sp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
@@ -192,11 +193,7 @@
         android:fontFamily="@font/dm_sans"
         android:inputType="textPersonName"
         android:text="Enter text here"
-<<<<<<< HEAD
-        android:fontFamily="@font/dm_sans"
         android:textColor="@color/black"
-=======
->>>>>>> 4b313c70fb5cce08ae62a2138ce4f9d80b26b8b0
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -225,6 +222,7 @@
         android:layout_height="24dp"
         android:ems="10"
         android:inputType="number"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.883"

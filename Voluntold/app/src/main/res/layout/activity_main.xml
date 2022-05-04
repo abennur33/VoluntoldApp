@@ -36,12 +36,13 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="295dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="44dp"
-        android:fontFamily="@font/advent_pro_bold"
+        android:layout_width="340dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/dm_sans"
         android:text="Created by: Aadit B, Abhi B, Josh H, and Luis X"
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
