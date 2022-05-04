@@ -10,8 +10,8 @@ import android.widget.EditText;
 public class cOrgCreateOpportunityPost extends AppCompatActivity {
 
     private String title, body;
-    private int month, day, year;
-    private EditText titleET, bodyET, monthET, dayET, yearET;
+    private int month, day, year, maxVols;
+    private EditText titleET, bodyET, monthET, dayET, yearET, maxVolsET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
         monthET = findViewById(R.id.monthET);
         dayET = findViewById(R.id.dayET);
         yearET = findViewById(R.id.yearET);
+        maxVolsET = findViewById(R.id.maxVolnsET);
     }
 
     public void Post(View v) {
@@ -31,10 +32,11 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
         month = Integer.parseInt(monthET.getText().toString());
         day = Integer.parseInt(dayET.getText().toString());
         year = Integer.parseInt(yearET.getText().toString());
+        maxVols = Integer.parseInt(maxVolsET.getText().toString());
 
         String uid = aMainActivity.firebaseHelper.getUid();
 
-        OrgPost orgPost = new OrgPost(uid, title, month, day, year, body);
+        OrgPost orgPost = new OrgPost(uid, title, month, day, year, body, maxVols);
 
         aMainActivity.firebaseHelper.addPost(orgPost);
 
