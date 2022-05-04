@@ -31,7 +31,7 @@ public class aLogIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_screen);
+        setContentView(R.layout.activity_login_screen);
 
         // instantiate FirebaseHelper var
         firebaseHelper = aMainActivity.firebaseHelper;

@@ -23,7 +23,7 @@ public class bEditVolProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_vol_profile);
+        setContentView(R.layout.vol_edit_profile);
 
         newVolNameET = findViewById(R.id.newVolNameET);
         newVolAgeET = findViewById(R.id.newVolAgeET);

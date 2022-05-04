@@ -23,7 +23,7 @@ public class cEditOrgProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_org_profile);
+        setContentView(R.layout.org_edit_profile);
 
         newOrgNameET = findViewById(R.id.newOrgNameET);
         newOrgOrgNameET = findViewById(R.id.newOrgOrgNameET);

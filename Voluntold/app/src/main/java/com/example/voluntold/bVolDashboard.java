@@ -15,7 +15,7 @@ public class bVolDashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vol_dashboard);
+        setContentView(R.layout.vol_dashboard);
 
         mAuth = FirebaseAuth.getInstance();
     }

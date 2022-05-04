@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="goBack"
-    tools:context=".VolunteerInformation">
+    tools:context=".aVolunteerInformation">
 
     <ImageButton
         android:id="@+id/imageButton4"

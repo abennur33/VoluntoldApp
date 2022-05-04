@@ -21,7 +21,7 @@ public class ViewOrgProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_org_profile);
+        setContentView(R.layout.org_view_profile);
 
         currUserInfoObj = aMainActivity.firebaseHelper.getUserInfo();
 

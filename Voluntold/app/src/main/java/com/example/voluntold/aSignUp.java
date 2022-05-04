@@ -21,7 +21,7 @@ public class aSignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup_screen);
+        setContentView(R.layout.activity_signup_screen);
 
         emailET = findViewById(R.id.inputEmailTV);
         passwordET = findViewById(R.id.inputPassTV);

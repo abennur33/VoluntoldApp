@@ -13,7 +13,6 @@ import android.widget.Spinner;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class bDiscoverOpportunities extends AppCompatActivity {
 
@@ -26,7 +25,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.volunteer_discover_opportunities);
+        setContentView(R.layout.vol_discover_opportunities);
 
         String[] arraySpinner = new String[] {
                 "Date", "Agriculture/Food", "Environment", "Education", "Health", "Community", "Other"

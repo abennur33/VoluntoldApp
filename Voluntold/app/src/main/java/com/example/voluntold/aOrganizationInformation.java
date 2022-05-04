@@ -11,7 +11,7 @@ public class aOrganizationInformation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.organization_info_screen);
+        setContentView(R.layout.org_info_screen);
     }
 
     public void goBack(View v) {

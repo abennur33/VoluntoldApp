@@ -11,7 +11,7 @@ public class aVolunteerInformation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.volunteer_info_screen);
+        setContentView(R.layout.vol_info_screen);
     }
 
     public void goBack(View v) {
