@@ -2,6 +2,7 @@ package com.example.voluntold;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ public class bSavedOpportunities extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
+    public final String TAG = "Josh2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class bSavedOpportunities extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         savedList = aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities();
+
         Intent intent = getIntent();
 
         ArrayAdapter<VolOpportunity> listAdapter = new ArrayAdapter<>(
