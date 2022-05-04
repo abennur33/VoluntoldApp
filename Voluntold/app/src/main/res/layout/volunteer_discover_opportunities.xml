@@ -26,6 +26,7 @@
         android:layout_height="456dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/dm_sans"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +43,7 @@
         android:fontFamily="@font/dm_sans_bold"
         android:text="Volunteer Opportunities"
         android:textSize="25sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton8"
         app:layout_constraintTop_toTopOf="parent" />
@@ -65,6 +67,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="15dp"
         android:fontFamily="@font/dm_sans"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView20"
