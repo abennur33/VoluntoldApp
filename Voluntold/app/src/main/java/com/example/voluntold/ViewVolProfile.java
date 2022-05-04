@@ -22,7 +22,7 @@ public class ViewVolProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_vol_profile);
+        setContentView(R.layout.vol_view_profile);
 
         currUserInfoObj = aMainActivity.firebaseHelper.getUserInfo();
 

@@ -22,7 +22,7 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.volunteer_posted_opportunities);
+        setContentView(R.layout.org_posted_opportunities);
 
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
         Intent intent = getIntent();

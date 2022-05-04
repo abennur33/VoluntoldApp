@@ -28,7 +28,7 @@ public class aVolunteerSignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.volunteer_signup);
+        setContentView(R.layout.vol_signup);
 
         firebaseHelper = new FirebaseHelper();
 
