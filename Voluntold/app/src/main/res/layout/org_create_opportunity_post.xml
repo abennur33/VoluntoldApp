@@ -7,6 +7,18 @@
     android:onClick="Post"
     tools:context=".cOrgCreateOpportunityPost">
 
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="189dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Max volunteers: "
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+
     <EditText
         android:id="@+id/yearET"
         android:layout_width="284dp"
@@ -136,12 +148,13 @@
         android:layout_width="103dp"
         android:layout_height="30dp"
         android:layout_marginStart="33dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="275dp"
         android:fontFamily="@font/dm_sans"
         android:text="Body Text"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yearET" />
 
@@ -159,16 +172,17 @@
 
     <EditText
         android:id="@+id/bodyET"
-        android:layout_width="335dp"
-        android:layout_height="182dp"
+        android:layout_width="334dp"
+        android:layout_height="159dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="42dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:inputType="textPersonName"
         android:text="Enter text here"
-        android:fontFamily="@font/dm_sans"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
@@ -188,4 +202,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bodyET" />
+
+    <EditText
+        android:id="@+id/maxVolnsET"
+        android:layout_width="179dp"
+        android:layout_height="24dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.506" />
 </androidx.constraintlayout.widget.ConstraintLayout>
