@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class bVolOpportunityPost extends AppCompatActivity {
+public class bVolViewOpportunityFromDisc extends AppCompatActivity {
 
     OrgPost clickedOrgPost;
     String TAG = "Abhi";
@@ -15,7 +15,7 @@ public class bVolOpportunityPost extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vol_view_opportunity_post);
+        setContentView(R.layout.vol_view_opportunity_disc);
 
         Intent intent = getIntent();
 
@@ -42,7 +42,7 @@ public class bVolOpportunityPost extends AppCompatActivity {
         aMainActivity.firebaseHelper.addPosttoVol(volOpportunity);
         aMainActivity.firebaseHelper.addVoltoPost(clickedOrgPost, userInfoObjOfCurUser);
 
-        Intent intent = new Intent(bVolOpportunityPost.this, bVolDashboard.class);
+        Intent intent = new Intent(bVolViewOpportunityFromDisc.this, bVolDashboard.class);
         startActivity(intent);
     }
 

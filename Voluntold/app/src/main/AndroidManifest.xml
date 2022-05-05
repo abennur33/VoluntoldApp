@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.voluntold">
+    package="com.example.voluntold" >
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Voluntold"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".bVolViewOpportunityFromSaved"
+            android:exported="false" />
         <activity
             android:name=".bVolSavedOpportunities"
             android:exported="false" />
@@ -38,7 +41,7 @@
             android:name=".bVolDiscoverOpportunities"
             android:exported="false" />
         <activity
-            android:name=".bVolOpportunityPost"
+            android:name=".bVolViewOpportunityFromDisc"
             android:exported="false" />
         <activity
             android:name=".cOrgCreateOpportunityPost"
@@ -78,7 +81,7 @@
             android:exported="false" />
         <activity
             android:name=".aMainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

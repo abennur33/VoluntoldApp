@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bVolOpportunityPost">
+    tools:context=".bVolViewOpportunityFromDisc">
 
     <TextView
         android:id="@+id/contentOfPostTV"
@@ -49,13 +49,14 @@
         android:id="@+id/postDateTV"
         android:layout_width="266dp"
         android:layout_height="50dp"
+        android:layout_marginTop="11dp"
         android:layout_marginEnd="72dp"
         android:layout_marginBottom="475dp"
         android:fontFamily="@font/dm_sans"
         android:gravity="center"
         android:text="[date]"
-        android:textSize="25sp"
         android:textColor="@color/black"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postTitleTV" />
