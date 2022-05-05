@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class cEditOrgProfile extends AppCompatActivity {
+public class cOrgEditProfile extends AppCompatActivity {
 
     EditText newOrgNameET;
     EditText newOrgOrgNameET;
@@ -79,7 +79,7 @@ public class cEditOrgProfile extends AppCompatActivity {
 
     public void goBackToOrgProfileScreen(View v)
     {
-        Intent p = new Intent(this, ViewOrgProfile.class);
+        Intent p = new Intent(this, OrgViewProfile.class);
         startActivity(p);
     }
 

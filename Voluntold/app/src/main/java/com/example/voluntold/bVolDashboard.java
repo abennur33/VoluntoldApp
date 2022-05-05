@@ -32,18 +32,18 @@ public class bVolDashboard extends AppCompatActivity {
 
     public void takeToSavedOppPage(View v)
     {
-        Intent f = new Intent(this, bSavedOpportunities.class);
+        Intent f = new Intent(this, bVolSavedOpportunities.class);
         startActivity(f);
     }
     public void takeToDiscoverOppPage(View v)
     {
-        Intent f = new Intent(this, bDiscoverOpportunities.class);
+        Intent f = new Intent(this, bVolDiscoverOpportunities.class);
         startActivity(f);
     }
 
     public void takeToVolProfilePage(View v)
     {
-        Intent g = new Intent(this, bViewVolProfile.class);
+        Intent g = new Intent(this, bVolViewProfile.class);
         startActivity(g);
     }
 

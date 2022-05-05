@@ -4,17 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 
-public class bViewVolProfile extends AppCompatActivity {
+public class VolViewProfile extends AppCompatActivity {
 
     TextView displayVolNameTV;
     TextView displayVolAgeTV;
     TextView displayVolSchoolTV;
 
     UserInfo currUserInfoObj;
+
+    String TAG = "Abhi1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +30,11 @@ public class bViewVolProfile extends AppCompatActivity {
         displayVolAgeTV = findViewById(R.id.dislpayVolAgeTV);
         displayVolSchoolTV = findViewById(R.id.displayVolSchoolTV);
 
-        displayVolNameTV.setText("Name: " + currUserInfoObj.getName());
-        displayVolAgeTV.setText("Age: " + Integer.toString(currUserInfoObj.getUserAge()));
-        displayVolSchoolTV.setText("School: " + currUserInfoObj.getSchool());
+        Log.i(TAG, "user info name: " + currUserInfoObj.getName());
+
+        displayVolNameTV.setText("Name: " + aMainActivity.firebaseHelper.myInfo.getName());
+        displayVolAgeTV.setText("Age: " + Integer.toString(aMainActivity.firebaseHelper.myInfo.getUserAge()));
+        displayVolSchoolTV.setText("School: " + aMainActivity.firebaseHelper.myInfo.getSchool());
     }
 
     public void takeToEditVolProfileScreen(View v)

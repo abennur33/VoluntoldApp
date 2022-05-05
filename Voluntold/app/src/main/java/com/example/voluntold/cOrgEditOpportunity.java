@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class cEditOpportunity extends AppCompatActivity {
+public class cOrgEditOpportunity extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
     OrgPost clickedOrgPost;
@@ -45,7 +45,7 @@ public class cEditOpportunity extends AppCompatActivity {
     }
 
     public void editOpportunity(View v) {
-        Intent p = new Intent(cEditOpportunity.this, cOrgPostedOpportunities.class);
+        Intent p = new Intent(cOrgEditOpportunity.this, cOrgPostedOpportunities.class);
         updateData(v);
         p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
         startActivity(p);

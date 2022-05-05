@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class bDiscoverOpportunities extends AppCompatActivity {
+public class bVolDiscoverOpportunities extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
     private ArrayList<UserInfo> orgList;
@@ -73,7 +73,7 @@ public class bDiscoverOpportunities extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(bDiscoverOpportunities.this, bVolOpportunityPost.class);
+                Intent intent = new Intent(bVolDiscoverOpportunities.this, bVolOpportunityPost.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object

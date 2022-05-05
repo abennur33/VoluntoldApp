@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class ViewOrgProfile extends AppCompatActivity {
+public class OrgViewProfile extends AppCompatActivity {
 
     TextView displayOrgNameTV;
     TextView displayOrgOrgNameTV;
@@ -37,7 +37,7 @@ public class ViewOrgProfile extends AppCompatActivity {
 
     public void takeToEditOrgProfileScreen(View v)
     {
-        Intent p = new Intent(this, cEditOrgProfile.class);
+        Intent p = new Intent(this, cOrgEditProfile.class);
         startActivity(p);
     }
 

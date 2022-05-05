@@ -40,7 +40,7 @@ public class cOrgViewOpportunity extends AppCompatActivity {
     }
 
     public void editOpportunity(View v) {
-        Intent p = new Intent(cOrgViewOpportunity.this, cEditOpportunity.class);
+        Intent p = new Intent(cOrgViewOpportunity.this, cOrgEditOpportunity.class);
         p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
         startActivity(p);
     }

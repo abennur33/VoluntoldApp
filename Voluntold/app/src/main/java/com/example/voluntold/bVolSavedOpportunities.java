@@ -2,7 +2,6 @@ package com.example.voluntold;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class bSavedOpportunities extends AppCompatActivity {
+public class bVolSavedOpportunities extends AppCompatActivity {
 
     private ArrayList<VolOpportunity> savedList;
 
@@ -42,7 +41,7 @@ public class bSavedOpportunities extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(bSavedOpportunities.this, bVolOpportunityPost.class);
+                Intent intent = new Intent(bVolSavedOpportunities.this, bVolOpportunityPost.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
