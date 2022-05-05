@@ -302,7 +302,7 @@ public class FirebaseHelper {
 
         ArrayList<UserInfo> users = new ArrayList<>();
 
-        db.collection("AllPosts").orderBy("comparisonDate")
+        db.collection("AllPosts")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -311,6 +311,8 @@ public class FirebaseHelper {
                             for(DocumentSnapshot doc: task.getResult()) {
                                 Log.i(TAG, doc.getData().toString());
                                 OrgPost post = doc.toObject(OrgPost.class);
+                                post.setVolunteers(new ArrayList<>());
+                                Log.i("Aadit", post.getTitle() + " retrieved");
                                 db.collection("AllPosts").document(doc.getId()).collection("Volunteers")
                                         .get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -318,13 +320,12 @@ public class FirebaseHelper {
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                 for(DocumentSnapshot udoc: task.getResult()) {
                                                     UserInfo tempuser = udoc.toObject(UserInfo.class);
-                                                    Log.i("Aadit", tempuser.getName());
-                                                    users.add(tempuser);
+                                                    post.addVolunteer(tempuser);
+                                                    Log.i("Aadit", tempuser.getName() + " added to " + post.getTitle());
                                                 }
-                                                post.setVolunteers(users);
-                                                Log.i("Aadit", post.getVolunteers().toString());
+                                                //Log.i("Aadit", post.getTitle() + " " + post.getVolunteers().toString());
                                                 allPosts.add(post);
-                                                Log.i("Aadit", "" + allPosts.size());
+                                                Log.i("Aadit", post.getTitle() + "added to AllPosts " + allPosts.size());
                                             }
                                         });
                             }
