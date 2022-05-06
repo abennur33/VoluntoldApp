@@ -32,7 +32,7 @@
             android:name=".bVolViewProfile"
             android:exported="false" />
         <activity
-            android:name=".cViewVolunteers"
+            android:name=".cOrgViewVolunteers"
             android:exported="false" />
         <activity
             android:name=".aIntermediateLogInScreen"

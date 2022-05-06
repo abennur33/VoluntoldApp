@@ -45,7 +45,7 @@ public class cOrgViewOpportunity extends AppCompatActivity {
         startActivity(p);
     }
     public void viewVolunteers(View v) {
-        Intent p = new Intent(this, cViewVolunteers.class);
+        Intent p = new Intent(this, cOrgViewVolunteers.class);
         p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
         ArrayList<UserInfo> users = clickedOrgPost.getVolunteers();
         p.putParcelableArrayListExtra("USERS_LIST", users);

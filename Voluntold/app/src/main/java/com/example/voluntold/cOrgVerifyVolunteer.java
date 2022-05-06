@@ -41,7 +41,7 @@ public class cOrgVerifyVolunteer extends AppCompatActivity {
     }
 
     public void goBack(View v) {
-        Intent p = new Intent(this, cViewVolunteers.class);
+        Intent p = new Intent(this, cOrgViewVolunteers.class);
         startActivity(p);
     }
 }

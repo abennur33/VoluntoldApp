@@ -12,7 +12,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class cViewVolunteers extends AppCompatActivity {
+public class cOrgViewVolunteers extends AppCompatActivity {
 
     private ArrayList<UserInfo> volList;
     private ArrayList<String> volListNames = new ArrayList<>();
@@ -47,7 +47,7 @@ public class cViewVolunteers extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(cViewVolunteers.this, cOrgVerifyVolunteer.class);
+                Intent intent = new Intent(cOrgViewVolunteers.this, cOrgVerifyVolunteer.class);
 
                 // Sends the specific object at index i to the Edit activity
                 // In this case, it is sending the particular WishListItem object
@@ -67,7 +67,7 @@ public class cViewVolunteers extends AppCompatActivity {
             aMainActivity.firebaseHelper.verifyUserforVolOpp(u, clickedOrgPost, volOpportunity);
         }
 
-        Intent intent = new Intent(cViewVolunteers.this, cOrgViewOpportunity.class);
+        Intent intent = new Intent(cOrgViewVolunteers.this, cOrgViewOpportunity.class);
 
         intent.putExtra("ITEM_TO_EDIT", clickedOrgPost);
         Log.i("Aadit", "in postedopps" + clickedOrgPost.getVolunteers().toString());
