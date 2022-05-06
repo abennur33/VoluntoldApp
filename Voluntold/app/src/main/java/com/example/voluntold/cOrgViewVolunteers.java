@@ -53,6 +53,8 @@ public class cOrgViewVolunteers extends AppCompatActivity {
                 // In this case, it is sending the particular WishListItem object
                 intent.putExtra("USER_TO_EDIT", volList.get(i));
                 intent.putExtra("ITEM_TO_EDIT", clickedOrgPost);
+                ArrayList<UserInfo> users = clickedOrgPost.getVolunteers();
+                intent.putParcelableArrayListExtra("USERS_LIST", users);
                 startActivity(intent);
             }
         });
