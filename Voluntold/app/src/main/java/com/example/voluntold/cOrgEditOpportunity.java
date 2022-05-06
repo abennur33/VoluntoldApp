@@ -4,6 +4,7 @@ import static java.lang.Integer.parseInt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
     OrgPost clickedOrgPost;
+    private static final String TAG = "Abhi";
 
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
@@ -37,6 +39,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
         EditText displayContentET = findViewById(R.id.contentOfPostTV);
 
         displayTitleET.setText(clickedOrgPost.getTitle());
+        Log.i(TAG, clickedOrgPost.getTitle());
         monthET.setText(clickedOrgPost.getMonth());
         dayET.setText(clickedOrgPost.getDate());
         yearET.setText(clickedOrgPost.getYear());
