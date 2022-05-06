@@ -14,15 +14,17 @@ import java.util.ArrayList;
 
 public class cOrgPostedOpportunities extends AppCompatActivity {
 
-    private ArrayList<OrgPost> postList = new ArrayList<>();
-    private ArrayList<OrgPost> allPostList;
+    public ArrayList<OrgPost> postList = new ArrayList<>();
+    public ArrayList<OrgPost> allPostList;
     private ArrayList<String> titles;
     public final String TAG = "Josh";
+    public FirebaseHelper firebasehelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.org_posted_opportunities);
+        firebasehelper = new FirebaseHelper();
 
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
         Intent intent = getIntent();
