@@ -45,6 +45,7 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
     }
 
     public void goHome(View v) {
+//        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent intent = new Intent(this, cOrgDashboard.class);
         startActivity(intent);
     }
