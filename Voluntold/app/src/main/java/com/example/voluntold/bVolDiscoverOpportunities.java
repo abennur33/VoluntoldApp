@@ -54,7 +54,7 @@ public class bVolDiscoverOpportunities extends AppCompatActivity {
 
         for (int i = 0; i < postList.size(); i++)
         {
-            if (postList.get(i).getComparisonDate() < currDateToCompare)
+            if ((postList.get(i).getComparisonDate() < currDateToCompare) || (postList.get(i).getVolunteers().size() >= postList.get(i).getMaxVolunteers()))
             {
                 postList.remove(i);
                 i--;
