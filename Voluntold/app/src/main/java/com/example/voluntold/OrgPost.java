@@ -38,6 +38,7 @@ public class OrgPost implements Parcelable {
         orgID = parcel.readString();
         docID = parcel.readString();
         title = parcel.readString();
+        body = parcel.readString();
         month = parcel.readInt();
         date = parcel.readInt();
         year = parcel.readInt();
@@ -56,6 +57,7 @@ public class OrgPost implements Parcelable {
         dest.writeString(orgID);
         dest.writeString(docID);
         dest.writeString(title);
+        dest.writeString(body);
         dest.writeInt(month);
         dest.writeInt(date);
         dest.writeInt(year);

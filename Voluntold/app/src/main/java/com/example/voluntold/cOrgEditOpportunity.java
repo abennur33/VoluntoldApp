@@ -45,17 +45,11 @@ public class cOrgEditOpportunity extends AppCompatActivity {
         yearET.setText(String.valueOf(clickedOrgPost.getYear()));
         displayContentET.setText(clickedOrgPost.getBody());
 
-    }
 
-    public void editOpportunity(View v) {
-        Intent p = new Intent(cOrgEditOpportunity.this, cOrgPostedOpportunities.class);
-        updateData(v);
-        p.putExtra("ITEM_TO_EDIT", clickedOrgPost);
-        startActivity(p);
     }
 
     public void updateData(View v) {
-        String newTitle = displayTitleET.getText().toString();
+        String newTitle = findViewById(R.id.postTitleTV). // find what to put here;
         Integer newMonth = Integer.parseInt(monthET.getText().toString());
         Integer newDay= Integer.parseInt(monthET.getText().toString());
         Integer newYear = Integer.parseInt(monthET.getText().toString());
@@ -72,7 +66,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
         Toast.makeText(this, "Data updated", Toast.LENGTH_SHORT).show();
     }
 
-    public void goBackToPostedOpportunities(View v)
+    public void goBack(View v)
     {
         Intent p = new Intent(this, cOrgPostedOpportunities.class);
         startActivity(p);
