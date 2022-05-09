@@ -19,7 +19,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
 
     private ArrayList<OrgPost> postList;
     OrgPost clickedOrgPost;
-    private static final String TAG = "Abhi";
+    private static final String TAG = "Abhi3";
 
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
@@ -40,9 +40,9 @@ public class cOrgEditOpportunity extends AppCompatActivity {
 
         displayTitleET.setText(clickedOrgPost.getTitle());
         Log.i(TAG, clickedOrgPost.getTitle());
-        monthET.setText(clickedOrgPost.getMonth());
-        dayET.setText(clickedOrgPost.getDate());
-        yearET.setText(clickedOrgPost.getYear());
+        monthET.setText(String.valueOf(clickedOrgPost.getMonth()));
+        dayET.setText(String.valueOf(clickedOrgPost.getDate()));
+        yearET.setText(String.valueOf(clickedOrgPost.getYear()));
         displayContentET.setText(clickedOrgPost.getBody());
 
     }

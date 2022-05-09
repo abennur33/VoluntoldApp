@@ -29,7 +29,7 @@ public class cOrgViewOpportunity extends AppCompatActivity {
 
             clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT");
             clickedOrgPost.setVolunteers(intent.getParcelableArrayListExtra("USERS_LIST"));
-        Log.i("Aadit", "viewopp page" + clickedOrgPost.getVolunteers().toString());
+            Log.i("Aadit2", "viewopp page" + clickedOrgPost.getTitle());
             TextView displayTitleTV = findViewById(R.id.postTitleTV);
             TextView displayDateTV = findViewById(R.id.postDateTV);
             TextView displayContentTV = findViewById(R.id.contentOfPostTV);
