@@ -6,18 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".cOrgEditProfile">
 
-    <Button
-        android:id="@+id/newOrgNameBT"
-        android:layout_width="227dp"
-        android:layout_height="40dp"
-        android:onClick="changeOrgName"
-        android:text="CHANGE NAME"
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="90dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="44dp"
         android:fontFamily="@font/dm_sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.667" />
+        android:text="Org Type:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/newOrgTypeBT"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="100dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="54dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Org Name:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView26"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -33,45 +46,33 @@
 
     <Button
         android:id="@+id/newOrgTypeBT"
-        android:layout_width="227dp"
-        android:layout_height="40dp"
-        android:onClick="changeOrgType"
-        android:text="CHANGE ORG TYPE"
+        android:layout_width="187dp"
+        android:layout_height="46dp"
         android:fontFamily="@font/dm_sans"
+        android:onClick="changeAll"
+        android:text="SUBMIT CHANGES"
+        android:background="@drawable/roundedbutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.982" />
-
-    <Button
-        android:id="@+id/newOrgOrgNameBT"
-        android:layout_width="227dp"
-        android:layout_height="40dp"
-        android:onClick="changeOrgOrgName"
-        android:text="CHANGE ORG NAME"
-        android:fontFamily="@font/dm_sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <EditText
         android:id="@+id/newOrgOrgNameET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:hint="New Org Name"
         android:inputType="text"
-        android:fontFamily="@font/dm_sans"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.714"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756" />
+        app:layout_constraintVertical_bias="0.656" />
 
     <ImageButton
         android:id="@+id/imageButton14"
@@ -91,28 +92,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:hint="New Name"
         android:inputType="textPersonName"
-        android:fontFamily="@font/dm_sans"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.714"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintVertical_bias="0.529" />
 
     <Spinner
         android:id="@+id/newOrgTypeSP"
-        android:layout_width="250dp"
-        android:layout_height="37dp"
+        android:layout_width="241dp"
+        android:layout_height="40dp"
         android:fontFamily="@font/dm_sans"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.909" />
+        app:layout_constraintVertical_bias="0.777" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="61dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="59dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Name:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView23"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

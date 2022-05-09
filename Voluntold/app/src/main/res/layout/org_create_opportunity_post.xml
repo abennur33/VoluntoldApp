@@ -185,12 +185,13 @@
 
     <Button
         android:id="@+id/button14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="55dp"
         android:layout_marginStart="158dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="165dp"
         android:layout_marginBottom="17dp"
+        android:background="@drawable/roundedbutton"
         android:fontFamily="@font/dm_sans"
         android:onClick="Post"
         android:text="Post"

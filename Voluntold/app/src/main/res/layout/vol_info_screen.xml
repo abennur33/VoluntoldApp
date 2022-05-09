@@ -57,6 +57,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="119dp"
         android:layout_marginBottom="3dp"
+        android:background="@drawable/roundedbutton"
         android:fontFamily="@font/dm_sans"
         android:onClick="viewAsOrganization"
         android:text="How to use as an Organization"

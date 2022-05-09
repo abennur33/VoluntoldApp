@@ -26,6 +26,7 @@
         android:id="@+id/editOrgProfileBT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/roundedbutton"
         android:onClick="takeToEditOrgProfileScreen"
         android:text="EDIT PROFILE"
         android:fontFamily="@font/dm_sans"

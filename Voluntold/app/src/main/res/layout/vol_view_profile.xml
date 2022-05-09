@@ -76,6 +76,7 @@
         android:id="@+id/editProfileBT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/roundedbutton"
         android:onClick="takeToEditVolProfileScreen"
         android:text="EDIT PROFILE"
         android:fontFamily="@font/dm_sans"

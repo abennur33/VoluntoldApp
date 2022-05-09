@@ -205,6 +205,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="155dp"
         android:layout_marginBottom="41dp"
+        android:background="@drawable/roundedbutton"
         android:fontFamily="@font/dm_sans"
         android:onClick="signUp"
         android:text="CONFIRM"

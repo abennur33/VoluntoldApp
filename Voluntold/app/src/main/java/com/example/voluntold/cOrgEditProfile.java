@@ -15,6 +15,7 @@ public class cOrgEditProfile extends AppCompatActivity {
     EditText newOrgNameET;
     EditText newOrgOrgNameET;
     Spinner newOrgTypeSP;
+    int pos;
 
     Button changeOrgNameBT;
     Button changeOrgOrgNameBT;
@@ -29,8 +30,6 @@ public class cOrgEditProfile extends AppCompatActivity {
         newOrgOrgNameET = findViewById(R.id.newOrgOrgNameET);
         newOrgTypeSP = findViewById(R.id.newOrgTypeSP);
 
-        changeOrgNameBT = findViewById(R.id.newOrgNameBT);
-        changeOrgOrgNameBT = findViewById(R.id.newOrgOrgNameBT);
         changeOrgTypeBT = findViewById(R.id.newOrgTypeBT);
 
         String[] arraySpinner = new String[] {
@@ -40,41 +39,40 @@ public class cOrgEditProfile extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         newOrgTypeSP.setAdapter(adapter);
-
+        newOrgNameET.setText(aMainActivity.firebaseHelper.getUserInfo().getName());
+        newOrgOrgNameET.setText(aMainActivity.firebaseHelper.getUserInfo().getOrganizationName());
+        String oldOrgType = aMainActivity.firebaseHelper.getUserInfo().getOrgType();
+        if (oldOrgType.equals("Agriculture/Food")) {
+            pos = 0;
+        }
+        else if (oldOrgType.equals("Environment")) {
+            pos = 1;
+        }
+        else if (oldOrgType.equals("Education")) {
+            pos = 2;
+        }
+        else if (oldOrgType.equals("Health")) {
+            pos = 3;
+        }
+        else if (oldOrgType.equals("Community")) {
+            pos = 4;
+        }
+        else if (oldOrgType.equals("Other")) {
+            pos = 5;
+        }
+        newOrgTypeSP.setSelection(pos);
     }
 
-    public void changeOrgName(View v)
-    {
+    public void changeAll(View v) {
         String newOrgName = newOrgNameET.getText().toString();
-
-        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), newOrgName,
-                aMainActivity.firebaseHelper.getUserInfo().getOrgType(), aMainActivity.firebaseHelper.getUserInfo().getOrganizationName(), null, 0,
-                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
-                aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
-
-
-    }
-
-    public void changeOrgOrgName(View v)
-    {
         String newOrgOrgName = newOrgOrgNameET.getText().toString();
-
-        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), aMainActivity.firebaseHelper.getUserInfo().getName(),
-                aMainActivity.firebaseHelper.getUserInfo().getOrgType(), newOrgOrgName, null, 0,
-                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
-                aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
-
-
-    }
-
-    public void changeOrgType(View v)
-    {
         String newOrgType = newOrgTypeSP.getSelectedItem().toString();
 
-        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), aMainActivity.firebaseHelper.getUserInfo().getName(),
-                newOrgType, aMainActivity.firebaseHelper.getUserInfo().getOrganizationName(), null, 0,
+        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), newOrgName,
+                newOrgType, newOrgOrgName, null, 0,
                 aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
                 aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
+        goBackToOrgProfileScreen(v);
     }
 
     public void goBackToOrgProfileScreen(View v)
