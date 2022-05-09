@@ -35,20 +35,17 @@ public class cOrgDashboard extends AppCompatActivity {
 
     public void takeToCreateOppPage(View v)
     {
-        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent f = new Intent(this, cOrgCreateOpportunityPost.class);
         startActivity(f);
     }
     public void takeToPostedOppPage(View v)
     {
-        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent f = new Intent(this, cOrgPostedOpportunities.class);
         startActivity(f);
     }
 
     public void takeToOrgProfile(View v)
     {
-        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent g = new Intent(this, OrgViewProfile.class);
         startActivity(g);
     }
