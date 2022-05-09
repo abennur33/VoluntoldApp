@@ -28,7 +28,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.org_edit_opportunity_post);
         Intent intent = getIntent();
-        clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT");
+        clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT2");
 
         EditText displayTitleET = findViewById(R.id.postTitleTV);
         EditText monthET = findViewById(R.id.monthET);
