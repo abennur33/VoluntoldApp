@@ -32,17 +32,20 @@ public class bVolDashboard extends AppCompatActivity {
 
     public void takeToSavedOppPage(View v)
     {
+        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent f = new Intent(this, bVolSavedOpportunities.class);
         startActivity(f);
     }
     public void takeToDiscoverOppPage(View v)
     {
+        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent f = new Intent(this, bVolDiscoverOpportunities.class);
         startActivity(f);
     }
 
     public void takeToVolProfilePage(View v)
     {
+        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent g = new Intent(this, bVolViewProfile.class);
         startActivity(g);
     }

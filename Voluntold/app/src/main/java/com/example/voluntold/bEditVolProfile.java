@@ -75,6 +75,7 @@ public class bEditVolProfile extends AppCompatActivity {
 
     public void goBackToVolProfileScreen(View v)
     {
+        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent p = new Intent(this, bVolViewProfile.class);
         startActivity(p);
     }

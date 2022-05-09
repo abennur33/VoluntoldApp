@@ -79,6 +79,7 @@ public class cOrgEditProfile extends AppCompatActivity {
 
     public void goBackToOrgProfileScreen(View v)
     {
+        aMainActivity.firebaseHelper.attachReadDataToUser();
         Intent p = new Intent(this, OrgViewProfile.class);
         startActivity(p);
     }
