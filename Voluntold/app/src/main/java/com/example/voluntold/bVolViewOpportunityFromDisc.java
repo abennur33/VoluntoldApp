@@ -42,7 +42,7 @@ public class bVolViewOpportunityFromDisc extends AppCompatActivity {
         aMainActivity.firebaseHelper.addPosttoVol(volOpportunity);
         aMainActivity.firebaseHelper.addVoltoPost(clickedOrgPost, userInfoObjOfCurUser);
 
-        Intent intent = new Intent(bVolViewOpportunityFromDisc.this, bVolDashboard.class);
+        Intent intent = new Intent(bVolViewOpportunityFromDisc.this, bVolDiscoverOpportunities.class);
         startActivity(intent);
     }
 

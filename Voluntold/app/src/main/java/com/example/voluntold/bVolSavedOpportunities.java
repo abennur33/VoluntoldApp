@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -25,6 +26,30 @@ public class bVolSavedOpportunities extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vol_saved_opportunities);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setSelectedItemId(R.id.saved);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch(item.getItemId())
+            {
+                case R.id.discover:
+                    startActivity(new Intent(getApplicationContext(), bVolDiscoverOpportunities.class));
+                    return true;
+                case R.id.saved:
+                    return true;
+                case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), bVolViewProfile.class));
+                    return true;
+                case R.id.signout:
+                    aMainActivity.firebaseHelper.getmAuth().signOut();
+                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
+                    aMainActivity.firebaseHelper.updateUid(null);
+                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+            }
+            return false;
+        });
 
         mAuth = FirebaseAuth.getInstance();
         savedList = aMainActivity.firebaseHelper.getVolOpps();

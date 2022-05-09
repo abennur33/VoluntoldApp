@@ -72,7 +72,7 @@ public class cOrgEditProfile extends AppCompatActivity {
                 newOrgType, newOrgOrgName, null, 0,
                 aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
                 aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
-        goBackToOrgProfileScreen(v);
+        // goBackToOrgProfileScreen(v); data is not updating
     }
 
     public void goBackToOrgProfileScreen(View v)

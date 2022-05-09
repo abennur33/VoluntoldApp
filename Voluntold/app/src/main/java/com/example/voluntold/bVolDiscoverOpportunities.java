@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -26,6 +28,30 @@ public class bVolDiscoverOpportunities extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vol_discover_opportunities);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setSelectedItemId(R.id.discover);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch(item.getItemId())
+            {
+                case R.id.discover:
+                    return true;
+                case R.id.saved:
+                    startActivity(new Intent(getApplicationContext(), bVolSavedOpportunities.class));
+                    return true;
+                case R.id.profile:
+                    startActivity(new Intent(getApplicationContext(), bVolViewProfile.class));
+                    return true;
+                case R.id.signout:
+                    aMainActivity.firebaseHelper.getmAuth().signOut();
+                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
+                    aMainActivity.firebaseHelper.updateUid(null);
+                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+            }
+            return false;
+        });
 
         String[] arraySpinner = new String[] {
                 "Date", "Agriculture/Food", "Environment", "Education", "Health", "Community", "Other"

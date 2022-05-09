@@ -18,13 +18,13 @@ public class aIntermediateLogInScreen extends AppCompatActivity {
 
         if (aMainActivity.firebaseHelper.getUserInfo().getAccountType().equals("Organization"))
         {
-            Intent intent = new Intent(aIntermediateLogInScreen.this, cOrgDashboard.class);
+            Intent intent = new Intent(aIntermediateLogInScreen.this, cOrgPostedOpportunities.class);
             startActivity(intent);
         }
 
         else if (aMainActivity.firebaseHelper.getUserInfo().getAccountType().equals("Volunteer"))
         {
-            Intent intent = new Intent(aIntermediateLogInScreen.this, bVolDashboard.class);
+            Intent intent = new Intent(aIntermediateLogInScreen.this, bVolSavedOpportunities.class);
             startActivity(intent);
         }
     }

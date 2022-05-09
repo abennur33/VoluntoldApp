@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 public class cOrgPostedOpportunities extends AppCompatActivity {
@@ -25,6 +27,30 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.org_posted_opportunities);
         firebasehelper = new FirebaseHelper();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setSelectedItemId(R.id.posts);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch(item.getItemId())
+            {
+                case R.id.profileorg:
+                    startActivity(new Intent(getApplicationContext(), OrgViewProfile.class));
+                    return true;
+                case R.id.posts:
+                    return true;
+                case R.id.create:
+                    startActivity(new Intent(getApplicationContext(), cOrgCreateOpportunityPost.class));
+                    return true;
+                case R.id.signoutorg:
+                    aMainActivity.firebaseHelper.getmAuth().signOut();
+                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
+                    aMainActivity.firebaseHelper.updateUid(null);
+                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+            }
+            return false;
+        });
 
         // NEED FUNCTION TO GET ARRAYLIST OF ALL POSTS WHEN DONE
         Intent intent = getIntent();

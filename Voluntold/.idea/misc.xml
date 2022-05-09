@@ -113,15 +113,44 @@
         <entry key="..\:/Users/xu9360/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/volunteer_signup.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/xu9360/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/volunteer_signup_1.xml" value="0.2504528985507246" />
         <entry key="..\:/Users/xu9360/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/volunteer_signup_2.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/drawable/ic_baseline_discover_opps_24.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_saved_opps_24.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_sign_out_24.xml" value="0.1705" />
+        <entry key="app/src/main/res/layout/activity_custom_dialog.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/activity_intermediate_log_in_screen.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.16717325227963525" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2717391304347826" />
         <entry key="app/src/main/res/layout/activity_org_dashboard.xml" value="0.2717391304347826" />
+        <entry key="app/src/main/res/layout/activity_signup_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_vol_dashboard.xml" value="0.2717391304347826" />
         <entry key="app/src/main/res/layout/login_screen.xml" value="0.31354166666666666" />
+        <entry key="app/src/main/res/layout/org_create_opportunity_post.xml" value="0.2601851851851852" />
+        <entry key="app/src/main/res/layout/org_dashboard.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_edit_opportunity_post.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_edit_profile.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_info_screen.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_posted_opportunities.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_signup.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_verify_volunteer.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_view_opportunity_post.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_view_profile.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/org_view_volunteers.xml" value="0.16717325227963525" />
         <entry key="app/src/main/res/layout/organization_info_screen.xml" value="0.2717391304347826" />
         <entry key="app/src/main/res/layout/organization_signup.xml" value="0.2717391304347826" />
         <entry key="app/src/main/res/layout/signup_screen.xml" value="0.2717391304347826" />
+        <entry key="app/src/main/res/layout/vol_dashboard.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/vol_discover_opportunities.xml" value="0.2601851851851852" />
+        <entry key="app/src/main/res/layout/vol_edit_profile.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/vol_info_screen.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/vol_saved_opportunities.xml" value="0.2601851851851852" />
+        <entry key="app/src/main/res/layout/vol_signup.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/vol_view_opportunity_disc.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/vol_view_opportunity_saved.xml" value="0.16717325227963525" />
+        <entry key="app/src/main/res/layout/vol_view_profile.xml" value="0.2601851851851852" />
         <entry key="app/src/main/res/layout/volunteer_info_screen.xml" value="0.2717391304347826" />
         <entry key="app/src/main/res/layout/volunteer_signup.xml" value="0.31354166666666666" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu_org.xml" value="0.2601851851851852" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu_vol.xml" value="0.2601851851851852" />
       </map>
     </option>
   </component>

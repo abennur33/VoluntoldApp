@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class bVolViewProfile extends AppCompatActivity {
 
@@ -20,6 +22,30 @@ public class bVolViewProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vol_view_profile);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch(item.getItemId())
+            {
+                case R.id.discover:
+                    startActivity(new Intent(getApplicationContext(), bVolDiscoverOpportunities.class));
+                    return true;
+                case R.id.saved:
+                    startActivity(new Intent(getApplicationContext(), bVolSavedOpportunities.class));
+                    return true;
+                case R.id.profile:
+                    return true;
+                case R.id.signout:
+                    aMainActivity.firebaseHelper.getmAuth().signOut();
+                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
+                    aMainActivity.firebaseHelper.updateUid(null);
+                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+            }
+            return false;
+        });
 
         currUserInfoObj = aMainActivity.firebaseHelper.getUserInfo();
 
@@ -38,9 +64,4 @@ public class bVolViewProfile extends AppCompatActivity {
         startActivity(p);
     }
 
-    public void goBackToVolDashboard(View v)
-    {
-        Intent p = new Intent(this, bVolDashboard.class);
-        startActivity(p);
-    }
 }

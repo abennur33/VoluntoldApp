@@ -52,15 +52,6 @@ public class aLogIn extends AppCompatActivity {
     }
 
     public void takeToScreenUponLogIn() {
-        LoadingDialog loadingDialog = new LoadingDialog(aLogIn.this);
-        loadingDialog.startLoadingDialog();
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadingDialog.dismissDialog();
-            }
-        }, 2500);
         Intent intent = new Intent(aLogIn.this, aIntermediateLogInScreen.class);
         startActivity(intent);
     }

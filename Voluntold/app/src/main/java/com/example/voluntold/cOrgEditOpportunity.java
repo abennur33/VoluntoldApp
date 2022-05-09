@@ -49,7 +49,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
     }
 
     public void updateData(View v) {
-        String newTitle = findViewById(R.id.postTitleTV). // find what to put here;
+        String newTitle = findViewById(R.id.postTitleTV).toString(); // find what to put here;
         Integer newMonth = Integer.parseInt(monthET.getText().toString());
         Integer newDay= Integer.parseInt(monthET.getText().toString());
         Integer newYear = Integer.parseInt(monthET.getText().toString());
@@ -68,7 +68,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
 
     public void goBack(View v)
     {
-        Intent p = new Intent(this, cOrgPostedOpportunities.class);
+        Intent p = new Intent(this, cOrgViewOpportunity.class);
         startActivity(p);
     }
 

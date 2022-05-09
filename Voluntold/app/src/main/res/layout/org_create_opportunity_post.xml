@@ -133,6 +133,7 @@
         android:onClick="goHome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <TextView
@@ -168,8 +169,8 @@
 
     <EditText
         android:id="@+id/bodyET"
-        android:layout_width="334dp"
-        android:layout_height="159dp"
+        android:layout_width="326dp"
+        android:layout_height="139dp"
         android:layout_marginStart="34dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="42dp"
@@ -198,8 +199,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bodyET" />
+        app:layout_constraintTop_toBottomOf="@+id/bodyET"
+        app:layout_constraintVertical_bias="0.05" />
 
     <EditText
         android:id="@+id/maxVolnsET"
@@ -212,4 +215,13 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yearET" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu_org" />
 </androidx.constraintlayout.widget.ConstraintLayout>

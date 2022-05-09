@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class cOrgCreateOpportunityPost extends AppCompatActivity {
 
     private String title, body;
@@ -17,6 +19,30 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.org_create_opportunity_post);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setSelectedItemId(R.id.create);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch(item.getItemId())
+            {
+                case R.id.profileorg:
+                    startActivity(new Intent(getApplicationContext(), OrgViewProfile.class));
+                    return true;
+                case R.id.posts:
+                    startActivity(new Intent(getApplicationContext(), cOrgPostedOpportunities.class));
+                    return true;
+                case R.id.create:
+                    return true;
+                case R.id.signoutorg:
+                    aMainActivity.firebaseHelper.getmAuth().signOut();
+                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
+                    aMainActivity.firebaseHelper.updateUid(null);
+                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+            }
+            return false;
+        });
 
         titleET = findViewById(R.id.titleET);
         bodyET = findViewById(R.id.bodyET);
@@ -40,7 +66,7 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
 
         aMainActivity.firebaseHelper.addPost(orgPost);
 
-        Intent intent = new Intent(cOrgCreateOpportunityPost.this, cOrgDashboard.class);
+        Intent intent = new Intent(cOrgCreateOpportunityPost.this, bVolSavedOpportunities.class);
         startActivity(intent);
     }
 

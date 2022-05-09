@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Discover"
+        android:icon="@drawable/ic_baseline_discover_opps_24"
+        android:id="@+id/discover"/>
+    <item android:title="Saved"
+        android:icon="@drawable/ic_baseline_saved_opps_24"
+        android:id="@+id/saved"/>
+    <item android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:id="@+id/profile"/>
+    <item android:title="Sign Out"
+        android:icon="@drawable/ic_baseline_sign_out_24"
+        android:id="@+id/signout"/>
+</menu>

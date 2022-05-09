@@ -20,22 +20,22 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/displayOrgNameTV"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.676" />
 
-    <Button
-        android:id="@+id/editOrgProfileBT"
+    <TextView
+        android:id="@+id/displayOrgTypeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/roundedbutton"
-        android:onClick="takeToEditOrgProfileScreen"
-        android:text="EDIT PROFILE"
+        android:layout_marginEnd="300dp"
         android:fontFamily="@font/dm_sans"
+        android:text="TextView"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/displayOrgOrgNameTV"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.947" />
+        app:layout_constraintVertical_bias="0.768" />
 
     <TextView
         android:id="@+id/displayOrgNameTV"
@@ -46,10 +46,25 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintVertical_bias="0.583" />
+
+    <Button
+        android:id="@+id/editOrgProfileBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/dm_sans"
+        android:onClick="takeToEditOrgProfileScreen"
+        android:text="EDIT PROFILE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.872" />
 
     <ImageButton
         android:id="@+id/imageButton13"
@@ -60,6 +75,7 @@
         android:layout_marginEnd="23dp"
         android:onClick="goBackToOrgDashboard"
         app:layout_constraintEnd_toStartOf="@+id/textView35"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
@@ -75,18 +91,13 @@
         app:layout_constraintVertical_bias="0.175"
         app:srcCompat="@drawable/letter_v" />
 
-    <TextView
-        android:id="@+id/displayOrgTypeTV"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="300dp"
-        android:fontFamily="@font/dm_sans"
-        android:text="TextView"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/displayOrgOrgNameTV"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu_org"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
