@@ -31,7 +31,7 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
         allPostList = aMainActivity.firebaseHelper.getPosts();
         String orgID = aMainActivity.firebaseHelper.getmAuth().getUid();
 
-        Log.i(TAG, allPostList.get(0).getTitle());
+        // Log.i(TAG, allPostList.get(0).getTitle());
 
         for (int i = 0; i < allPostList.size(); i++) {
             if (allPostList.get(i).getOrgID().equals(orgID)) {
