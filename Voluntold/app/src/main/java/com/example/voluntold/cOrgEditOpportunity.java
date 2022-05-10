@@ -54,7 +54,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
         int newYear = Integer.parseInt(yearET.getText().toString());
         String newContent = displayContentET.getText().toString();
         String docID = clickedOrgPost.getDocID();
-        clickedOrgPost.setTitle(newTitle);
+        clickedOrgPost.setTitle(newTitle); // this is setting comparison date to 0 and volunteers to null
         clickedOrgPost.setMonth(newMonth);
         clickedOrgPost.setDate(newDay);
         clickedOrgPost.setYear(newYear);
