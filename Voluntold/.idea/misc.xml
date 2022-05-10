@@ -11,6 +11,7 @@
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2777777777777778" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_edit_org_profile.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_edit_vol_profile.xml" value="0.13703703703703704" />
+        <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_login_screen.xml" value="0.25" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_main.xml" value="0.1661600810536981" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_org_dashboard.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_vol_dashboard.xml" value="0.18854166666666666" />
@@ -20,15 +21,18 @@
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/opportunities_view.xml" value="0.1661600810536981" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/opportunity_post.xml" value="0.1661600810536981" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/org_create_opportunity_post.xml" value="0.33" />
-        <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/org_edit_opportunity_post.xml" value="0.13703703703703704" />
+        <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/org_edit_opportunity_post.xml" value="0.17" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/organization_info_screen.xml" value="0.1661600810536981" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/organization_signup.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/signup_screen.xml" value="0.33" />
+        <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/vol_edit_profile.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/vol_view_opportunity_post.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/volunteer_discover_opportunities.xml" value="0.67" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/volunteer_info_screen.xml" value="0.11639492753623189" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/volunteer_posted_opportunities.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/volunteer_signup.xml" value="0.1661600810536981" />
+        <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/menu/bottom_nav_menu_org.xml" value="0.337037037037037" />
+        <entry key="..\:/Users/bhashyam1724/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/menu/bottom_nav_menu_vol.xml" value="0.1206896551724138" />
         <entry key="..\:/Users/hsu9180/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_corg_verify_volunteeer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/hsu9180/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_intermediate_log_in_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/hsu9180/Documents/GitHub/VoluntoldApp/Voluntold/app/src/main/res/layout/activity_login_screen.xml" value="0.36666666666666664" />
