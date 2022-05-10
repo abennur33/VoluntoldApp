@@ -24,7 +24,6 @@ public class cOrgEditOpportunity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseHelper.FirestoreCallback FirestoreCallback;
     private EditText displayTitleET, monthET, dayET, yearET, displayContentET;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +31,11 @@ public class cOrgEditOpportunity extends AppCompatActivity {
         Intent intent = getIntent();
         clickedOrgPost = (OrgPost) intent.getParcelableExtra("ITEM_TO_EDIT2");
 
-        EditText displayTitleET = findViewById(R.id.postTitleTV);
-        EditText monthET = findViewById(R.id.monthET);
-        EditText dayET = findViewById(R.id.dayET);
-        EditText yearET = findViewById(R.id.yearET);
-        EditText displayContentET = findViewById(R.id.contentOfPostTV);
+         displayTitleET = findViewById(R.id.postTitleTV);
+         monthET = findViewById(R.id.monthET);
+         dayET = findViewById(R.id.dayET);
+         yearET = findViewById(R.id.yearET);
+         displayContentET = findViewById(R.id.contentOfPostTV);
 
         displayTitleET.setText(clickedOrgPost.getTitle());
         Log.i(TAG, clickedOrgPost.getTitle());
@@ -49,10 +48,10 @@ public class cOrgEditOpportunity extends AppCompatActivity {
     }
 
     public void updateData(View v) {
-        String newTitle = findViewById(R.id.postTitleTV).toString(); // find what to put here;
-        Integer newMonth = Integer.parseInt(monthET.getText().toString());
-        Integer newDay= Integer.parseInt(monthET.getText().toString());
-        Integer newYear = Integer.parseInt(monthET.getText().toString());
+        String newTitle = displayTitleET.getText().toString(); // find what to put here;
+        int newMonth = Integer.parseInt(monthET.getText().toString());
+        int newDay= Integer.parseInt(dayET.getText().toString());
+        int newYear = Integer.parseInt(yearET.getText().toString());
         String newContent = displayContentET.getText().toString();
         String docID = clickedOrgPost.getDocID();
         clickedOrgPost.setTitle(newTitle);
@@ -68,7 +67,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
 
     public void goBack(View v)
     {
-        Intent p = new Intent(this, cOrgViewOpportunity.class);
+        Intent p = new Intent(this, cOrgPostedOpportunities.class);
         startActivity(p);
     }
 
