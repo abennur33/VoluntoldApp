@@ -28,7 +28,7 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.profileorg:
-                    startActivity(new Intent(getApplicationContext(), OrgViewProfile.class));
+                    startActivity(new Intent(getApplicationContext(), cOrgViewProfile.class));
                     return true;
                 case R.id.posts:
                     startActivity(new Intent(getApplicationContext(), cOrgPostedOpportunities.class));
@@ -66,7 +66,7 @@ public class cOrgCreateOpportunityPost extends AppCompatActivity {
 
         aMainActivity.firebaseHelper.addPost(orgPost);
 
-        Intent intent = new Intent(cOrgCreateOpportunityPost.this, bVolSavedOpportunities.class);
+        Intent intent = new Intent(cOrgCreateOpportunityPost.this, cOrgPostedOpportunities.class);
         startActivity(intent);
     }
 

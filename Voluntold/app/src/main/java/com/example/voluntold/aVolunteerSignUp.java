@@ -93,7 +93,7 @@ public class aVolunteerSignUp extends AppCompatActivity {
                                 // get application context will get the activity we are currently in that
                                 // is sending the intent. Similar to how we have said "this" in the past
 
-                                Intent intent = new Intent(getApplicationContext(), bVolSavedOpportunities.class);
+                                Intent intent = new Intent(getApplicationContext(), bVolViewProfile.class);
                                 startActivity(intent);
                             } else {
                                 // user WASN'T created

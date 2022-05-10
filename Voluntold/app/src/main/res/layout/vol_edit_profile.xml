@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".bEditVolProfile">
 
+    <EditText
+        android:id="@+id/newOrgOrgNameET2"
+        android:layout_width="256dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:hint="New Org Name"
+        android:inputType="text"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="433dp" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="48dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="64dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Age:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="433dp" />
+
     <ImageButton
         android:id="@+id/imageButton12"
         android:layout_width="43dp"
@@ -20,49 +45,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
-    <Button
-        android:id="@+id/newVolSchoolBT"
-        android:layout_width="227dp"
-        android:layout_height="40dp"
-        android:onClick="changeVolSchool"
-        android:text="CHANGE SCHOOL"
-        android:fontFamily="@font/dm_sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.982" />
-
-    <Button
-        android:id="@+id/newVolAgeBT"
-        android:layout_width="227dp"
-        android:layout_height="40dp"
-        android:onClick="changeVolAge"
-        android:text="CHANGE AGE"
-        android:fontFamily="@font/dm_sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
-
-    <EditText
-        android:id="@+id/newVolSchoolET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="New School"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/dm_sans"
-        android:textColor="@color/black"
-        android:onClick="goBackToVolProfileScreen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.912" />
-
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="188dp"
@@ -76,50 +58,31 @@
         app:layout_constraintVertical_bias="0.078"
         app:srcCompat="@drawable/letter_v" />
 
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="61dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Name:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
     <EditText
-        android:id="@+id/newVolNameET"
+        android:id="@+id/newOrgNameET2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="48dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:hint="New Name"
         android:inputType="textPersonName"
-        android:fontFamily="@font/dm_sans"
         android:textColor="@color/black"
-        android:onClick="goBackToVolProfileScreen"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <EditText
-        android:id="@+id/newVolAgeET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="New Age"
-        android:inputType="number"
-        android:fontFamily="@font/dm_sans"
-        android:textColor="@color/black"
-        android:onClick="goBackToVolProfileScreen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756" />
-
-    <Button
-        android:id="@+id/newVolNameBT"
-        android:layout_width="227dp"
-        android:layout_height="40dp"
-        android:onClick="changeVolName"
-        android:text="CHANGE NAME"
-        android:fontFamily="@font/dm_sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.667" />
 </androidx.constraintlayout.widget.ConstraintLayout>

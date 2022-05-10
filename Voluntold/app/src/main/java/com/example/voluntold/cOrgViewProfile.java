@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class OrgViewProfile extends AppCompatActivity {
+public class cOrgViewProfile extends AppCompatActivity {
 
     TextView displayOrgNameTV;
     TextView displayOrgOrgNameTV;
