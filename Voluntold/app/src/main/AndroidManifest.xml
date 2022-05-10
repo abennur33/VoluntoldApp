@@ -23,7 +23,7 @@
             android:name=".cOrgEditProfile"
             android:exported="true" />
         <activity
-            android:name=".OrgViewProfile"
+            android:name=".cOrgViewProfile"
             android:exported="true" />
         <activity
             android:name=".bEditVolProfile"

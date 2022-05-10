@@ -77,7 +77,7 @@ public class cOrgEditProfile extends AppCompatActivity {
 
     public void goBackToOrgProfileScreen(View v)
     {
-        Intent p = new Intent(this, OrgViewProfile.class);
+        Intent p = new Intent(this, cOrgViewProfile.class);
         startActivity(p);
     }
 

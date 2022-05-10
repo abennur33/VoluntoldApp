@@ -8,15 +8,15 @@
 
     <EditText
         android:id="@+id/passwordTV"
-        android:layout_width="232dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="227dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="31dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
-        android:fontFamily="@font/dm_sans"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/emailTV" />
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/dm_sans"
         android:text="PASSWORD:"
         android:textColor="@color/black"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="335dp"
+        android:layout_marginTop="345dp"
         android:fontFamily="@font/dm_sans"
         android:text="EMAIL:"
         android:textColor="@color/black"
@@ -48,14 +48,14 @@
     <EditText
         android:id="@+id/emailTV"
         android:layout_width="276dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="63dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="58dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
-        android:fontFamily="@font/dm_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />

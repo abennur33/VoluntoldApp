@@ -36,7 +36,7 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.profileorg:
-                    startActivity(new Intent(getApplicationContext(), OrgViewProfile.class));
+                    startActivity(new Intent(getApplicationContext(), cOrgViewProfile.class));
                     return true;
                 case R.id.posts:
                     return true;

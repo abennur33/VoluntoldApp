@@ -11,13 +11,13 @@
         android:layout_width="148dp"
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/dm_sans"
         android:text="ORG CATEGORY:"
         android:textColor="@color/black"
         android:textSize="19sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView25"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputNameOfOrgET" />
 
     <ImageButton
         android:id="@+id/imageButton10"
@@ -36,18 +36,16 @@
         android:id="@+id/newOrgPasswordET"
         android:layout_width="256dp"
         android:layout_height="38dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="62dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
-        android:fontFamily="@font/dm_sans"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView25"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
         android:id="@+id/textView32"
@@ -67,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="22dp"
         android:fontFamily="@font/dm_sans"
         android:text="EMAIL:"
         android:textColor="@color/black"
@@ -126,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="22dp"
         android:fontFamily="@font/dm_sans"
         android:text="NAME:"
         android:textColor="@color/black"
@@ -152,19 +150,17 @@
     <EditText
         android:id="@+id/newOrgEmailET"
         android:layout_width="303dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
+        android:fontFamily="@font/dm_sans"
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
-        android:fontFamily="@font/dm_sans"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView31"
-        app:layout_constraintTop_toBottomOf="@+id/textView25"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
         android:id="@+id/textView24"
