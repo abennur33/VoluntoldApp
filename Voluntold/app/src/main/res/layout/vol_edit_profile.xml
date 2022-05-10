@@ -6,30 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".bEditVolProfile">
 
+    <Button
+        android:id="@+id/newOrgTypeBT2"
+        android:layout_width="187dp"
+        android:layout_height="46dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/dm_sans"
+        android:onClick="changeAll"
+        android:text="SUBMIT CHANGES"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
     <EditText
-        android:id="@+id/newOrgOrgNameET2"
+        android:id="@+id/newVolAgeET"
         android:layout_width="256dp"
         android:layout_height="47dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="48dp"
         android:ems="10"
         android:fontFamily="@font/dm_sans"
-        android:hint="New Org Name"
+        android:hint="New Age"
         android:inputType="text"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="433dp" />
+        app:layout_constraintTop_toBottomOf="@+id/newVolNameET" />
+
+    <EditText
+        android:id="@+id/newVolSchoolET"
+        android:layout_width="238dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="46dp"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:hint="New School"
+        android:inputType="text"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newVolAgeET" />
 
     <TextView
         android:id="@+id/textView34"
         android:layout_width="48dp"
         android:layout_height="28dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/dm_sans"
         android:text="Age:"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="433dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="71dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="School:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
     <ImageButton
         android:id="@+id/imageButton12"
@@ -62,7 +105,7 @@
         android:id="@+id/textView28"
         android:layout_width="61dp"
         android:layout_height="28dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="52dp"
         android:fontFamily="@font/dm_sans"
         android:text="Name:"
@@ -72,9 +115,9 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <EditText
-        android:id="@+id/newOrgNameET2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/newVolNameET"
+        android:layout_width="245dp"
+        android:layout_height="44dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="48dp"
         android:ems="10"

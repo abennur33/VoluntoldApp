@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class bEditVolProfile extends AppCompatActivity {
 
@@ -14,11 +16,7 @@ public class bEditVolProfile extends AppCompatActivity {
     EditText newVolAgeET;
     EditText newVolSchoolET;
 
-    Button changeVolNameBT;
-    Button changeVolAgeBT;
-    Button changeVolSchoolBT;
-
-    UserInfo userInfo;
+    Button changeOrgTypeBT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,51 +27,23 @@ public class bEditVolProfile extends AppCompatActivity {
         newVolAgeET = findViewById(R.id.newVolAgeET);
         newVolSchoolET = findViewById(R.id.newVolSchoolET);
 
-        changeVolNameBT = findViewById(R.id.newVolNameBT);
-        changeVolAgeBT = findViewById(R.id.newVolAgeBT);
-        changeVolSchoolBT = findViewById(R.id.newVolSchoolBT);
+        newVolNameET.setText(aMainActivity.firebaseHelper.getUserInfo().getName());
+        newVolAgeET.setText(aMainActivity.firebaseHelper.getUserInfo().getUserAge());
+        newVolSchoolET.setText(aMainActivity.firebaseHelper.getUserInfo().getSchool());
 
-    }
-
-    public void changeVolName(View v)
-    {
+    public void changeAll(View v) {
         String newVolName = newVolNameET.getText().toString();
-
-        // Changes the name but the school to "no school"
-        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), newVolName,
-                null, null, aMainActivity.firebaseHelper.getUserInfo().getSchool(), aMainActivity.firebaseHelper.getUserInfo().getUserAge(),
-                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
-                aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
-
-    }
-
-    public void changeVolAge(View v)
-    {
-        int newVolAge = Integer.parseInt(newVolAgeET.getText().toString());
-
-
-        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(),
-                aMainActivity.firebaseHelper.getUserInfo().getName(), null, null, aMainActivity.firebaseHelper.getUserInfo().getSchool(), newVolAge,
-                aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
-                aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
-
-
-    }
-
-    public void changeVolSchool(View v)
-    {
+        String newVolAge = newVolAgeET.getText().toString();
         String newVolSchool = newVolSchoolET.getText().toString();
 
-
-        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(),
-                aMainActivity.firebaseHelper.getUserInfo().getName(), null, null, newVolSchool, aMainActivity.firebaseHelper.getUserInfo().getUserAge(),
+        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), newOrgName,
+                newOrgType, newOrgOrgName, null, 0,
                 aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
                 aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
-
-
+        // goBackToOrgProfileScreen(v); data is not updating
     }
 
-    public void goBackToVolProfileScreen(View v)
+    public void goBackToOrgProfileScreen(View v)
     {
         Intent p = new Intent(this, bVolViewProfile.class);
         startActivity(p);

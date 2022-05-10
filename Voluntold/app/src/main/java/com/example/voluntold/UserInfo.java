@@ -100,6 +100,7 @@ public class UserInfo implements Parcelable {
       this.allOpportunities = allOpportunities;
     }
 
+    public UserInfo(String name, String age, int age, ) // CONSTRUCTOR FOR EDIT VOL PROFILE
 
     public String toString() {
         return name + ", " + uid;

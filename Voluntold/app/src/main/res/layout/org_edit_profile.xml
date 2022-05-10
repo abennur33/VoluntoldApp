@@ -23,7 +23,7 @@
         android:id="@+id/textView23"
         android:layout_width="100dp"
         android:layout_height="27dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="57dp"
         android:fontFamily="@font/dm_sans"
         android:text="Org Name:"
@@ -60,16 +60,17 @@
 
     <EditText
         android:id="@+id/newOrgOrgNameET"
-        android:layout_width="210dp"
-        android:layout_height="42dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
-        android:layout_marginEnd="48dp"
         android:ems="10"
         android:fontFamily="@font/dm_sans"
         android:hint="New Org Name"
         android:inputType="text"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newOrgNameET" />
 
     <ImageButton
@@ -107,7 +108,7 @@
         android:fontFamily="@font/dm_sans"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintHorizontal_bias="0.747"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newOrgOrgNameET" />
 
