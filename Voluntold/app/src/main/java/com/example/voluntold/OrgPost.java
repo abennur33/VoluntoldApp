@@ -104,6 +104,18 @@ public class OrgPost implements Parcelable {
         this.comparisonDate = 0;
     }
 
+    public OrgPost(String orgID, String docID, String title, int month, int date, int year, String body, int maxVolunteers) {
+        this.orgID = orgID;
+        this.docID = docID;
+        this.title = title;
+        this.month = month;
+        this.date = date;
+        this.year = year;
+        this.body = body;
+        this.maxVolunteers = maxVolunteers;
+        this.comparisonDate = (int) (10000*(year + ((double) month/100) + ((double) date/10000)));
+    }
+
     public double getComparisonDate() {
         return comparisonDate;
     }

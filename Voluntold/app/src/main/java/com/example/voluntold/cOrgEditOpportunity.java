@@ -54,7 +54,7 @@ public class cOrgEditOpportunity extends AppCompatActivity {
         int newYear = Integer.parseInt(yearET.getText().toString());
         String newContent = displayContentET.getText().toString();
         String docID = clickedOrgPost.getDocID();
-        OrgPost newOrgPost = new OrgPost(aMainActivity.firebaseHelper.getmAuth().getUid(), newTitle, newMonth, newDay, newYear, newContent, clickedOrgPost.getMaxVolunteers());
+        OrgPost newOrgPost = new OrgPost(aMainActivity.firebaseHelper.getmAuth().getUid(), docID, newTitle, newMonth, newDay, newYear, newContent, clickedOrgPost.getMaxVolunteers());
 //        clickedOrgPost.setTitle(newTitle); // this is setting comparison date to 0 and volunteers to null
 //        clickedOrgPost.setMonth(newMonth);
 //        clickedOrgPost.setDate(newDay);
