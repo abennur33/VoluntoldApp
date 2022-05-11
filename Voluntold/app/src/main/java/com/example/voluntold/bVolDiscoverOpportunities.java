@@ -1,8 +1,10 @@
 package com.example.voluntold;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +26,7 @@ public class bVolDiscoverOpportunities extends AppCompatActivity {
     private Spinner s;
     String TAG = "Abhi2";
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +66,7 @@ public class bVolDiscoverOpportunities extends AppCompatActivity {
         s.setAdapter(adapter);
 
         postList = aMainActivity.firebaseHelper.getPosts();
-        Log.i(TAG, postList.toString());
+        Log.i(TAG, "1" + postList.toString());
 
         orgList = aMainActivity.firebaseHelper.getOrgs();
 
@@ -125,7 +128,7 @@ public class bVolDiscoverOpportunities extends AppCompatActivity {
             }
             postList.set(l + 1, key);
         }
-        Log.i(TAG, postList.toString());
+        Log.i(TAG, "2" + postList.toString());
 
         for (int i = 0; i < postList.size(); i++) {
             filteredOrgPostArr.add(postList.get(i));
@@ -158,7 +161,7 @@ public class bVolDiscoverOpportunities extends AppCompatActivity {
                            }
                            postList.set(l + 1, key);
                        }
-                       Log.i(TAG, postList.toString());
+                       Log.i(TAG, "In Sort By" + postList.toString());
                        filteredOrgPostArr.add(postList.get(i));
                    }
                    else if (orgList.get(j).getOrgType().equals(field))
@@ -174,8 +177,6 @@ public class bVolDiscoverOpportunities extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.postView);
         listView.setAdapter(listAdapter);
-
-
     }
 
     public void goBack(View v) {

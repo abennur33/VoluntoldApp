@@ -30,14 +30,14 @@ public class bEditVolProfile extends AppCompatActivity {
         newVolNameET.setText(aMainActivity.firebaseHelper.getUserInfo().getName());
         newVolAgeET.setText(aMainActivity.firebaseHelper.getUserInfo().getUserAge());
         newVolSchoolET.setText(aMainActivity.firebaseHelper.getUserInfo().getSchool());
-
-    public void changeAll(View v) {
+    }
+    public void changeAll(View v){
         String newVolName = newVolNameET.getText().toString();
-        String newVolAge = newVolAgeET.getText().toString();
+        int newVolAge = Integer.parseInt(newVolAgeET.getText().toString());
         String newVolSchool = newVolSchoolET.getText().toString();
 
-        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo (aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), newOrgName,
-                newOrgType, newOrgOrgName, null, 0,
+        aMainActivity.firebaseHelper.updateUserInfo(new UserInfo(aMainActivity.firebaseHelper.getUserInfo().getAccountType(), aMainActivity.firebaseHelper.getUserInfo().getAllOrgPosts(), newVolName,
+                null, null, newVolSchool, newVolAge,
                 aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
                 aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
         // goBackToOrgProfileScreen(v); data is not updating
