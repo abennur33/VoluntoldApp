@@ -51,19 +51,19 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
                     builder.setTitle("Signing out")
                             .setMessage("Do you want to sign out?")
                             .setCancelable(true)
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            })
+                            .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     aMainActivity.firebaseHelper.getmAuth().signOut();
                                     aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
                                     aMainActivity.firebaseHelper.updateUid(null);
                                     startActivity(new Intent(getApplicationContext(), aMainActivity.class));
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    dialogInterface.cancel();
                                 }
                             })
                             .show();
