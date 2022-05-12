@@ -1,5 +1,6 @@
 package com.example.voluntold;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,10 +46,27 @@ public class cOrgPostedOpportunities extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), cOrgCreateOpportunityPost.class));
                     return true;
                 case R.id.signoutorg:
-                    aMainActivity.firebaseHelper.getmAuth().signOut();
-                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
-                    aMainActivity.firebaseHelper.updateUid(null);
-                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                    builder.setTitle("Signing out")
+                            .setMessage("Do you want to sign out?")
+                            .setCancelable(true)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    aMainActivity.firebaseHelper.getmAuth().signOut();
+                                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
+                                    aMainActivity.firebaseHelper.updateUid(null);
+                                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            })
+                            .show();
             }
             return false;
         });
