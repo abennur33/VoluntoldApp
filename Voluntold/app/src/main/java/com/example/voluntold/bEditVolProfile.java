@@ -28,7 +28,7 @@ public class bEditVolProfile extends AppCompatActivity {
         newVolSchoolET = findViewById(R.id.newVolSchoolET);
 
         newVolNameET.setText(aMainActivity.firebaseHelper.getUserInfo().getName());
-        newVolAgeET.setText(aMainActivity.firebaseHelper.getUserInfo().getUserAge());
+        newVolAgeET.setText(""+aMainActivity.firebaseHelper.getUserInfo().getUserAge());
         newVolSchoolET.setText(aMainActivity.firebaseHelper.getUserInfo().getSchool());
     }
     public void changeAll(View v){
@@ -40,10 +40,10 @@ public class bEditVolProfile extends AppCompatActivity {
                 null, null, newVolSchool, newVolAge,
                 aMainActivity.firebaseHelper.getUserInfo().getUserEmail(), aMainActivity.firebaseHelper.getUserInfo().getUserPassword(), aMainActivity.firebaseHelper.getUserInfo().getUserUID(),
                 aMainActivity.firebaseHelper.getUserInfo().getVolOpportunities()));
-        // goBackToOrgProfileScreen(v); data is not updating
+        goBackToVolProfileScreen(v);
     }
 
-    public void goBackToOrgProfileScreen(View v)
+    public void goBackToVolProfileScreen(View v)
     {
         Intent p = new Intent(this, bVolViewProfile.class);
         startActivity(p);

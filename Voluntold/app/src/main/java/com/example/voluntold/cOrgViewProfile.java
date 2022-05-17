@@ -1,7 +1,9 @@
 package com.example.voluntold;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,10 +44,27 @@ public class cOrgViewProfile extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), cOrgCreateOpportunityPost.class));
                     return true;
                 case R.id.signoutorg:
-                    aMainActivity.firebaseHelper.getmAuth().signOut();
-                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
-                    aMainActivity.firebaseHelper.updateUid(null);
-                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                    builder.setTitle("Signing out")
+                            .setMessage("Do you want to sign out?")
+                            .setCancelable(true)
+                            .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            })
+                            .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    aMainActivity.firebaseHelper.getmAuth().signOut();
+                                    aMainActivity.firebaseHelper.getUserInfo().setAccountType("");
+                                    aMainActivity.firebaseHelper.updateUid(null);
+                                    startActivity(new Intent(getApplicationContext(), aMainActivity.class));
+                                }
+                            })
+                            .show();
             }
             return false;
         });
