@@ -1,6 +1,6 @@
 # Voluntold
 
-![App Screenshot](voluntold.png)
+![App Screenshot](voluntold.PNG)
 
 Voluntold is an app built as a senior capstone project for our mobile app development class. Our inspiration for the project was the lack of 
 a centralized volunteer opportunity database for high schoolers as many of our peers were trying to find ways to contribute to our local
